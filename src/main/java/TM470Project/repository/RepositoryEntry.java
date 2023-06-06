@@ -23,8 +23,8 @@ public class RepositoryEntry {
     public RepositoryEntry(EntityManager entityManager) {this.entityManager = entityManager;}
 
     /**
-     * @param entry
-     * @return
+     * @param entry an entry to be persisted
+     * @return an empty optional instance
      */
     public Optional<Entry> save(Entry entry){
         try{
@@ -35,13 +35,33 @@ public class RepositoryEntry {
         }
         catch(Exception e){
             //print error message
+            e.printStackTrace();
         }
         return Optional.empty();
     }
 
     /**
-     * @param id
-     * @return
+     * @param entry an entry to be removed
+     * @return an empty optional instance
+     */
+    public Optional<Entry> remove(Entry entry){
+        try{
+            entityManager.getTransaction().begin();
+            entityManager.find(Entry.class, entry.getId());
+            entityManager.remove(entry);
+            entityManager.getTransaction().commit();
+            return Optional.of(entry);
+        }
+        catch(Exception e){
+            //print error message
+            e.printStackTrace();
+        }
+        return Optional.empty();
+    }
+
+    /**
+     * @param id an id to query
+     * @return an entry with the associated id or nothing
      */
     public Optional<Entry> findById(Integer id) {
         Entry entry = entityManager.find(Entry.class, id);
@@ -49,26 +69,19 @@ public class RepositoryEntry {
     }
 
     /**
-     * @return
+     * @return all entry objects in the database
      */
     public List<Entry> findAll() {
         return entityManager.createQuery("from Entry").getResultList();
     }
 
     /**
-     * @param date
-     * @return
+     * @param date a date to query
+     * @return entries with the associated date
      */
     public Optional<Entry> findByDate(LocalDate date) {
         Entry entry = entityManager.createQuery("SELECT b FROM Entry b WHERE b.date = :date", Entry.class)
                 .setParameter("name", date)
-                .getSingleResult();
-        return entry != null ? Optional.of(entry) : Optional.empty();
-    }
-
-    public Optional<Entry> findByNameNamedQuery(LocalDate date) {
-        Entry entry = entityManager.createNamedQuery("Entry.findByDate", Entry.class)
-                .setParameter("date", date)
                 .getSingleResult();
         return entry != null ? Optional.of(entry) : Optional.empty();
     }

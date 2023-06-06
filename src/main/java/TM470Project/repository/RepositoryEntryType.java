@@ -1,5 +1,6 @@
 package TM470Project.repository;
 
+import TM470Project.Entry;
 import TM470Project.EntryType;
 
 import javax.persistence.EntityManager;
@@ -22,7 +23,7 @@ public class RepositoryEntryType {
     public RepositoryEntryType(EntityManager entityManager) {this.entityManager = entityManager;}
 
     /**
-     * @param entryType an entry type
+     * @param entryType an entry type to be persisted
      * @return an empty optional instance
      */
     public Optional<EntryType> save(EntryType entryType){
@@ -34,9 +35,28 @@ public class RepositoryEntryType {
         }
         catch(Exception e){
             //print error message
+            e.printStackTrace();
         }
         return Optional.empty();
+    }
 
+    /**
+     * @param entryType an entry type to be removed
+     * @return an empty optional instance
+     */
+    public Optional<EntryType> remove(EntryType entryType){
+        try{
+            entityManager.getTransaction().begin();
+            entityManager.find(EntryType.class, entryType.getId());
+            entityManager.remove(entryType);
+            entityManager.getTransaction().commit();
+            return Optional.of(entryType);
+        }
+        catch(Exception e){
+            //print error message
+            e.printStackTrace();
+        }
+        return Optional.empty();
     }
 
     /**
@@ -49,7 +69,7 @@ public class RepositoryEntryType {
     }
 
     /**
-     * @return all EntryType objects in the database
+     * @return all entry type objects in the database
      */
     public List findAll() {
         return entityManager.createQuery("from EntryType").getResultList();

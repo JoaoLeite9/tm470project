@@ -2,6 +2,7 @@ package TM470Project;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.Objects;
 
 /**
  *
@@ -134,11 +135,23 @@ public class Entry {
     /**
      * @return a String output representing the entry
      */
-//    @Override
-//    public String toString(){
-//        return "Entry ID: " + id +
-//                "\nEntry Type: " + entryType.getName() +
-//                "\nMetric Value: " + metricValue +
-//                "\nDate: " + date.getDayOfMonth() + "/" + date.getMonthValue() + "/" + date.getYear() + "\n";
-//    }
+    @Override
+    public String toString(){
+        return "Entry ID: " + id +
+                "\nEntry Type: " + entryType.getName() +
+                "\nMetric Value: " + metricValue +
+                "\nDate: " + date.getDayOfMonth() + "/" + date.getMonthValue() + "/" + date.getYear() + "\n";
+    }
+
+    /**
+     * @param o the object to be compared to
+     * @return boolean for whether the objects are the same
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Entry entry = (Entry) o;
+        return id == entry.id && metricValue == entry.metricValue && Objects.equals(entryType, entry.entryType) && Objects.equals(date, entry.date);
+    }
 }

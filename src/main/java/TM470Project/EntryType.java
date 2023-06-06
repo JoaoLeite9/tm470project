@@ -2,6 +2,7 @@ package TM470Project;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.Objects;
 
 /**
  *
@@ -202,5 +203,17 @@ public class EntryType {
                 "\nName: " + name +
                 "\nMetric Type: " + metricType +
                 "\nkcal: " + kcal + "\n";
+    }
+
+    /**
+     * @param o the object to be compared to
+     * @return boolean for whether the objects are the same
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        EntryType entryType = (EntryType) o;
+        return id == entryType.id && Double.compare(entryType.kcal, kcal) == 0 && Objects.equals(name, entryType.name) && Objects.equals(metricType, entryType.metricType) && Objects.equals(entries, entryType.entries);
     }
 }
