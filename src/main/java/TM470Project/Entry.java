@@ -4,8 +4,6 @@ import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.Objects;
 
-import static java.time.LocalDate.now;
-
 /**
  *
  * @author Joao
