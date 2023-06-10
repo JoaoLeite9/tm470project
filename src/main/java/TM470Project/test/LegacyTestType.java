@@ -12,7 +12,7 @@ import java.util.Map;
  * v2 18/05/2023
  */
 
-public class TestEntryType {
+public class LegacyTestType {
     
     private static HashMap<String, EntryType> entryTypes = new HashMap<>();
 

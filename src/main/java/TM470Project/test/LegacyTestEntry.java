@@ -10,7 +10,7 @@ import java.util.HashMap;
  * @author Joao
  * v2 18/05/2023
  */
-public class TestEntry {
+public class LegacyTestEntry {
     private static HashMap<String, Entry> entries = new HashMap<>();
     private static HashMap<String, EntryType> entryTypes = new HashMap<>();
 
@@ -25,7 +25,6 @@ public class TestEntry {
      * Generates 3 trusted EntryType objects
      */
     public static void createEntryTypes(){
-
         EntryType entryType01 = new EntryType("run", "distance, km", 90);
         entryTypes.put("entryType01", entryType01);
         EntryType entryType02 = new EntryType("squats", "sets of 10",35);

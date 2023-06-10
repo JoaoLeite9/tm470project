@@ -3,8 +3,10 @@ package TM470Project;
 
 import TM470Project.repository.RepositoryEntry;
 import TM470Project.repository.RepositoryEntryType;
-import TM470Project.test.TestEntry;
-import TM470Project.test.TestEntryType;
+import TM470Project.test.LegacyTestEntry;
+import TM470Project.test.LegacyTestType;
+import TM470Project.test.TestClass;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -31,7 +33,7 @@ public class Client{
         entryRepository = new RepositoryEntry(entityManager);
 
         //creates configuration class
-        config = new Config();
+        //config = new Config();
 
         //opens application window
         start();
@@ -40,17 +42,6 @@ public class Client{
     public static void start(){
         //opens user interface main window
 
-        EntryType entryType01 = new EntryType("Run", "Kilometres", 20);
-        EntryType entryType02 = new EntryType("Sit Ups", "Sets of 10", 12);
-
-        Entry entry01 = new Entry(entryType01, 4);
-        Entry entry02 = new Entry(entryType02, 3, LocalDate.of(2012, 12, 12));
-
-        typeRepository.remove(entryType01);
-        typeRepository.remove(entryType02);
-
-        entryRepository.remove(entry01);
-        entryRepository.remove(entry02);
 
         /*
         notes of test
@@ -66,7 +57,7 @@ public class Client{
 
     //tests
     public static void runTests(){
-        TestEntry.runEntryTests();
-        TestEntryType.runEntryTypeTests();
+        TestClass testclass = new TestClass();
+        testclass.runTest();
     }
 }
