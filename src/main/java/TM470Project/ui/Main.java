@@ -7,6 +7,7 @@ package TM470Project.ui;
 /**
  *
  * @author Joao
+ * @version v1 10/06/2023
  */
 public class Main extends javax.swing.JFrame {
 
