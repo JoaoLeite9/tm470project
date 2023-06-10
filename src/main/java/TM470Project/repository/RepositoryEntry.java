@@ -44,7 +44,7 @@ public class RepositoryEntry {
      * @param entry an entry to be removed
      * @return an empty optional instance
      */
-    public Optional<Entry> remove(Entry entry){
+    public Optional<Entry> remove(Entry entry){ //probably set to look for and remove by ID?
         try{
             entityManager.getTransaction().begin();
             entityManager.find(Entry.class, entry.getId());

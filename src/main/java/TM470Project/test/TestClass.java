@@ -37,7 +37,7 @@ public class TestClass {
     public void runTest(){
         createObjects();
         addToDatabase();
-        removeFromDatabase();
+        //removeFromDatabase();
     }
 
     /**
@@ -61,16 +61,15 @@ public class TestClass {
         entries.add(entry01);
         Entry entry02 = new Entry(entryType02, 3, LocalDate.of(2012, 12, 12));
         entries.add(entry02);
-        Entry entry03 = new Entry(entryType03, 3, LocalDate.of(2012, 12, 12)); //duplicate but ID should be different
+        Entry entry03 = new Entry(entryType03, 3); //duplicate but ID should be different
         entries.add(entry03);
     }
 
 
     /**
-     * test adding objects from the database
+     * Test adding objects from the database
      */
     public void addToDatabase(){
-        boolean success = true; //optimistic testing
         //add entryTypes
         try {
             for(EntryType type : entryTypes){
@@ -81,30 +80,18 @@ public class TestClass {
         catch(Exception e){
             //error message
             e.printStackTrace();
-            success = false;
         }
-        finally {
-            // after adding entryTypes, add entries
-            try {
-                for(Entry entry : entries){
-                    //add entry to database
-                    entryRepository.save(entry);
+        // after adding entryTypes, add entries
+        try {
+            for(Entry entry : entries){
+                //add entry to database
+                entryRepository.save(entry);
 
-                }
             }
-            catch(Exception e){
-                //error message
-                e.printStackTrace();
-                success = false;
-            }
-            finally {
-                if(!success){
-                    System.out.println("An error occurred somewhere in adding objects to the database");
-                }
-                else {
-                    System.out.println("No errors occurred in adding objects to the database");
-                }
-            }
+        }
+        catch(Exception e){
+            //error message
+            e.printStackTrace();
         }
     }
 
@@ -112,33 +99,26 @@ public class TestClass {
      * Test removal of objects from the database
      */
     public void removeFromDatabase(){
-        boolean success = true; //optimistic testing
         //remove entries
         try {
             //remove entries from database
+            for(Entry entry : entries){
+                entryRepository.remove(entry);
+            }
         }
         catch(Exception e){
             //error message
             e.printStackTrace();
-            success = false;
         }
-        finally {
-            //remove entryTypes from database
-            try{
-                //remove entry types from database
+        //remove entryTypes from database
+        try{
+            //remove entry types from database
+            for(EntryType type : entryTypes){
+                typeRepository.remove(type);
             }
-            catch(Exception e){
-                e.printStackTrace();
-                success = false;
-            }
-            finally {
-                if(!success){
-                    System.out.println("An error occurred somewhere in removing objects from the database");
-                }
-                else{
-                    System.out.println("No errors occurred in removing objects from the database");
-                }
-            }
+        }
+        catch(Exception e){
+            e.printStackTrace();
         }
     }
 }

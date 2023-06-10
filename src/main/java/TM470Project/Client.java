@@ -37,18 +37,14 @@ public class Client{
 
         //opens application window
         start();
+
+        entityManager.close();
+        entityManagerFactory.close();
     }
 
     public static void start(){
         //opens user interface main window
-
-
-        /*
-        notes of test
-        - entryType02 is missing its ID when viewed from entries
-        - time for date value for entries always set to 00:00:00, otherwise fine
-        - running again creates duplicates - expected
-         */
+        runTests();
     }
 
     public static void stop(){

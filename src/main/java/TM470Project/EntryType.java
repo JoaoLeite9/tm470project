@@ -50,32 +50,29 @@ public class EntryType {
      * @param aKcal the kcal amount equivalent to 1 of the input type.
      */
     public EntryType(String aName, String aMetric, double aKcal){
-    /*
-    assert that kcal input, name and type are within an acceptable range
-    */
 
-        assert aKcal > 0 && aKcal < NUMBER_MAX
-                && aName.length() > 0 && aName.length() < TEXT_MAX_LENGTH
-                && aMetric.length() > 0 && aMetric.length() < TEXT_MAX_LENGTH;
+        /* Exceptions */
+        if(aName.length() < TEXT_MIN_LENGTH || aName.length() > TEXT_MAX_LENGTH){ // throws exception for input names outside the legal range
+            throw new RuntimeException("Length of name input for EntryType '" + aName + "' is outside legal range " +
+                    "(" + TEXT_MIN_LENGTH + " to " + TEXT_MAX_LENGTH + " characters)");
+        }
+        if(aMetric.length() < TEXT_MIN_LENGTH || aMetric.length() > TEXT_MAX_LENGTH){ // throws exception for input metricTypes outside the legal range
+            throw new RuntimeException("Length of metric input for EntryType '" + aName + "' is outside legal range " +
+                    "(" + TEXT_MIN_LENGTH + " to " + TEXT_MAX_LENGTH + " characters)");
+        }
+        if(aKcal <= NUMBER_MIN || aKcal >= NUMBER_MAX){ // throws exception for input kcal outside the legal range
+            throw new RuntimeException("kcal input for EntryType '" + aName + "' is outside legal range " +
+                    "(" + NUMBER_MIN + " to " + NUMBER_MAX + ")");
+        }
 
+//        assert aKcal > 0 && aKcal < NUMBER_MAX
+//                && aName.length() > 0 && aName.length() < TEXT_MAX_LENGTH
+//                && aMetric.length() > 0 && aMetric.length() < TEXT_MAX_LENGTH;
+
+        /* Field definition */
         name = aName;
         metricType = aMetric;
         kcal = aKcal;
-
-        /* Exceptions */
-
-        if(name.length() < TEXT_MIN_LENGTH || name.length() > TEXT_MAX_LENGTH){ // throws exception for input names outside the legal range
-            throw new RuntimeException("Length of name input for EntryType '" + name + "' is outside legal range " +
-                    "(" + TEXT_MIN_LENGTH + " to " + TEXT_MAX_LENGTH + " characters)");
-        }
-        if(metricType.length() < TEXT_MIN_LENGTH || metricType.length() > TEXT_MAX_LENGTH){ // throws exception for input metricTypes outside the legal range
-            throw new RuntimeException("Length of metric input for EntryType '" + name + "' is outside legal range " +
-                    "(" + TEXT_MIN_LENGTH + " to " + TEXT_MAX_LENGTH + " characters)");
-        }
-        if(kcal <= NUMBER_MIN || kcal >= NUMBER_MAX){ // throws exception for input kcal outside the legal range
-            throw new RuntimeException("kcal input for EntryType '" + name + "' is outside legal range " +
-                    "(" + NUMBER_MIN + " to " + NUMBER_MAX + ")");
-        }
     }
 
     

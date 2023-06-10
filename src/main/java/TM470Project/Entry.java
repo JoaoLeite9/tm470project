@@ -4,6 +4,8 @@ import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.Objects;
 
+import static java.time.LocalDate.now;
+
 /**
  *
  * @author Joao
@@ -46,28 +48,30 @@ public class Entry {
      * @param aValue the input metric value for the Entry
      */
     public Entry(EntryType aType, int aValue){
-        entryType = aType;
-        metricValue = aValue;
+        this(aType, aValue, null);
         setDate(); //sets date to system date
-
-        /* Exceptions */
-
-        if(metricValue > MAX_VALUE || metricValue < MIN_VALUE){
-            throw new RuntimeException("Metric Value input for " + id + " is outside the legal range (" + MIN_VALUE + " to " + MAX_VALUE + ")");
-        }
-        // EntryType is not tested as it is assumed from EntryTypeTest that EntryType is correctly initialized
     }
 
     /**
      * Polymorphic constructor
      * If date field is left blank, uses default date.
-     * @param aType
-     * @param aValue
-     * @param aDate
+     * @param aType the EntryType for the Entry
+     * @param aValue the input metric value for the Entry
+     * @param aDate a Date object for the Entry
      */
     public Entry(EntryType aType, int aValue, LocalDate aDate){
-        new Entry(aType, aValue);
-        this.date = LocalDate.of(aDate.getYear(), aDate.getMonth(), aDate.getDayOfMonth());
+
+//        /* Exceptions */
+//        if(aValue > MAX_VALUE || aValue < MIN_VALUE){
+//            throw new RuntimeException("Metric Value input for " + id + " is outside the legal range (" + MIN_VALUE + " to " + MAX_VALUE + ")");
+//        }
+
+        /* Field definition */
+        entryType = aType;
+        metricValue = aValue;
+        if(aDate != null){
+            date = LocalDate.of(aDate.getYear(), aDate.getMonth(), aDate.getDayOfMonth());
+        }
     }
 
 
@@ -82,9 +86,9 @@ public class Entry {
     /**
      * @return the EntryType for an Entry
      */
-//    public EntryType getType(){
-//        return entryType;
-//    }
+    public EntryType getType(){
+        return entryType;
+    }
     
     /**
      * @return the input metric value for an Entry
@@ -129,7 +133,7 @@ public class Entry {
      * If left empty, inputs system date under date variable
      */
     public void setDate(){
-        date = LocalDate.now();
+        date = now();
     }
 
     /**
