@@ -180,7 +180,7 @@ public class EntryType {
     /**
      * @param aKcal the kcal value per 1 unit of the metric
      */
-    public void setKcal(int aKcal){
+    public void setKcal(double aKcal){
         if(aKcal <= NUMBER_MIN || aKcal >= NUMBER_MAX) { // throws exception for input kcal outside the legal range
             throw new RuntimeException("kcal input '" + aKcal + "' is outside legal range " +
                     "(" + NUMBER_MIN + " to " + NUMBER_MAX + ")");

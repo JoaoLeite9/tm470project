@@ -104,10 +104,14 @@ public class TM470Controller {
      * @param id the ID of the entry type to be updated
      * @param aType an entry type containing the updated information
      */
-    public void updateEntryType(long id, EntryType aType){
-        removeEntryType(id);
-        aType.setId(id);
-        addEntryType(aType);
+    public void updateEntryType(long id, EntryType aType) {
+        if(typeRepository.findById(id).isPresent()) {
+            //change to make: see where is different and only change where different, switch statement?
+            typeRepository.findById(id).get().setName(aType.getName());
+            typeRepository.findById(id).get().setMetric(aType.getMetric());
+            typeRepository.findById(id).get().setKcal(aType.getKcal());
+            typeRepository.findById(id).get().setEntries(aType.getEntries());
+        }
     }
 
     /**
@@ -115,9 +119,11 @@ public class TM470Controller {
      * @param anEntry an entry containing the updated information
      */
     public void updateEntry(long id, Entry anEntry){
-        removeEntry(id);
-        anEntry.setId(id);
-        addEntry(anEntry);
+        if(entryRepository.findById(id).isPresent()){
+            entryRepository.findById(id).get().setDate(anEntry.getDate().getYear(), anEntry.getDate().getMonthValue(), anEntry.getDate().getDayOfMonth());
+            entryRepository.findById(id).get().setEntryType(anEntry.getType());
+            entryRepository.findById(id).get().setMetric(anEntry.getMetric());
+        }
     }
 
     /* queries */
