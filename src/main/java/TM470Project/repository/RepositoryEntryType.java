@@ -15,7 +15,7 @@ import java.util.Optional;
 
 public class RepositoryEntryType {
 
-    private EntityManager entityManager;
+    private final EntityManager entityManager;
 
     /**
      * @param entityManager entity manager
@@ -63,9 +63,9 @@ public class RepositoryEntryType {
      * @param id the ID of the EntryType being searched
      * @return a list of all EntryTypes objects that meet the query
      */
-    public Optional<EntryType> findById(Integer id) {
-        EntryType author = entityManager.find(EntryType.class, id);
-        return author != null ? Optional.of(author) : Optional.empty();
+    public Optional<EntryType> findById(long id) {
+        EntryType entryType = entityManager.find(EntryType.class, id);
+        return entryType != null ? Optional.of(entryType) : Optional.empty();
     }
 
     /**

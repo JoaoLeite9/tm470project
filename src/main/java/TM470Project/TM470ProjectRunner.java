@@ -12,9 +12,30 @@ import javax.persistence.Persistence;
 
 public class TM470ProjectRunner {
 
+    public static EntityManagerFactory entityManagerFactory;
+    public static EntityManager entityManager;
+    public static TM470Controller controller;
+
+
     public static void main(String[] args) {
-        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("EntriesDB");
-        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        entityManagerFactory = Persistence.createEntityManagerFactory("EntriesDB");
+        entityManager = entityManagerFactory.createEntityManager();
+        controller = new TM470Controller();
+
+        controller.start();
+        controller.stop();
+    }
+
+
+    public static EntityManager getEntityManager(){
+        return entityManager;
+    }
+
+    public static TM470Controller getController(){
+        return controller;
+    }
+
+    public static void closeEntityManager(){
         entityManager.close();
         entityManagerFactory.close();
     }

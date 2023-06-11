@@ -2,6 +2,8 @@ package TM470Project.test;
 
 import TM470Project.Entry;
 import TM470Project.EntryType;
+import TM470Project.TM470Controller;
+import TM470Project.TM470ProjectRunner;
 import TM470Project.repository.RepositoryEntry;
 import TM470Project.repository.RepositoryEntryType;
 
@@ -35,7 +37,6 @@ public class TestClass {
     }
 
     public void runTest(){
-        createObjects();
         addToDatabase();
         //removeFromDatabase();
     }
@@ -44,25 +45,9 @@ public class TestClass {
      * Creates objects to be tested
      */
     public void createObjects(){
-        //create lists to hold objects
-        entryTypes = new ArrayList<>();
-        entries = new ArrayList<>();
-
-        //create entryType objects
-        EntryType entryType01 = new EntryType("Run", "Kilometres", 20);
-        entryTypes.add(entryType01);
-        EntryType entryType02 = new EntryType("Sit Ups", "Sets of 10", 12);
-        entryTypes.add(entryType02);
-        EntryType entryType03 = new EntryType("Sit Ups", "Sets of 10", 12); //duplicate but ID should be different
-        entryTypes.add(entryType03);
 
         //create entry objects
-        Entry entry01 = new Entry(entryType01, 4);
-        entries.add(entry01);
-        Entry entry02 = new Entry(entryType02, 3, LocalDate.of(2012, 12, 12));
-        entries.add(entry02);
-        Entry entry03 = new Entry(entryType03, 3); //duplicate but ID should be different
-        entries.add(entry03);
+
     }
 
 
@@ -70,29 +55,21 @@ public class TestClass {
      * Test adding objects from the database
      */
     public void addToDatabase(){
-        //add entryTypes
-        try {
-            for(EntryType type : entryTypes){
-                //add type to database
-                typeRepository.save(type);
-            }
-        }
-        catch(Exception e){
-            //error message
-            e.printStackTrace();
-        }
-        // after adding entryTypes, add entries
-        try {
-            for(Entry entry : entries){
-                //add entry to database
-                entryRepository.save(entry);
+        //create and add entry types
+        EntryType entryType01 = new EntryType("Run", "Kilometres", 20);
+        TM470ProjectRunner.getController().addEntryType(entryType01);
+        EntryType entryType02 = new EntryType("Sit Ups", "Sets of 10", 12);
+        TM470ProjectRunner.getController().addEntryType(entryType02);
+        EntryType entryType03 = new EntryType("Sit Ups", "Sets of 10", 12); //duplicate but ID should be different
+        TM470ProjectRunner.getController().addEntryType(entryType03);
 
-            }
-        }
-        catch(Exception e){
-            //error message
-            e.printStackTrace();
-        }
+        //create and add entries
+        Entry entry01 = new Entry(entryType01, 4);
+        TM470ProjectRunner.getController().addEntry(entry01);
+        Entry entry02 = new Entry(entryType02, 3, LocalDate.of(2012, 12, 12));
+        TM470ProjectRunner.getController().addEntry(entry02);
+        Entry entry03 = new Entry(entryType03, 3); //duplicate but ID should be different
+        TM470ProjectRunner.getController().addEntry(entry03);
     }
 
     /**
@@ -100,25 +77,5 @@ public class TestClass {
      */
     public void removeFromDatabase(){
         //remove entries
-        try {
-            //remove entries from database
-            for(Entry entry : entries){
-                entryRepository.remove(entry);
-            }
-        }
-        catch(Exception e){
-            //error message
-            e.printStackTrace();
-        }
-        //remove entryTypes from database
-        try{
-            //remove entry types from database
-            for(EntryType type : entryTypes){
-                typeRepository.remove(type);
-            }
-        }
-        catch(Exception e){
-            e.printStackTrace();
-        }
     }
 }

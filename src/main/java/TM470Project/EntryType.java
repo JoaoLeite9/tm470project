@@ -52,18 +52,18 @@ public class EntryType {
     public EntryType(String aName, String aMetric, double aKcal){
 
         /* Exceptions */
-        if(aName.length() < TEXT_MIN_LENGTH || aName.length() > TEXT_MAX_LENGTH){ // throws exception for input names outside the legal range
-            throw new RuntimeException("Length of name input for EntryType '" + aName + "' is outside legal range " +
-                    "(" + TEXT_MIN_LENGTH + " to " + TEXT_MAX_LENGTH + " characters)");
-        }
-        if(aMetric.length() < TEXT_MIN_LENGTH || aMetric.length() > TEXT_MAX_LENGTH){ // throws exception for input metricTypes outside the legal range
-            throw new RuntimeException("Length of metric input for EntryType '" + aName + "' is outside legal range " +
-                    "(" + TEXT_MIN_LENGTH + " to " + TEXT_MAX_LENGTH + " characters)");
-        }
-        if(aKcal <= NUMBER_MIN || aKcal >= NUMBER_MAX){ // throws exception for input kcal outside the legal range
-            throw new RuntimeException("kcal input for EntryType '" + aName + "' is outside legal range " +
-                    "(" + NUMBER_MIN + " to " + NUMBER_MAX + ")");
-        }
+//        if(aName.length() < TEXT_MIN_LENGTH || aName.length() > TEXT_MAX_LENGTH){ // throws exception for input names outside the legal range
+//            throw new RuntimeException("Length of name input for EntryType '" + aName + "' is outside legal range " +
+//                    "(" + TEXT_MIN_LENGTH + " to " + TEXT_MAX_LENGTH + " characters)");
+//        }
+//        if(aMetric.length() < TEXT_MIN_LENGTH || aMetric.length() > TEXT_MAX_LENGTH){ // throws exception for input metricTypes outside the legal range
+//            throw new RuntimeException("Length of metric input for EntryType '" + aName + "' is outside legal range " +
+//                    "(" + TEXT_MIN_LENGTH + " to " + TEXT_MAX_LENGTH + " characters)");
+//        }
+//        if(aKcal <= NUMBER_MIN || aKcal >= NUMBER_MAX){ // throws exception for input kcal outside the legal range
+//            throw new RuntimeException("kcal input for EntryType '" + aName + "' is outside legal range " +
+//                    "(" + NUMBER_MIN + " to " + NUMBER_MAX + ")");
+//        }
 
 //        assert aKcal > 0 && aKcal < NUMBER_MAX
 //                && aName.length() > 0 && aName.length() < TEXT_MAX_LENGTH
@@ -142,6 +142,13 @@ public class EntryType {
     }
 
     //setter methods for EntryType
+
+    /**
+     * @param anId the id
+     */
+    public void setId(long anId){
+        id = anId;
+    }
 
     /**
      * @param aName the name for the entryType

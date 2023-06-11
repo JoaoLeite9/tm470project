@@ -18,7 +18,7 @@ public class RepositoryEntry {
     private EntityManager entityManager;
 
     /**
-     * @param entityManager
+     * @param entityManager the Entity Manager for Entry
      */
     public RepositoryEntry(EntityManager entityManager) {this.entityManager = entityManager;}
 
@@ -63,7 +63,7 @@ public class RepositoryEntry {
      * @param id an id to query
      * @return an entry with the associated id or nothing
      */
-    public Optional<Entry> findById(Integer id) {
+    public Optional<Entry> findById(long id) {
         Entry entry = entityManager.find(Entry.class, id);
         return entry != null ? Optional.of(entry) : Optional.empty();
     }
@@ -71,7 +71,7 @@ public class RepositoryEntry {
     /**
      * @return all entry objects in the database
      */
-    public List<Entry> findAll() {
+    public List findAll() {
         return entityManager.createQuery("from Entry").getResultList();
     }
 

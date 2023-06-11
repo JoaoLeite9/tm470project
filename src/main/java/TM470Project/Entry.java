@@ -67,9 +67,7 @@ public class Entry {
         /* Field definition */
         entryType = aType;
         metricValue = aValue;
-        if(aDate != null){
-            date = LocalDate.of(aDate.getYear(), aDate.getMonth(), aDate.getDayOfMonth());
-        }
+        date = aDate;
     }
 
 
@@ -103,13 +101,19 @@ public class Entry {
     }
     
     //setter methods for Entry
+    /**
+     * @param anId the id
+     */
+    public void setId(long anId){
+        id = anId;
+    }
 
     /**
      * @param anEntryType the EntryType to be set to the Entry
      */
-//    public void setEntryType(EntryType anEntryType){
-//        entryType = anEntryType;
-//    }
+    public void setEntryType(EntryType anEntryType){
+        entryType = anEntryType;
+    }
     
     /**
      * @param aValue the metric value for the Entry
@@ -131,7 +135,7 @@ public class Entry {
      * If left empty, inputs system date under date variable
      */
     public void setDate(){
-        date = now();
+        date = LocalDate.now();
     }
 
     /**
