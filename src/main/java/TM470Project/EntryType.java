@@ -27,7 +27,7 @@ public class EntryType {
     @Column(name = "kcal", nullable = false)
     private double kcal;
     @OneToMany(mappedBy = "entryType", orphanRemoval = true, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<Entry> entries;
+    private List<Entry> entries;    //foreign key, lazy fetch
 
     /* static fields, not included in database */
     @Transient
@@ -77,7 +77,6 @@ public class EntryType {
 
     
     //getter methods for EntryType
-    
     /**
      * @return the unique ID for the entryType
      */
@@ -142,14 +141,6 @@ public class EntryType {
     }
 
     //setter methods for EntryType
-
-    /**
-     * @param anId the id
-     */
-    public void setId(long anId){
-        id = anId;
-    }
-
     /**
      * @param aName the name for the entryType
      */

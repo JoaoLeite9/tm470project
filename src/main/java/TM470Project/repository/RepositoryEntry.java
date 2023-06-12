@@ -24,39 +24,47 @@ public class RepositoryEntry {
 
     /**
      * @param entry an entry to be persisted
-     * @return an empty optional instance
      */
-    public Optional<Entry> save(Entry entry){
+    public void save(Entry entry){
         try{
             entityManager.getTransaction().begin();
             entityManager.persist(entry);
             entityManager.getTransaction().commit();
-            return Optional.of(entry);
         }
         catch(Exception e){
             //print error message
             e.printStackTrace();
         }
-        return Optional.empty();
     }
 
     /**
      * @param entry an entry to be removed
-     * @return an empty optional instance
      */
-    public Optional<Entry> remove(Entry entry){ //probably set to look for and remove by ID?
+    public void remove(Entry entry){ //probably set to look for and remove by ID?
         try{
             entityManager.getTransaction().begin();
             entityManager.find(Entry.class, entry.getId());
             entityManager.remove(entry);
             entityManager.getTransaction().commit();
-            return Optional.of(entry);
         }
         catch(Exception e){
             //print error message
             e.printStackTrace();
         }
-        return Optional.empty();
+    }
+
+    public void update(Entry entry, Entry newEntry){
+        try {
+            entityManager.getTransaction().begin();
+            entityManager.find(Entry.class, entry.getId());
+            entityManager.merge(entry);
+            entry.setMetric(newEntry.getMetric());
+            entry.setDate(newEntry.getDate().getYear(), newEntry.getDate().getMonthValue(), newEntry.getDate().getDayOfMonth());
+            entityManager.getTransaction().commit();;
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     /**

@@ -62,7 +62,7 @@ public class TM470Controller {
     }
 
     /* data manipulation */
-    /* add */
+    /* add methods */
     /**
      * Adds entry type to the database
      * @param aType the entry type to ba added
@@ -79,51 +79,42 @@ public class TM470Controller {
         entryRepository.save(anEntry);
     }
 
-    /* remove */
+    /* remove methods */
     /**
      * Removes an entry type by searching for its ID and removing the associated entry type
-     * @param anId the ID of the entry type to be removed
+     *
+     * @param aType the entry type to be removed
      */
-    public void removeEntryType(long anId){
-        Optional<EntryType> type = typeRepository.findById(anId);
+    public void removeEntryType(EntryType aType){
+        Optional<EntryType> type = typeRepository.findById(aType.getId());
         type.ifPresent(typeRepository::remove);
     }
 
     /**
      * Removes an entry by searching for its ID and removing the associated entry
-     * @param anId the ID of the entry to be removed
+     *
+     * @param anEntry
      */
-    public void removeEntry(long anId){
-        //entryRepository.remove(findEntryById(anId));
-        Optional<Entry> entry = entryRepository.findById(anId);
+    public void removeEntry(Entry anEntry){
+        Optional<Entry> entry = entryRepository.findById(anEntry.getId());
         entry.ifPresent(entryRepository::remove);
     }
 
-    /* update */
+    /* update methods */
     /**
-     * @param id the ID of the entry type to be updated
-     * @param aType an entry type containing the updated information
+     * @param aType the entry type to be updated
+     * @param newType an entry type containing the updated information
      */
-    public void updateEntryType(long id, EntryType aType) {
-        if(typeRepository.findById(id).isPresent()) {
-            //change to make: see where is different and only change where different, switch statement?
-            typeRepository.findById(id).get().setName(aType.getName());
-            typeRepository.findById(id).get().setMetric(aType.getMetric());
-            typeRepository.findById(id).get().setKcal(aType.getKcal());
-            typeRepository.findById(id).get().setEntries(aType.getEntries());
-        }
+    public void updateEntryType(EntryType aType, EntryType newType) {
+        typeRepository.update(aType, newType);
     }
 
     /**
-     * @param id the ID of the entry to be updated
-     * @param anEntry an entry containing the updated information
+     * @param anEntry the entry to be updated
+     * @param newEntry an entry containing the updated information
      */
-    public void updateEntry(long id, Entry anEntry){
-        if(entryRepository.findById(id).isPresent()){
-            entryRepository.findById(id).get().setDate(anEntry.getDate().getYear(), anEntry.getDate().getMonthValue(), anEntry.getDate().getDayOfMonth());
-            entryRepository.findById(id).get().setEntryType(anEntry.getType());
-            entryRepository.findById(id).get().setMetric(anEntry.getMetric());
-        }
+    public void updateEntry(Entry anEntry, Entry newEntry){
+        entryRepository.update(anEntry, newEntry);
     }
 
     /* queries */

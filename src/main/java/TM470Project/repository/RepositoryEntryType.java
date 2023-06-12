@@ -1,6 +1,5 @@
 package TM470Project.repository;
 
-import TM470Project.Entry;
 import TM470Project.EntryType;
 
 import javax.persistence.EntityManager;
@@ -24,39 +23,48 @@ public class RepositoryEntryType {
 
     /**
      * @param entryType an entry type to be persisted
-     * @return an empty optional instance
      */
-    public Optional<EntryType> save(EntryType entryType){
+    public void save(EntryType entryType){
         try{
             entityManager.getTransaction().begin();
             entityManager.persist(entryType);
             entityManager.getTransaction().commit();
-            return Optional.of(entryType);
         }
         catch(Exception e){
             //print error message
             e.printStackTrace();
         }
-        return Optional.empty();
     }
 
     /**
      * @param entryType an entry type to be removed
-     * @return an empty optional instance
      */
-    public Optional<EntryType> remove(EntryType entryType){
+    public void remove(EntryType entryType){
         try{
             entityManager.getTransaction().begin();
             entityManager.find(EntryType.class, entryType.getId());
             entityManager.remove(entryType);
             entityManager.getTransaction().commit();
-            return Optional.of(entryType);
         }
         catch(Exception e){
             //print error message
             e.printStackTrace();
         }
-        return Optional.empty();
+    }
+
+    public void update(EntryType entryType, EntryType newType){
+        try {
+            entityManager.getTransaction().begin();
+            entityManager.find(EntryType.class, entryType.getId());
+            entityManager.merge(entryType);
+            entryType.setName(newType.getName());
+            entryType.setMetric(newType.getMetric());
+            entryType.setKcal(newType.getKcal());
+            entityManager.getTransaction().commit();;
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     /**

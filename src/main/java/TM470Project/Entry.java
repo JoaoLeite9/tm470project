@@ -21,10 +21,10 @@ public class Entry {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "ID")
-    private long id;
+    private long id;    //generates unique ID, primary key
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "entry_type_id")
-    private EntryType entryType;
+    private EntryType entryType;    //foreign key, eager fetch
     @Column(name = "metric_value")
     private int metricValue;
     @Column(name = "event_date", columnDefinition = "TIMESTAMP")
@@ -101,13 +101,6 @@ public class Entry {
     }
     
     //setter methods for Entry
-    /**
-     * @param anId the id
-     */
-    public void setId(long anId){
-        id = anId;
-    }
-
     /**
      * @param anEntryType the EntryType to be set to the Entry
      */
