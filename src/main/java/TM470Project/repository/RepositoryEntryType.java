@@ -60,7 +60,7 @@ public class RepositoryEntryType {
             entryType.setName(newType.getName());
             entryType.setMetric(newType.getMetric());
             entryType.setKcal(newType.getKcal());
-            entityManager.getTransaction().commit();;
+            entityManager.getTransaction().commit();
         }
         catch (Exception e){
             e.printStackTrace();

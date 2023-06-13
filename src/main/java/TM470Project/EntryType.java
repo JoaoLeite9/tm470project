@@ -106,7 +106,7 @@ public class EntryType {
     }
 
     /**
-     * @return
+     * @return a list of all entries using this entry type
      */
     public List<Entry> getEntries() {
         return entries;
@@ -183,7 +183,7 @@ public class EntryType {
     }
 
     /**
-     * @param entries
+     * @param entries a list of all entries using this entry type
      */
     public void setEntries(List<Entry> entries) {
         this.entries = entries;

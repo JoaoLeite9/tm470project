@@ -1,6 +1,5 @@
 package TM470Project;
 
-
 import TM470Project.repository.RepositoryEntry;
 import TM470Project.repository.RepositoryEntryType;
 import TM470Project.test.TestClass;
@@ -92,8 +91,7 @@ public class TM470Controller {
 
     /**
      * Removes an entry by searching for its ID and removing the associated entry
-     *
-     * @param anEntry
+     * @param anEntry the entry to be removed
      */
     public void removeEntry(Entry anEntry){
         Optional<Entry> entry = entryRepository.findById(anEntry.getId());

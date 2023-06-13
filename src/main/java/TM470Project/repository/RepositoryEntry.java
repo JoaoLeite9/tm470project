@@ -15,7 +15,7 @@ import java.util.Optional;
 
 public class RepositoryEntry {
 
-    private EntityManager entityManager;
+    private final EntityManager entityManager;
 
     /**
      * @param entityManager the Entity Manager for Entry
@@ -60,7 +60,7 @@ public class RepositoryEntry {
             entityManager.merge(entry);
             entry.setMetric(newEntry.getMetric());
             entry.setDate(newEntry.getDate().getYear(), newEntry.getDate().getMonthValue(), newEntry.getDate().getDayOfMonth());
-            entityManager.getTransaction().commit();;
+            entityManager.getTransaction().commit();
         }
         catch (Exception e){
             e.printStackTrace();
