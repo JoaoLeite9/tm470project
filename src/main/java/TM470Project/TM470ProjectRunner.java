@@ -20,7 +20,7 @@ public class TM470ProjectRunner {
     public static void main(String[] args) {
         entityManagerFactory = Persistence.createEntityManagerFactory("EntriesDB");
         entityManager = entityManagerFactory.createEntityManager();
-        controller = new TM470Controller();
+        controller = new TM470Controller(entityManager);
 
         controller.start();
         controller.stop();

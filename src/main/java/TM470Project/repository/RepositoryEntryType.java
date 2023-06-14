@@ -1,5 +1,6 @@
 package TM470Project.repository;
 
+import TM470Project.Entry;
 import TM470Project.EntryType;
 
 import javax.persistence.EntityManager;
@@ -14,7 +15,7 @@ import java.util.Optional;
 
 public class RepositoryEntryType {
 
-    private final EntityManager entityManager;
+    private EntityManager entityManager;
 
     /**
      * @param entityManager entity manager
@@ -22,9 +23,10 @@ public class RepositoryEntryType {
     public RepositoryEntryType(EntityManager entityManager) {this.entityManager = entityManager;}
 
     /**
-     * @param entryType an entry type to be persisted
+     * @param entryType the entry type to be persisted
+     * @return an Optional containing the persisted entry type
      */
-    public void save(EntryType entryType){
+    public Optional<EntryType> save(EntryType entryType){
         try{
             entityManager.getTransaction().begin();
             entityManager.persist(entryType);
@@ -34,6 +36,7 @@ public class RepositoryEntryType {
             //print error message
             e.printStackTrace();
         }
+        return Optional.of(entryType);
     }
 
     /**
@@ -42,27 +45,11 @@ public class RepositoryEntryType {
     public void remove(EntryType entryType){
         try{
             entityManager.getTransaction().begin();
-            entityManager.find(EntryType.class, entryType.getId());
             entityManager.remove(entryType);
             entityManager.getTransaction().commit();
         }
         catch(Exception e){
             //print error message
-            e.printStackTrace();
-        }
-    }
-
-    public void update(EntryType entryType, EntryType newType){
-        try {
-            entityManager.getTransaction().begin();
-            entityManager.find(EntryType.class, entryType.getId());
-            entityManager.merge(entryType);
-            entryType.setName(newType.getName());
-            entryType.setMetric(newType.getMetric());
-            entryType.setKcal(newType.getKcal());
-            entityManager.getTransaction().commit();
-        }
-        catch (Exception e){
             e.printStackTrace();
         }
     }
@@ -79,8 +66,9 @@ public class RepositoryEntryType {
     /**
      * @return all entry type objects in the database
      */
-    public List findAll() {
-        return entityManager.createQuery("from EntryType").getResultList();
+    public Optional<List<EntryType>> findAll() {
+        List<EntryType> entryTypes =  entityManager.createNamedQuery("EntryType.findAll", EntryType.class).getResultList();
+        return (entryTypes != null && entryTypes.size() != 0) ? Optional.of(entryTypes) : Optional.empty();
     }
 
     /**
@@ -93,4 +81,12 @@ public class RepositoryEntryType {
                 .getSingleResult();
         return entryType != null ? Optional.of(entryType) : Optional.empty();
     }
+
+    public Optional<EntryType> findByEntries(List<Entry> entries) {
+        EntryType entryType = entityManager.createQuery(("EntryType.findByEntries"), EntryType.class)
+                .setParameter("entries", entries)
+                .getSingleResult();
+        return entryType != null ? Optional.of(entryType) : Optional.empty();
+    }
+
 }

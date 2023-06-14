@@ -4,6 +4,7 @@ import TM470Project.repository.RepositoryEntry;
 import TM470Project.repository.RepositoryEntryType;
 import TM470Project.test.TestClass;
 
+import javax.persistence.EntityManager;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
@@ -15,17 +16,17 @@ import java.util.Optional;
 
 public class TM470Controller {
 
-    private final RepositoryEntryType typeRepository;
-    private final RepositoryEntry entryRepository;
+    private RepositoryEntryType typeRepository;
+    private RepositoryEntry entryRepository;
     //private Config config;
 
     /**
      * Constructor for controller class
      */
-    public TM470Controller() {
+    public TM470Controller(EntityManager entityManager) {
         //create repositories
-        typeRepository = new RepositoryEntryType(TM470ProjectRunner.getEntityManager());
-        entryRepository = new RepositoryEntry(TM470ProjectRunner.getEntityManager());
+        this.typeRepository = new RepositoryEntryType(entityManager);
+        this.entryRepository = new RepositoryEntry(entityManager);
         //config = new Config();
     }
 
@@ -65,17 +66,19 @@ public class TM470Controller {
     /**
      * Adds entry type to the database
      * @param aType the entry type to ba added
+     * @return the entry type to be saved
      */
-    public void addEntryType(EntryType aType){
-        typeRepository.save(aType);
+    public EntryType saveEntryType(EntryType aType){
+        return typeRepository.save(aType).orElse(null);
     }
 
     /**
      * Adds entry to the database
      * @param anEntry the entry to be added
+     * @return the entry to be saved
      */
-    public void addEntry(Entry anEntry){
-        entryRepository.save(anEntry);
+    public Entry saveEntry(Entry anEntry){
+        return entryRepository.save(anEntry).orElse(null);
     }
 
     /* remove methods */
@@ -84,7 +87,7 @@ public class TM470Controller {
      *
      * @param aType the entry type to be removed
      */
-    public void removeEntryType(EntryType aType){
+    public void deleteEntryType(EntryType aType){
         Optional<EntryType> type = typeRepository.findById(aType.getId());
         type.ifPresent(typeRepository::remove);
     }
@@ -93,62 +96,60 @@ public class TM470Controller {
      * Removes an entry by searching for its ID and removing the associated entry
      * @param anEntry the entry to be removed
      */
-    public void removeEntry(Entry anEntry){
-        Optional<Entry> entry = entryRepository.findById(anEntry.getId());
-        entry.ifPresent(entryRepository::remove);
-    }
-
-    /* update methods */
-    /**
-     * @param aType the entry type to be updated
-     * @param newType an entry type containing the updated information
-     */
-    public void updateEntryType(EntryType aType, EntryType newType) {
-        typeRepository.update(aType, newType);
-    }
-
-    /**
-     * @param anEntry the entry to be updated
-     * @param newEntry an entry containing the updated information
-     */
-    public void updateEntry(Entry anEntry, Entry newEntry){
-        entryRepository.update(anEntry, newEntry);
+    public void deleteEntry(Entry anEntry){
+        entryRepository.remove(anEntry);
     }
 
     /* queries */
     /* find all */
     /**
      * Finds all entry types in the database
-     * @return a list of all entry types
+     * @return a list of all entry types or null
      */
-    public List findAllEntryTypes(){
-        return typeRepository.findAll();
+    public List<EntryType> findAllEntryTypes(){
+        return typeRepository.findAll().orElse(null);
     }
 
     /**
      * Finds all entry in the database
-     * @return a list of all entries
+     * @return a list of all entries or null
      */
-    public List findAllEntries(){
-        return entryRepository.findAll();
+    public List<Entry> findAllEntries(){
+        return entryRepository.findAll().orElse(null);
     }
 
     /* find by input */
     /**
      * Searches for entry types bases on name
      * @param aName the name of the entry type
-     * @return the entry type(s)
+     * @return the queried entry type or null
      */
-    public Optional<EntryType> findEntryTypeByName(String aName){
-        return typeRepository.findByName(aName);
+    public EntryType findEntryTypeByName(String aName){
+        return typeRepository.findByName(aName).orElse(null);
+    }
+
+    /**
+     * @param entries a list of entries associated with the entry type
+     * @return the entry type or null
+     */
+    public EntryType findEntryTypeByEntries(List<Entry> entries){
+        return typeRepository.findByEntries(entries).orElse(null);
     }
 
     /**
      * Searches for entries by date
      * @param aDate the date of the entry
-     * @return en entry(s)
+     * @return the queried entry or null
      */
-    public Optional<Entry> findEntryByDate(LocalDate aDate){
-        return entryRepository.findByDate(aDate);
+    public Entry findEntryByDate(LocalDate aDate){
+        return entryRepository.findByDate(aDate).orElse(null);
+    }
+
+    /**
+     * @param aType the type of the entries
+     * @return a list of entries with the associated type
+     */
+    public List<Entry> findEntryByEntryType(EntryType aType){
+        return entryRepository.findByEntryType(aType).orElse(null);
     }
 }

@@ -14,9 +14,11 @@ import java.util.Objects;
 @Table(name = "ENTRY")
 @NamedQueries({
         @NamedQuery(name = "Entry.findByDate",
-                query = "SELECT e FROM Entry e WHERE e.date = :date")})
+                query = "SELECT e FROM Entry e WHERE e.date = :date"),
+        @NamedQuery(name = "Entry.findByEntryType",
+                query = "SELECT e FROM Entry e WHERE e.entryType = :entryType"),
         @NamedQuery(name = "Entry.findAll",
-                query = "SELECT e FROM Entry e")
+                query = "SELECT e FROM Entry e")})
 public class Entry {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -58,16 +60,9 @@ public class Entry {
      * @param aDate a Date object for the Entry
      */
     public Entry(EntryType aType, int aValue, LocalDate aDate){
-
-//        /* Exceptions */
-//        if(aValue > MAX_VALUE || aValue < MIN_VALUE){
-//            throw new RuntimeException("Metric Value input for " + id + " is outside the legal range (" + MIN_VALUE + " to " + MAX_VALUE + ")");
-//        }
-
-        /* Field definition */
-        entryType = aType;
-        metricValue = aValue;
-        date = aDate;
+        this.entryType = aType;
+        this.metricValue = aValue;
+        this.date = aDate;
     }
 
 

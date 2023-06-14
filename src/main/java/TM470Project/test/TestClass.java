@@ -26,7 +26,6 @@ public class TestClass {
     public void runTest(){
         createObjects();
         addToDatabase();
-        updateDatabase();
         removeFromDatabase();
     }
 
@@ -58,12 +57,12 @@ public class TestClass {
     public void addToDatabase(){
         //add entry types to database
         for(EntryType type : entryTypes){
-            TM470ProjectRunner.getController().addEntryType(type);
+            TM470ProjectRunner.getController().saveEntryType(type);
         }
 
         //create and add entries
         for(Entry entry : entries){
-            TM470ProjectRunner.getController().addEntry(entry);
+            TM470ProjectRunner.getController().saveEntry(entry);
         }
     }
 
@@ -73,21 +72,12 @@ public class TestClass {
     public void removeFromDatabase(){
         //remove entries
         for(Entry entry : entries){
-            TM470ProjectRunner.getController().removeEntry(entry);
+            TM470ProjectRunner.getController().deleteEntry(entry);
         }
 
         //remove entry types
         for(EntryType type : entryTypes){
-            TM470ProjectRunner.getController().removeEntryType(type);
+            TM470ProjectRunner.getController().deleteEntryType(type);
         }
-    }
-
-    public void updateDatabase(){
-        //test: should update the first newEntry type and newEntry in the list AND update the value in the database
-        EntryType type = new EntryType("Sprint", "Miles", 19); //a mock type with variables with updated info
-        TM470ProjectRunner.getController().updateEntryType(entryTypes.get(0), type);
-
-        Entry newEntry = new Entry(type,5, LocalDate.of(2016, 6, 6) ); //a mock newEntry with variables with updated info
-        TM470ProjectRunner.getController().updateEntry(entries.get(0), newEntry);
     }
 }

@@ -1,6 +1,7 @@
 package TM470Project.repository;
 
 import TM470Project.Entry;
+import TM470Project.EntryType;
 
 import javax.persistence.EntityManager;
 import java.time.LocalDate;
@@ -23,9 +24,10 @@ public class RepositoryEntry {
     public RepositoryEntry(EntityManager entityManager) {this.entityManager = entityManager;}
 
     /**
-     * @param entry an entry to be persisted
+     * @param entry the entry to be persisted
+     * @return an Optional containing the persisted entry
      */
-    public void save(Entry entry){
+    public Optional<Entry> save(Entry entry){
         try{
             entityManager.getTransaction().begin();
             entityManager.persist(entry);
@@ -35,34 +37,20 @@ public class RepositoryEntry {
             //print error message
             e.printStackTrace();
         }
+        return Optional.of(entry);
     }
 
     /**
      * @param entry an entry to be removed
      */
-    public void remove(Entry entry){ //probably set to look for and remove by ID?
+    public void remove(Entry entry){
         try{
             entityManager.getTransaction().begin();
-            entityManager.find(Entry.class, entry.getId());
             entityManager.remove(entry);
             entityManager.getTransaction().commit();
         }
         catch(Exception e){
             //print error message
-            e.printStackTrace();
-        }
-    }
-
-    public void update(Entry entry, Entry newEntry){
-        try {
-            entityManager.getTransaction().begin();
-            entityManager.find(Entry.class, entry.getId());
-            entityManager.merge(entry);
-            entry.setMetric(newEntry.getMetric());
-            entry.setDate(newEntry.getDate().getYear(), newEntry.getDate().getMonthValue(), newEntry.getDate().getDayOfMonth());
-            entityManager.getTransaction().commit();
-        }
-        catch (Exception e){
             e.printStackTrace();
         }
     }
@@ -79,8 +67,9 @@ public class RepositoryEntry {
     /**
      * @return all entry objects in the database
      */
-    public List findAll() {
-        return entityManager.createQuery("from Entry").getResultList();
+    public Optional<List<Entry>> findAll() {
+        List<Entry> entries =  entityManager.createNamedQuery("Entry.findAll", Entry.class).getResultList();
+        return (entries != null && entries.size() != 0) ? Optional.of(entries) : Optional.empty();
     }
 
     /**
@@ -88,9 +77,16 @@ public class RepositoryEntry {
      * @return entries with the associated date
      */
     public Optional<Entry> findByDate(LocalDate date) {
-        Entry entry = entityManager.createQuery("SELECT b FROM Entry b WHERE b.date = :date", Entry.class)
+        Entry entry = entityManager.createQuery("Entry.findByDate", Entry.class)
                 .setParameter("name", date)
                 .getSingleResult();
         return entry != null ? Optional.of(entry) : Optional.empty();
     }
+
+    public Optional<List<Entry>> findByEntryType(EntryType aType){
+        List<Entry> entries = entityManager.createQuery("Entry.findByEntryType", Entry.class).getResultList();
+        return (entries != null && entries.size() != 0) ? Optional.of(entries) : Optional.empty();
+    }
+
+
 }
