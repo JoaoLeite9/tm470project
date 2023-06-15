@@ -77,16 +77,19 @@ public class RepositoryEntryType {
      */
     public Optional<EntryType> findByName(String name) {
         EntryType entryType = entityManager.createNamedQuery("EntryType.findByName", EntryType.class)
-                .setParameter("name", name)
-                .getSingleResult();
+            .setParameter("name", name).getSingleResult();
         return entryType != null ? Optional.of(entryType) : Optional.empty();
     }
 
-    public Optional<EntryType> findByEntries(List<Entry> entries) {
-        EntryType entryType = entityManager.createQuery(("EntryType.findByEntries"), EntryType.class)
-                .setParameter("entries", entries)
-                .getSingleResult();
-        return entryType != null ? Optional.of(entryType) : Optional.empty();
+    public void deleteAllEntryTypes(){
+        try{
+            entityManager.getTransaction().begin();
+            entityManager.createQuery("DELETE FROM EntryType").executeUpdate();
+            entityManager.getTransaction().commit();
+        }
+        catch(Exception e){
+            //print error message
+            e.printStackTrace();
+        }
     }
-
 }

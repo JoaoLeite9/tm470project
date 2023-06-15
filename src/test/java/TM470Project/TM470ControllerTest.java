@@ -25,20 +25,22 @@ class TM470ControllerTest {
 
     @AfterAll
     void tearDown() {
+        controller.deleteAllEntries();
+        controller.deleteAllEntryTypes();
         entityManager.close();
         entityManagerFactory.close();
     }
 
     @Test
-    void addEntryType() {
+    void saveEntryType() {
         EntryType entryTypeExpected = new EntryType("Run", "Kilometres", 20);
         EntryType entryTypeActual = controller.saveEntryType(entryTypeExpected);
         assertEquals(entryTypeExpected, entryTypeActual);
     }
 
     @Test
-    void addEntry() {
-        EntryType testType = new EntryType("Run", "Kilometres", 20);
+    void saveEntry() {
+        EntryType testType = controller.saveEntryType(new EntryType("Running", "Kilometres", 20));
         Entry entryExpected = new Entry(testType, 20);
         Entry entryActual = controller.saveEntry(entryExpected);
         assertEquals(entryExpected, entryActual);
@@ -46,7 +48,7 @@ class TM470ControllerTest {
 
     @Test
     void deleteEntryType() {
-        EntryType entryType = new EntryType("Run", "Kilometres", 20);
+        EntryType entryType = controller.saveEntryType(new EntryType("Sprint", "Kilometres", 20));
         EntryType entryTypeSaved = controller.saveEntryType(entryType);
         controller.deleteEntryType(entryTypeSaved);
         assertFalse(controller.findAllEntryTypes().contains(entryTypeSaved));
@@ -54,8 +56,8 @@ class TM470ControllerTest {
 
     @Test
     void deleteEntry() {
-        EntryType testType = new EntryType("Run", "Kilometres", 20);
-        Entry entry = new Entry(testType, 20);
+        EntryType entryType = controller.saveEntryType(new EntryType("Jog", "Kilometres", 20));
+        Entry entry = new Entry(entryType, 20);
         Entry entrySaved = controller.saveEntry(entry);
         controller.deleteEntry(entrySaved);
         assertFalse(controller.findAllEntries().contains(entry));
@@ -63,9 +65,9 @@ class TM470ControllerTest {
 
     @Test
     void findAllEntryTypes() {
-        EntryType entryType01 = new EntryType("Run", "Kilometres", 20);
-        EntryType entryType02 = new EntryType("Sit Ups", "Sets of 10", 12);
-        EntryType entryType03 = new EntryType("Sit Ups", "Sets of 10", 12);
+        EntryType entryType01 = new EntryType("Sit Ups", "Sets of 10", 20);
+        EntryType entryType02 = new EntryType("Press Ups", "Sets of 10", 12);
+        EntryType entryType03 = new EntryType("Lift Weights", "Sets of 10", 12);
         controller.saveEntryType(entryType01);
         controller.saveEntryType(entryType02);
         controller.saveEntryType(entryType03);
@@ -76,7 +78,7 @@ class TM470ControllerTest {
 
     @Test
     void findAllEntries() {
-        EntryType entryType = new EntryType("Run", "Kilometres", 20);
+        EntryType entryType = controller.saveEntryType(new EntryType("Sprinting", "Kilometres", 20));
         Entry entry01 = new Entry(entryType, 4);
         Entry entry02 = new Entry(entryType, 3, LocalDate.of(2012, 12, 12));
         Entry entry03 = new Entry(entryType, 3);
@@ -90,22 +92,24 @@ class TM470ControllerTest {
 
     @Test
     void findEntryTypeByName() {
-        EntryType entryTypeExpected = new EntryType("Run", "Kilometres", 20);
+        EntryType entryTypeExpected = controller.saveEntryType(new EntryType("Swim", "Kilometres", 20));
         EntryType entryTypeActual = controller.saveEntryType(entryTypeExpected);
         assertEquals(controller.findEntryTypeByName(entryTypeActual.getName()), entryTypeExpected);
     }
 
     @Test
-    void finedEntryTypeByEntries() {
-
-    }
-
-    @Test
     void findEntryByDate() {
+        EntryType entryType = controller.saveEntryType(new EntryType("Swimming", "Kilometres", 20));
+        Entry entryExpected = new Entry(entryType, 4);
+        Entry entryActual = controller.saveEntry(entryExpected);
+        assertTrue(controller.findEntryByDate(entryActual.getDate()).contains(entryExpected));
     }
 
     @Test
     void findEntryByEntryType() {
-
+        EntryType entryType = controller.saveEntryType(new EntryType("Swimming", "Kilometres", 20));
+        Entry entryExpected = new Entry(entryType, 4);
+        Entry entryActual = controller.saveEntry(entryExpected);
+        assertTrue(controller.findEntryByEntryType(entryActual.getType()).contains(entryExpected));
     }
 }

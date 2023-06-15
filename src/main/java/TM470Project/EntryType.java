@@ -17,7 +17,8 @@ import java.util.Objects;
                 query = "SELECT e FROM EntryType e WHERE e.name = :name"),
         @NamedQuery(name = "EntryType.findByEntries",
                 query = "SELECT e FROM EntryType e WHERE e.entries = :entries"),
-        @NamedQuery(name = "EntryType.findAll", query = "SELECT e FROM EntryType e")})
+        @NamedQuery(name = "EntryType.findAll",
+                query = "SELECT e FROM EntryType e")})
 public class EntryType {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

@@ -129,19 +129,11 @@ public class TM470Controller {
     }
 
     /**
-     * @param entries a list of entries associated with the entry type
-     * @return the entry type or null
-     */
-    public EntryType findEntryTypeByEntries(List<Entry> entries){
-        return typeRepository.findByEntries(entries).orElse(null);
-    }
-
-    /**
      * Searches for entries by date
      * @param aDate the date of the entry
      * @return the queried entry or null
      */
-    public Entry findEntryByDate(LocalDate aDate){
+    public List<Entry> findEntryByDate(LocalDate aDate){
         return entryRepository.findByDate(aDate).orElse(null);
     }
 
@@ -151,5 +143,13 @@ public class TM470Controller {
      */
     public List<Entry> findEntryByEntryType(EntryType aType){
         return entryRepository.findByEntryType(aType).orElse(null);
+    }
+
+    public void deleteAllEntries(){
+        entryRepository.deleteAllEntries();
+    }
+
+    public void deleteAllEntryTypes(){
+        typeRepository.deleteAllEntryTypes();
     }
 }

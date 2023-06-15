@@ -16,7 +16,7 @@ import java.util.Optional;
 
 public class RepositoryEntry {
 
-    private final EntityManager entityManager;
+    private EntityManager entityManager;
 
     /**
      * @param entityManager the Entity Manager for Entry
@@ -76,17 +76,29 @@ public class RepositoryEntry {
      * @param date a date to query
      * @return entries with the associated date
      */
-    public Optional<Entry> findByDate(LocalDate date) {
-        Entry entry = entityManager.createQuery("Entry.findByDate", Entry.class)
-                .setParameter("name", date)
-                .getSingleResult();
-        return entry != null ? Optional.of(entry) : Optional.empty();
-    }
-
-    public Optional<List<Entry>> findByEntryType(EntryType aType){
-        List<Entry> entries = entityManager.createQuery("Entry.findByEntryType", Entry.class).getResultList();
+    public Optional<List<Entry>> findByDate(LocalDate date) {
+        List<Entry> entries = entityManager.createNamedQuery("Entry.findByDate", Entry.class)
+                .setParameter("date", date)
+                .getResultList();
         return (entries != null && entries.size() != 0) ? Optional.of(entries) : Optional.empty();
     }
 
+    public Optional<List<Entry>> findByEntryType(EntryType aType){
+        List<Entry> entries = entityManager.createNamedQuery("Entry.findByEntryType", Entry.class)
+                .setParameter("entryType", aType)
+                .getResultList();
+        return (entries != null && entries.size() != 0) ? Optional.of(entries) : Optional.empty();
+    }
 
+    public void deleteAllEntries(){
+        try{
+            entityManager.getTransaction().begin();
+            entityManager.createQuery("DELETE FROM Entry").executeUpdate();
+            entityManager.getTransaction().commit();
+        }
+        catch(Exception e){
+            //print error message
+            e.printStackTrace();
+        }
+    }
 }
