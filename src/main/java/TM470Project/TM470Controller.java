@@ -40,9 +40,6 @@ public class TM470Controller {
 
             //opens application window
             //opens user interface main window
-
-            TestClass testClass = new TestClass();
-            testClass.runTest();
         }
         catch(Exception e){
             //print error
@@ -145,6 +142,8 @@ public class TM470Controller {
         return entryRepository.findByEntryType(aType).orElse(null);
     }
 
+
+    /* database reset */
     public void deleteAllEntries(){
         entryRepository.deleteAllEntries();
     }

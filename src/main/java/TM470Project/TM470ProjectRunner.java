@@ -26,11 +26,6 @@ public class TM470ProjectRunner {
         controller.stop();
     }
 
-
-    public static EntityManager getEntityManager(){
-        return entityManager;
-    }
-
     public static TM470Controller getController(){
         return controller;
     }

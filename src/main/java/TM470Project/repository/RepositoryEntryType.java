@@ -1,6 +1,5 @@
 package TM470Project.repository;
 
-import TM470Project.Entry;
 import TM470Project.EntryType;
 
 import javax.persistence.EntityManager;
