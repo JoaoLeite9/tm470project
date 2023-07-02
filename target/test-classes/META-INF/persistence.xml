@@ -12,14 +12,21 @@
 
    <properties>
 
-      <!-- -->
+      <!-- h2 -->
       <property name="javax.persistence.jdbc.driver" value="org.h2.Driver" />
-      <property name="javax.persistence.jdbc.url"    value="jdbc:h2:mem:tm470project" />
+<!--      <property name="javax.persistence.jdbc.url"    value="jdbc:h2:mem:tm470project" />-->
+      <property name="javax.persistence.jdbc.url"    value="jdbc:h2:C:/h2_db/tm470project" />
       <property name="javax.persistence.jdbc.user" value="sa" />
       <property name="javax.persistence.jdbc.password" value="" />
 
+      <property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect"/> <!-- DB Dialect -->
+      <property name="hibernate.hbm2ddl.auto" value="update" /> <!-- create / create-drop / update -->
+      <property name="hibernate.show_sql" value="true" /> <!-- Show SQL in console -->
+      <property name="hibernate.temp.use_jdbc_metadata_defaults" value="false"/>
+      <property name="hibernate.format_sql" value="true" /> <!-- Show SQL formatted -->
+      <property name="hibernate.use_sql_comments" value="true"/>
 
-<!--      &lt;!&ndash; Javax stuff &ndash;&gt;-->
+      <!-- Javax stuff -->
 <!--      <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" /> &lt;!&ndash; DB Driver &ndash;&gt;-->
 <!--      <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost/tm470project" /> &lt;!&ndash; DB Name &ndash;&gt;-->
 <!--      <property name="javax.persistence.jdbc.user" value="postgres" /> &lt;!&ndash; DB User &ndash;&gt;-->
@@ -31,13 +38,6 @@
 <!--      <property name="hibernate.show_sql" value="true" /> &lt;!&ndash; Show SQL in console &ndash;&gt;-->
 <!--      <property name="hibernate.format_sql" value="true" /> &lt;!&ndash; Show SQL formatted &ndash;&gt;-->
 <!--      <property name="hibernate.use_sql_comments" value="true"/>-->
-
-      <property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect"/> <!-- DB Dialect -->
-      <property name="hibernate.hbm2ddl.auto" value="update" /> <!-- create / create-drop / update -->
-      <property name="hibernate.show_sql" value="true" /> <!-- Show SQL in console -->
-      <property name="hibernate.temp.use_jdbc_metadata_defaults" value="false"/>
-      <property name="hibernate.format_sql" value="true" /> <!-- Show SQL formatted -->
-      <property name="hibernate.use_sql_comments" value="true"/>
    </properties>
 </persistence-unit>
 </persistence>
