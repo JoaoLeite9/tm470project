@@ -12,7 +12,7 @@ import javax.swing.JPanel;
  * @author Joao
  */
 public class MainFrame extends javax.swing.JFrame {
-    /* declaration of panel names */
+    /* declaration of panel names for change screen method */
     private static final String CALENDAR_PANEL = "calendar";
     private static final String CREATE_ENTRY = "create entry";
     private static final String CREATE_TYPE = "create type";
@@ -25,17 +25,17 @@ public class MainFrame extends javax.swing.JFrame {
     private static final String SETTINGS = "settings";
 
     /* declaration of panel objects */
-    private CalendarPanel calendarPanel;
-    private CreateEntryPanel createEntryPanel;
-    private CreateTypePanel createTypePanel;
-    private DataViewPanel dataViewPanel;
-    private EditEntryPanel editEntryPanel;
-    private EditTypePanel editTypePanel;
-    private EntrySelectionPanel entrySelectionPanel;
-    private EntryTypeSelectionPanel entryTypeSelectionPanel;
-    private MainPanel mainPanel;
-    private SettingsPanel settingsPanel;
-    private JPanel cardPanel;
+    private final CalendarPanel calendarPanel;
+    private final CreateEntryPanel createEntryPanel;
+    private final CreateTypePanel createTypePanel;
+    private final DataViewPanel dataViewPanel;
+    private final EditEntryPanel editEntryPanel;
+    private final EditTypePanel editTypePanel;
+    private final EntrySelectionPanel entrySelectionPanel;
+    private final EntryTypeSelectionPanel entryTypeSelectionPanel;
+    private final MainPanel mainPanel;
+    private final SettingsPanel settingsPanel;
+    private final JPanel cardPanel;
 
     /**
      * Creates new form MainFrame
@@ -55,7 +55,7 @@ public class MainFrame extends javax.swing.JFrame {
         this.mainPanel = new MainPanel();
         this.settingsPanel = new SettingsPanel();
 
-        //initialize card layout
+        //initialize card layout panel
         this.cardPanel = new JPanel(new CardLayout());
 
         //run initialization methods

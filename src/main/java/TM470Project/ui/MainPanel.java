@@ -85,8 +85,6 @@ public class MainPanel extends javax.swing.JPanel {
 
     private void createButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createButtonActionPerformed
         // TODO add your handling code here:
-
-        //was here (nothing happens when clicked)
     }//GEN-LAST:event_createButtonActionPerformed
 
     private void viewDataButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewDataButtonActionPerformed
