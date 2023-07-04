@@ -3,13 +3,11 @@ package TM470Project;
 import TM470Project.repository.RepositoryEntry;
 import TM470Project.repository.RepositoryEntryType;
 import TM470Project.ui.MainFrame;
-import TM470Project.ui.MainPanel;
 
 import javax.persistence.EntityManager;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
-import javax.swing.JFrame;
 
 /**
  * @author Joao
@@ -20,7 +18,6 @@ public class TM470Controller {
 
     private RepositoryEntryType typeRepository;
     private RepositoryEntry entryRepository;
-    public JFrame window;
     //private Config config;
 
     /**
@@ -42,9 +39,8 @@ public class TM470Controller {
             //config = new Config();
             
             //opens user interface main window
-            window = new MainFrame();
-            window.getContentPane().add(new MainPanel());
-            window.setVisible(true);
+            MainFrame.run();
+
         }
         catch(Exception e){
             //print error
@@ -155,13 +151,5 @@ public class TM470Controller {
 
     public void deleteAllEntryTypes(){
         typeRepository.deleteAllEntryTypes();
-    }
-    
-    public JFrame getWindow(){
-        return window;
-    }
-    
-    public void setWindow(JFrame aFrame){
-        this.window = aFrame;
     }
 }
