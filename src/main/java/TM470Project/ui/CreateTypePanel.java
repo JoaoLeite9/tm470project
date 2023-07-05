@@ -43,10 +43,20 @@ public class CreateTypePanel extends javax.swing.JPanel {
         returnButton.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         returnButton.setText("<");
         returnButton.setToolTipText("Return to the previous screen.");
+        returnButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                returnButtonActionPerformed(evt);
+            }
+        });
 
         editButton.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         editButton.setText("Edit");
         editButton.setToolTipText("Edit an existing entry type.");
+        editButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editButtonActionPerformed(evt);
+            }
+        });
 
         nameLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         nameLabel.setText("Name");
@@ -74,6 +84,11 @@ public class CreateTypePanel extends javax.swing.JPanel {
         unitComboBox.setEditable(true);
         unitComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "metres", "kilometres", "yards", "miles", "seconds", "minutes", "reps", "sets" }));
         unitComboBox.setToolTipText("The metric by which to measure your entry type.");
+        unitComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                unitComboBoxActionPerformed(evt);
+            }
+        });
 
         confirmButton.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         confirmButton.setText("Confirm");
@@ -155,6 +170,18 @@ public class CreateTypePanel extends javax.swing.JPanel {
     private void confirmButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_confirmButtonActionPerformed
+
+    private void returnButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_returnButtonActionPerformed
+
+    private void editButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_editButtonActionPerformed
+
+    private void unitComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_unitComboBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_unitComboBoxActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

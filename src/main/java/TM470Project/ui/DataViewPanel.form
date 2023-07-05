@@ -70,12 +70,18 @@
         <Property name="text" type="java.lang.String" value="&lt;"/>
         <Property name="toolTipText" type="java.lang.String" value="Return to the previous screen."/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="returnButtonActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="prevMonthButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="&lt;"/>
         <Property name="toolTipText" type="java.lang.String" value="Previous month"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="prevMonthButtonActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="monthLabel">
       <Properties>
@@ -90,6 +96,9 @@
         <Property name="text" type="java.lang.String" value="&gt;"/>
         <Property name="toolTipText" type="java.lang.String" value="Next month"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nextMonthLabelActionPerformed"/>
+      </Events>
     </Component>
     <Container class="javax.swing.JPanel" name="dataAreaPanel">
 

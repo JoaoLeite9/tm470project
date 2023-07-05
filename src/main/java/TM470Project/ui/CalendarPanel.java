@@ -68,24 +68,54 @@ public class CalendarPanel extends javax.swing.JPanel {
         returnButton.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         returnButton.setText("<");
         returnButton.setToolTipText("Return to the previous screen.");
+        returnButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                returnButtonActionPerformed(evt);
+            }
+        });
 
         prevMonthButton.setText("<");
         prevMonthButton.setToolTipText("Previous month");
+        prevMonthButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                prevMonthButtonActionPerformed(evt);
+            }
+        });
 
         monthLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         monthLabel.setText("<<getMonth>>");
 
         nextMonthButton.setText(">");
         nextMonthButton.setToolTipText("Next month");
+        nextMonthButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nextMonthButtonActionPerformed(evt);
+            }
+        });
 
         date1.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         date1.setText("1");
+        date1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                date1ActionPerformed(evt);
+            }
+        });
 
         date2.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         date2.setText("2");
+        date2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                date2ActionPerformed(evt);
+            }
+        });
 
         date3.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         date3.setText("3");
+        date3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                date3ActionPerformed(evt);
+            }
+        });
 
         date4.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         date4.setText("4");
@@ -97,66 +127,171 @@ public class CalendarPanel extends javax.swing.JPanel {
 
         date5.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         date5.setText("5");
+        date5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                date5ActionPerformed(evt);
+            }
+        });
 
         date6.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         date6.setText("6");
+        date6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                date6ActionPerformed(evt);
+            }
+        });
 
         date11.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         date11.setText("11");
+        date11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                date11ActionPerformed(evt);
+            }
+        });
 
         date16.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         date16.setText("16");
+        date16.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                date16ActionPerformed(evt);
+            }
+        });
 
         date21.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         date21.setText("21");
+        date21.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                date21ActionPerformed(evt);
+            }
+        });
 
         date26.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         date26.setText("26");
+        date26.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                date26ActionPerformed(evt);
+            }
+        });
 
         date31.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         date31.setText("31");
+        date31.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                date31ActionPerformed(evt);
+            }
+        });
 
         date7.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         date7.setText("7");
+        date7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                date7ActionPerformed(evt);
+            }
+        });
 
         date8.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         date8.setText("8");
+        date8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                date8ActionPerformed(evt);
+            }
+        });
 
         date9.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         date9.setText("9");
+        date9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                date9ActionPerformed(evt);
+            }
+        });
 
         date10.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         date10.setText("10");
+        date10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                date10ActionPerformed(evt);
+            }
+        });
 
         date12.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         date12.setText("12");
+        date12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                date12ActionPerformed(evt);
+            }
+        });
 
         date13.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         date13.setText("13");
+        date13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                date13ActionPerformed(evt);
+            }
+        });
 
         date14.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         date14.setText("14");
+        date14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                date14ActionPerformed(evt);
+            }
+        });
 
         date15.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         date15.setText("15");
+        date15.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                date15ActionPerformed(evt);
+            }
+        });
 
         date17.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         date17.setText("17");
+        date17.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                date17ActionPerformed(evt);
+            }
+        });
 
         date18.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         date18.setText("18");
+        date18.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                date18ActionPerformed(evt);
+            }
+        });
 
         date19.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         date19.setText("19");
+        date19.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                date19ActionPerformed(evt);
+            }
+        });
 
         date20.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         date20.setText("20");
+        date20.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                date20ActionPerformed(evt);
+            }
+        });
 
         date22.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         date22.setText("22");
+        date22.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                date22ActionPerformed(evt);
+            }
+        });
 
         date23.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         date23.setText("23");
+        date23.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                date23ActionPerformed(evt);
+            }
+        });
 
         date24.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         date24.setText("24");
@@ -168,21 +303,51 @@ public class CalendarPanel extends javax.swing.JPanel {
 
         date25.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         date25.setText("25");
+        date25.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                date25ActionPerformed(evt);
+            }
+        });
 
         date27.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         date27.setText("27");
+        date27.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                date27ActionPerformed(evt);
+            }
+        });
 
         date28.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         date28.setText("28");
+        date28.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                date28ActionPerformed(evt);
+            }
+        });
 
         date29.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         date29.setText("29");
+        date29.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                date29ActionPerformed(evt);
+            }
+        });
 
         date30.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         date30.setText("30");
+        date30.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                date30ActionPerformed(evt);
+            }
+        });
 
         visualizeDataButton.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         visualizeDataButton.setText("<<DataV>>");
+        visualizeDataButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                visualizeDataButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -328,10 +493,10 @@ public class CalendarPanel extends javax.swing.JPanel {
                     .addComponent(date28)
                     .addComponent(date29)
                     .addComponent(date30))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(date31)
-                    .addComponent(visualizeDataButton))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(visualizeDataButton)
+                    .addComponent(date31))
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -343,6 +508,138 @@ public class CalendarPanel extends javax.swing.JPanel {
     private void date24ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_date24ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_date24ActionPerformed
+
+    private void date1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_date1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_date1ActionPerformed
+
+    private void date2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_date2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_date2ActionPerformed
+
+    private void date3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_date3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_date3ActionPerformed
+
+    private void date5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_date5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_date5ActionPerformed
+
+    private void date6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_date6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_date6ActionPerformed
+
+    private void date7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_date7ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_date7ActionPerformed
+
+    private void date8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_date8ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_date8ActionPerformed
+
+    private void date9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_date9ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_date9ActionPerformed
+
+    private void date10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_date10ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_date10ActionPerformed
+
+    private void date11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_date11ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_date11ActionPerformed
+
+    private void date12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_date12ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_date12ActionPerformed
+
+    private void date13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_date13ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_date13ActionPerformed
+
+    private void date14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_date14ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_date14ActionPerformed
+
+    private void date15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_date15ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_date15ActionPerformed
+
+    private void date16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_date16ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_date16ActionPerformed
+
+    private void date17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_date17ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_date17ActionPerformed
+
+    private void date18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_date18ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_date18ActionPerformed
+
+    private void date19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_date19ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_date19ActionPerformed
+
+    private void date20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_date20ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_date20ActionPerformed
+
+    private void date21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_date21ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_date21ActionPerformed
+
+    private void date22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_date22ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_date22ActionPerformed
+
+    private void date23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_date23ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_date23ActionPerformed
+
+    private void date25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_date25ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_date25ActionPerformed
+
+    private void date26ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_date26ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_date26ActionPerformed
+
+    private void date27ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_date27ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_date27ActionPerformed
+
+    private void date28ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_date28ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_date28ActionPerformed
+
+    private void date29ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_date29ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_date29ActionPerformed
+
+    private void date30ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_date30ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_date30ActionPerformed
+
+    private void date31ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_date31ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_date31ActionPerformed
+
+    private void visualizeDataButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_visualizeDataButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_visualizeDataButtonActionPerformed
+
+    private void returnButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_returnButtonActionPerformed
+
+    private void prevMonthButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_prevMonthButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_prevMonthButtonActionPerformed
+
+    private void nextMonthButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextMonthButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nextMonthButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

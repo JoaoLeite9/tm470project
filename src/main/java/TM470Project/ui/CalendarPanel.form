@@ -188,10 +188,10 @@
                   <Component id="date29" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="date30" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="date31" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="visualizeDataButton" alignment="3" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="visualizeDataButton" min="-2" max="-2" attributes="0"/>
+                  <Component id="date31" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -207,12 +207,18 @@
         <Property name="text" type="java.lang.String" value="&lt;"/>
         <Property name="toolTipText" type="java.lang.String" value="Return to the previous screen."/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="returnButtonActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="prevMonthButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="&lt;"/>
         <Property name="toolTipText" type="java.lang.String" value="Previous month"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="prevMonthButtonActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="monthLabel">
       <Properties>
@@ -227,6 +233,9 @@
         <Property name="text" type="java.lang.String" value="&gt;"/>
         <Property name="toolTipText" type="java.lang.String" value="Next month"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nextMonthButtonActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="date1">
       <Properties>
@@ -235,6 +244,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="1"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="date1ActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="date2">
       <Properties>
@@ -243,6 +255,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="2"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="date2ActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="date3">
       <Properties>
@@ -251,6 +266,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="3"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="date3ActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="date4">
       <Properties>
@@ -270,6 +288,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="5"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="date5ActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="date6">
       <Properties>
@@ -278,6 +299,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="6"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="date6ActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="date11">
       <Properties>
@@ -286,6 +310,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="11"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="date11ActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="date16">
       <Properties>
@@ -294,6 +321,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="16"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="date16ActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="date21">
       <Properties>
@@ -302,6 +332,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="21"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="date21ActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="date26">
       <Properties>
@@ -310,6 +343,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="26"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="date26ActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="date31">
       <Properties>
@@ -318,6 +354,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="31"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="date31ActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="date7">
       <Properties>
@@ -326,6 +365,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="7"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="date7ActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="date8">
       <Properties>
@@ -334,6 +376,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="8"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="date8ActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="date9">
       <Properties>
@@ -342,6 +387,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="9"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="date9ActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="date10">
       <Properties>
@@ -350,6 +398,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="10"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="date10ActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="date12">
       <Properties>
@@ -358,6 +409,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="12"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="date12ActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="date13">
       <Properties>
@@ -366,6 +420,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="13"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="date13ActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="date14">
       <Properties>
@@ -374,6 +431,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="14"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="date14ActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="date15">
       <Properties>
@@ -382,6 +442,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="15"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="date15ActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="date17">
       <Properties>
@@ -390,6 +453,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="17"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="date17ActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="date18">
       <Properties>
@@ -398,6 +464,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="18"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="date18ActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="date19">
       <Properties>
@@ -406,6 +475,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="19"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="date19ActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="date20">
       <Properties>
@@ -414,6 +486,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="20"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="date20ActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="date22">
       <Properties>
@@ -422,6 +497,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="22"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="date22ActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="date23">
       <Properties>
@@ -430,6 +508,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="23"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="date23ActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="date24">
       <Properties>
@@ -449,6 +530,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="25"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="date25ActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="date27">
       <Properties>
@@ -457,6 +541,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="27"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="date27ActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="date28">
       <Properties>
@@ -465,6 +552,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="28"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="date28ActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="date29">
       <Properties>
@@ -473,6 +563,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="29"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="date29ActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="date30">
       <Properties>
@@ -481,6 +574,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="30"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="date30ActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="visualizeDataButton">
       <Properties>
@@ -489,6 +585,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="&lt;&lt;DataV&gt;&gt;"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="visualizeDataButtonActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

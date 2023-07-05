@@ -5,13 +5,16 @@
 package TM470Project.ui;
 
 import java.awt.CardLayout;
-import javax.swing.JPanel;
+import javax.swing.*;
 
 /**
  *
  * @author Joao
  */
 public class MainFrame extends javax.swing.JFrame {
+    /* declare JFrame object */
+    private static final MainFrame mainFrame = new MainFrame();
+
     /* declaration of panel names for change screen method */
     private static final String CALENDAR_PANEL = "calendar";
     private static final String CREATE_ENTRY = "create entry";
@@ -35,12 +38,15 @@ public class MainFrame extends javax.swing.JFrame {
     private final EntryTypeSelectionPanel entryTypeSelectionPanel;
     private final MainPanel mainPanel;
     private final SettingsPanel settingsPanel;
+
+    /* declare cardPanel object which holds different panels */
     private final JPanel cardPanel;
 
     /**
      * Creates new form MainFrame
      */
     public MainFrame() {
+        super();
         initComponents();
 
         //initialize each different panel
@@ -61,12 +67,18 @@ public class MainFrame extends javax.swing.JFrame {
         //run initialization methods
         setUpFrame();
     }
-    
-    private void changeScreen(String screen){
+
+    /**
+     * @param screen the screen to be changed into
+     */
+    public void changeScreen(String screen){
         ((CardLayout) cardPanel.getLayout()).show(cardPanel, screen);
     }
 
-    private void setUpFrame(){
+    /**
+     * adds panels to the card panel collection
+     */
+    public void setUpFrame(){
         cardPanel.add(calendarPanel, CALENDAR_PANEL);
         cardPanel.add(createEntryPanel, CREATE_ENTRY);
         cardPanel.add(createTypePanel, CREATE_TYPE);
@@ -115,8 +127,18 @@ public class MainFrame extends javax.swing.JFrame {
         });
 
         settingsButton.setText("Settings");
+        settingsButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                settingsButtonActionPerformed(evt);
+            }
+        });
 
         helpButton.setText("Help");
+        helpButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                helpButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -173,12 +195,28 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void createButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createButtonActionPerformed
         // TODO add your handling code here:
-        changeScreen(CREATE_ENTRY);
+        getMainFrame().changeScreen(CREATE_ENTRY);
+        getMainFrame().repaint();
+        getMainFrame().revalidate();
+        System.out.println("Create Entry button pressed");
     }//GEN-LAST:event_createButtonActionPerformed
 
     private void viewDataButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewDataButtonActionPerformed
         // TODO add your handling code here:
+        getMainFrame().changeScreen(DATA_VIEW);
+        System.out.println("View Data button pressed");
     }//GEN-LAST:event_viewDataButtonActionPerformed
+
+    private void settingsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_settingsButtonActionPerformed
+        // TODO add your handling code here:
+        getMainFrame().changeScreen(SETTINGS);
+        System.out.println("Settings button pressed");
+    }//GEN-LAST:event_settingsButtonActionPerformed
+
+    private void helpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_helpButtonActionPerformed
+        // TODO add your handling code here:
+        System.out.println("Help button pressed");
+    }//GEN-LAST:event_helpButtonActionPerformed
 
     public static void run() {
         /* Set the Nimbus look and feel */
@@ -208,7 +246,8 @@ public class MainFrame extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MainFrame().setVisible(true);
+                mainFrame.changeScreen(MAIN);
+                mainFrame.setVisible(true);
             }
         });
     }
@@ -220,4 +259,8 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton settingsButton;
     private javax.swing.JButton viewDataButton;
     // End of variables declaration//GEN-END:variables
+
+    //getters for MainFrame class
+    public static MainFrame getMainFrame(){ return mainFrame;}
+    public static String getCreateEntryRef(){ return CREATE_ENTRY;}
 }

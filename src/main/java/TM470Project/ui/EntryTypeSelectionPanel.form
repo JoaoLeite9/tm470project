@@ -78,6 +78,9 @@
         <Property name="text" type="java.lang.String" value="&lt;"/>
         <Property name="toolTipText" type="java.lang.String" value="Return to the previous screen."/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="returnButtonActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JScrollBar" name="scrollBar">
     </Component>

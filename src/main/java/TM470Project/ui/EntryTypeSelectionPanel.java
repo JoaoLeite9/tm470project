@@ -40,6 +40,11 @@ public class EntryTypeSelectionPanel extends javax.swing.JPanel {
         returnButton.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         returnButton.setText("<");
         returnButton.setToolTipText("Return to the previous screen.");
+        returnButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                returnButtonActionPerformed(evt);
+            }
+        });
 
         type1.setText("<<anEntryType>>");
         type1.addActionListener(new java.awt.event.ActionListener() {
@@ -151,6 +156,10 @@ public class EntryTypeSelectionPanel extends javax.swing.JPanel {
     private void type3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_type3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_type3ActionPerformed
+
+    private void returnButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_returnButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

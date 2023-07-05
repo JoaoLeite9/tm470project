@@ -45,6 +45,11 @@ public class EditEntryPanel extends javax.swing.JPanel {
         returnButton.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         returnButton.setText("<");
         returnButton.setToolTipText("Return to the previous screen.");
+        returnButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                returnButtonActionPerformed(evt);
+            }
+        });
 
         deleteButton.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         deleteButton.setText("Delete");
@@ -67,6 +72,11 @@ public class EditEntryPanel extends javax.swing.JPanel {
         confirmButton.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         confirmButton.setText("Confirm");
         confirmButton.setToolTipText("Finalize your entry.");
+        confirmButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                confirmButtonActionPerformed(evt);
+            }
+        });
 
         inputField.setToolTipText("The numerical input for the entry.");
         inputField.addActionListener(new java.awt.event.ActionListener() {
@@ -78,9 +88,19 @@ public class EditEntryPanel extends javax.swing.JPanel {
         typeComboBox.setEditable(true);
         typeComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "(keep for now)" }));
         typeComboBox.setToolTipText("The entry type for your entry.");
+        typeComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                typeComboBoxActionPerformed(evt);
+            }
+        });
 
         dayComboBox.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         dayComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Day", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
+        dayComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dayComboBoxActionPerformed(evt);
+            }
+        });
 
         monthComboBox.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         monthComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Month", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" }));
@@ -94,12 +114,22 @@ public class EditEntryPanel extends javax.swing.JPanel {
         yearComboBox.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         yearComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Year", "<<fill this out using some code>>" }));
         yearComboBox.setName(""); // NOI18N
+        yearComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                yearComboBoxActionPerformed(evt);
+            }
+        });
 
         titleLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         titleLabel.setText("Edit Entry");
 
         toTypeSelectionButton.setText("...");
         toTypeSelectionButton.setToolTipText("Create entry type.");
+        toTypeSelectionButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                toTypeSelectionButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -181,6 +211,30 @@ public class EditEntryPanel extends javax.swing.JPanel {
     private void monthComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_monthComboBoxActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_monthComboBoxActionPerformed
+
+    private void returnButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_returnButtonActionPerformed
+
+    private void typeComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_typeComboBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_typeComboBoxActionPerformed
+
+    private void toTypeSelectionButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_toTypeSelectionButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_toTypeSelectionButtonActionPerformed
+
+    private void dayComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dayComboBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_dayComboBoxActionPerformed
+
+    private void yearComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_yearComboBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_yearComboBoxActionPerformed
+
+    private void confirmButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_confirmButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

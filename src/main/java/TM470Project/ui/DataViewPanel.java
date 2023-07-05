@@ -37,15 +37,30 @@ public class DataViewPanel extends javax.swing.JPanel {
         returnButton.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         returnButton.setText("<");
         returnButton.setToolTipText("Return to the previous screen.");
+        returnButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                returnButtonActionPerformed(evt);
+            }
+        });
 
         prevMonthButton.setText("<");
         prevMonthButton.setToolTipText("Previous month");
+        prevMonthButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                prevMonthButtonActionPerformed(evt);
+            }
+        });
 
         monthLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         monthLabel.setText("<<getMonth>>");
 
         nextMonthLabel.setText(">");
         nextMonthLabel.setToolTipText("Next month");
+        nextMonthLabel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nextMonthLabelActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout dataAreaPanelLayout = new javax.swing.GroupLayout(dataAreaPanel);
         dataAreaPanel.setLayout(dataAreaPanelLayout);
@@ -93,6 +108,18 @@ public class DataViewPanel extends javax.swing.JPanel {
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void prevMonthButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_prevMonthButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_prevMonthButtonActionPerformed
+
+    private void returnButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_returnButtonActionPerformed
+
+    private void nextMonthLabelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextMonthLabelActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nextMonthLabelActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
