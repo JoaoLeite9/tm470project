@@ -4,6 +4,8 @@
  */
 package TM470Project.ui;
 
+import static TM470Project.ui.MainFrame.getWindow;
+
 /**
  *
  * @author Joao
@@ -197,10 +199,12 @@ public class CreateEntryPanel extends javax.swing.JPanel {
 
     private void returnButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnButtonActionPerformed
         // TODO add your handling code here:
+        getWindow().changeScreen("MAIN");
     }//GEN-LAST:event_returnButtonActionPerformed
 
     private void toTypeSelectionButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_toTypeSelectionButtonActionPerformed
         // TODO add your handling code here:
+        getWindow().changeScreen("TYPE SELECTION");
     }//GEN-LAST:event_toTypeSelectionButtonActionPerformed
 
     private void typeComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_typeComboBoxActionPerformed

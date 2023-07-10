@@ -39,7 +39,7 @@ public class TM470Controller {
             //config = new Config();
             
             //opens user interface main window
-            MainFrame.run();
+//            MainFrame.run();
 
         }
         catch(Exception e){

@@ -4,6 +4,8 @@
  */
 package TM470Project.ui;
 
+import static TM470Project.ui.MainFrame.getWindow;
+
 /**
  *
  * @author Joao

@@ -24,13 +24,13 @@
           <Group type="102" attributes="0">
               <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
                       <Component id="returnButton" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Component id="prevMonthButton" min="-2" pref="24" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="monthLabel" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="monthLabel" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Component id="nextMonthButton" min="-2" pref="24" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
@@ -103,23 +103,20 @@
                                   <Component id="date31" alignment="0" min="-2" pref="40" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
-                                      <Component id="visualizeDataButton" max="32767" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
                                       <Component id="date29" min="-2" pref="40" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="date30" min="-2" pref="40" max="-2" attributes="0"/>
                                   </Group>
+                                  <Component id="visualizeDataButton" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -127,71 +124,71 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                  <Group type="102" alignment="1" attributes="0">
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="returnButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" alignment="3" attributes="0">
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="prevMonthButton" alignment="3" max="32767" attributes="0"/>
-                          <Component id="monthLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="nextMonthButton" alignment="3" max="32767" attributes="0"/>
+                          <Component id="monthLabel" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                          <Component id="prevMonthButton" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
+                          <Component id="nextMonthButton" alignment="3" pref="24" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace min="2" pref="2" max="-2" attributes="0"/>
+                      <EmptySpace min="3" pref="3" max="-2" attributes="0"/>
                   </Group>
-                  <Component id="returnButton" alignment="0" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="date1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="date2" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="date3" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="date4" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="date5" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="date6" alignment="1" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="date1" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
+                  <Component id="date2" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
+                  <Component id="date3" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
+                  <Component id="date4" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
+                  <Component id="date5" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                  <Component id="date6" alignment="1" min="-2" pref="20" max="-2" attributes="0"/>
                   <Group type="103" alignment="1" groupAlignment="3" attributes="0">
-                      <Component id="date10" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="date9" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="date8" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="date7" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="date9" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
+                      <Component id="date8" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
+                      <Component id="date7" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
+                      <Component id="date10" alignment="1" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="date11" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="date12" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="date13" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="date14" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="date15" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="date11" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
+                  <Component id="date12" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
+                  <Component id="date13" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
+                  <Component id="date14" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
+                  <Component id="date15" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="date20" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="date19" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="date18" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="date17" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="date16" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="date20" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
+                  <Component id="date19" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
+                  <Component id="date18" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
+                  <Component id="date17" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
+                  <Component id="date16" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="date25" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="date24" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="date23" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="date22" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="date21" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="date25" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
+                  <Component id="date24" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
+                  <Component id="date23" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
+                  <Component id="date22" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
+                  <Component id="date21" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="date26" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="date27" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="date28" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="date29" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="date30" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="date26" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
+                  <Component id="date27" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
+                  <Component id="date28" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
+                  <Component id="date29" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
+                  <Component id="date30" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="visualizeDataButton" min="-2" max="-2" attributes="0"/>
-                  <Component id="date31" alignment="0" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="date31" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
+                  <Component id="visualizeDataButton" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -213,6 +210,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="prevMonthButton">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Segoe UI" size="8" style="0"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="&lt;"/>
         <Property name="toolTipText" type="java.lang.String" value="Previous month"/>
       </Properties>
@@ -225,13 +225,20 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="18" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="&lt;&lt;getMonth&gt;&gt;"/>
+        <Property name="horizontalAlignment" type="int" value="0"/>
+        <Property name="text" type="java.lang.String" value="Month"/>
+        <Property name="horizontalTextPosition" type="int" value="0"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="nextMonthButton">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Segoe UI" size="8" style="0"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="&gt;"/>
         <Property name="toolTipText" type="java.lang.String" value="Next month"/>
+        <Property name="horizontalTextPosition" type="int" value="0"/>
+        <Property name="rolloverEnabled" type="boolean" value="false"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nextMonthButtonActionPerformed"/>
@@ -240,7 +247,7 @@
     <Component class="javax.swing.JButton" name="date1">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="10" style="0"/>
+          <Font name="Segoe UI" size="6" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="1"/>
       </Properties>
@@ -251,7 +258,7 @@
     <Component class="javax.swing.JButton" name="date2">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="10" style="0"/>
+          <Font name="Segoe UI" size="6" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="2"/>
       </Properties>
@@ -262,7 +269,7 @@
     <Component class="javax.swing.JButton" name="date3">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="10" style="0"/>
+          <Font name="Segoe UI" size="6" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="3"/>
       </Properties>
@@ -273,7 +280,7 @@
     <Component class="javax.swing.JButton" name="date4">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="10" style="0"/>
+          <Font name="Segoe UI" size="6" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="4"/>
       </Properties>
@@ -284,7 +291,7 @@
     <Component class="javax.swing.JButton" name="date5">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="10" style="0"/>
+          <Font name="Segoe UI" size="6" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="5"/>
       </Properties>
@@ -295,7 +302,7 @@
     <Component class="javax.swing.JButton" name="date6">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="10" style="0"/>
+          <Font name="Segoe UI" size="6" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="6"/>
       </Properties>
@@ -306,7 +313,7 @@
     <Component class="javax.swing.JButton" name="date11">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="10" style="0"/>
+          <Font name="Segoe UI" size="6" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="11"/>
       </Properties>
@@ -317,7 +324,7 @@
     <Component class="javax.swing.JButton" name="date16">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="10" style="0"/>
+          <Font name="Segoe UI" size="6" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="16"/>
       </Properties>
@@ -328,7 +335,7 @@
     <Component class="javax.swing.JButton" name="date21">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="10" style="0"/>
+          <Font name="Segoe UI" size="6" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="21"/>
       </Properties>
@@ -339,7 +346,7 @@
     <Component class="javax.swing.JButton" name="date26">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="10" style="0"/>
+          <Font name="Segoe UI" size="6" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="26"/>
       </Properties>
@@ -350,7 +357,7 @@
     <Component class="javax.swing.JButton" name="date31">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="10" style="0"/>
+          <Font name="Segoe UI" size="6" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="31"/>
       </Properties>
@@ -361,7 +368,7 @@
     <Component class="javax.swing.JButton" name="date7">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="10" style="0"/>
+          <Font name="Segoe UI" size="6" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="7"/>
       </Properties>
@@ -372,7 +379,7 @@
     <Component class="javax.swing.JButton" name="date8">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="10" style="0"/>
+          <Font name="Segoe UI" size="6" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="8"/>
       </Properties>
@@ -383,9 +390,12 @@
     <Component class="javax.swing.JButton" name="date9">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="10" style="0"/>
+          <Font name="Segoe UI" size="6" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="9"/>
+        <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[16, 16]"/>
+        </Property>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="date9ActionPerformed"/>
@@ -394,7 +404,7 @@
     <Component class="javax.swing.JButton" name="date10">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="10" style="0"/>
+          <Font name="Segoe UI" size="6" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="10"/>
       </Properties>
@@ -405,7 +415,7 @@
     <Component class="javax.swing.JButton" name="date12">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="10" style="0"/>
+          <Font name="Segoe UI" size="6" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="12"/>
       </Properties>
@@ -416,7 +426,7 @@
     <Component class="javax.swing.JButton" name="date13">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="10" style="0"/>
+          <Font name="Segoe UI" size="6" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="13"/>
       </Properties>
@@ -427,7 +437,7 @@
     <Component class="javax.swing.JButton" name="date14">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="10" style="0"/>
+          <Font name="Segoe UI" size="6" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="14"/>
       </Properties>
@@ -438,7 +448,7 @@
     <Component class="javax.swing.JButton" name="date15">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="10" style="0"/>
+          <Font name="Segoe UI" size="6" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="15"/>
       </Properties>
@@ -449,7 +459,7 @@
     <Component class="javax.swing.JButton" name="date17">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="10" style="0"/>
+          <Font name="Segoe UI" size="6" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="17"/>
       </Properties>
@@ -460,7 +470,7 @@
     <Component class="javax.swing.JButton" name="date18">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="10" style="0"/>
+          <Font name="Segoe UI" size="6" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="18"/>
       </Properties>
@@ -471,7 +481,7 @@
     <Component class="javax.swing.JButton" name="date19">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="10" style="0"/>
+          <Font name="Segoe UI" size="6" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="19"/>
       </Properties>
@@ -482,7 +492,7 @@
     <Component class="javax.swing.JButton" name="date20">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="10" style="0"/>
+          <Font name="Segoe UI" size="6" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="20"/>
       </Properties>
@@ -493,7 +503,7 @@
     <Component class="javax.swing.JButton" name="date22">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="10" style="0"/>
+          <Font name="Segoe UI" size="6" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="22"/>
       </Properties>
@@ -504,7 +514,7 @@
     <Component class="javax.swing.JButton" name="date23">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="10" style="0"/>
+          <Font name="Segoe UI" size="6" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="23"/>
       </Properties>
@@ -515,7 +525,7 @@
     <Component class="javax.swing.JButton" name="date24">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="10" style="0"/>
+          <Font name="Segoe UI" size="6" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="24"/>
       </Properties>
@@ -526,7 +536,7 @@
     <Component class="javax.swing.JButton" name="date25">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="10" style="0"/>
+          <Font name="Segoe UI" size="6" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="25"/>
       </Properties>
@@ -537,7 +547,7 @@
     <Component class="javax.swing.JButton" name="date27">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="10" style="0"/>
+          <Font name="Segoe UI" size="6" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="27"/>
       </Properties>
@@ -548,7 +558,7 @@
     <Component class="javax.swing.JButton" name="date28">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="10" style="0"/>
+          <Font name="Segoe UI" size="6" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="28"/>
       </Properties>
@@ -559,7 +569,7 @@
     <Component class="javax.swing.JButton" name="date29">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="10" style="0"/>
+          <Font name="Segoe UI" size="6" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="29"/>
       </Properties>
@@ -570,7 +580,7 @@
     <Component class="javax.swing.JButton" name="date30">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="10" style="0"/>
+          <Font name="Segoe UI" size="6" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="30"/>
       </Properties>
@@ -583,7 +593,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="10" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="&lt;&lt;DataV&gt;&gt;"/>
+        <Property name="text" type="java.lang.String" value="Visualize"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="visualizeDataButtonActionPerformed"/>

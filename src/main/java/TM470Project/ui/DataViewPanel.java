@@ -4,15 +4,18 @@
  */
 package TM470Project.ui;
 
+import static TM470Project.ui.MainFrame.getWindow;
+
 /**
  *
  * @author Joao
  */
 public class DataViewPanel extends javax.swing.JPanel {
-
     /**
      * Creates new form DataViewPanel
      */
+    
+    
     public DataViewPanel() {
         initComponents();
     }
@@ -29,7 +32,7 @@ public class DataViewPanel extends javax.swing.JPanel {
         returnButton = new javax.swing.JButton();
         prevMonthButton = new javax.swing.JButton();
         monthLabel = new javax.swing.JLabel();
-        nextMonthLabel = new javax.swing.JButton();
+        nextMonthButton = new javax.swing.JButton();
         dataAreaPanel = new javax.swing.JPanel();
 
         setBackground(new java.awt.Color(204, 255, 255));
@@ -52,13 +55,14 @@ public class DataViewPanel extends javax.swing.JPanel {
         });
 
         monthLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        monthLabel.setText("<<getMonth>>");
+        monthLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        monthLabel.setText("<<getDate>>");
 
-        nextMonthLabel.setText(">");
-        nextMonthLabel.setToolTipText("Next month");
-        nextMonthLabel.addActionListener(new java.awt.event.ActionListener() {
+        nextMonthButton.setText(">");
+        nextMonthButton.setToolTipText("Next month");
+        nextMonthButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nextMonthLabelActionPerformed(evt);
+                nextMonthButtonActionPerformed(evt);
             }
         });
 
@@ -77,21 +81,19 @@ public class DataViewPanel extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(5, 5, 5)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(dataAreaPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 2, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(dataAreaPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(returnButton)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(prevMonthButton, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(monthLabel)
+                        .addComponent(monthLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(nextMonthLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(5, 5, 5))
+                        .addComponent(nextMonthButton, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -101,7 +103,7 @@ public class DataViewPanel extends javax.swing.JPanel {
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(prevMonthButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(monthLabel)
-                        .addComponent(nextMonthLabel))
+                        .addComponent(nextMonthButton))
                     .addComponent(returnButton))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(dataAreaPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -110,22 +112,31 @@ public class DataViewPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void prevMonthButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_prevMonthButtonActionPerformed
-        // TODO add your handling code here:
+        CalendarPanel.setDate(CalendarPanel.getDate().minusMonths(1));
+        updateMonthLabel();
     }//GEN-LAST:event_prevMonthButtonActionPerformed
 
     private void returnButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnButtonActionPerformed
         // TODO add your handling code here:
+        getWindow().changeScreen("CALENDAR");
+        getWindow().getCalendarPanel().updateMonthLabel();
     }//GEN-LAST:event_returnButtonActionPerformed
 
-    private void nextMonthLabelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextMonthLabelActionPerformed
+    private void nextMonthButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextMonthButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_nextMonthLabelActionPerformed
+        CalendarPanel.setDate(CalendarPanel.getDate().plusMonths(1));
+        updateMonthLabel();
+    }//GEN-LAST:event_nextMonthButtonActionPerformed
 
+    public void updateMonthLabel(){
+        monthLabel.setText(CalendarPanel.getDate().getMonth().toString().substring(0, 3) + " " + CalendarPanel.getDate().getYear());
+    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel dataAreaPanel;
     private javax.swing.JLabel monthLabel;
-    private javax.swing.JButton nextMonthLabel;
+    private javax.swing.JButton nextMonthButton;
     private javax.swing.JButton prevMonthButton;
     private javax.swing.JButton returnButton;
     // End of variables declaration//GEN-END:variables

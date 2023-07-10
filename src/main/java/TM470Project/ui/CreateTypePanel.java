@@ -6,6 +6,8 @@ package TM470Project.ui;
 
 import javax.swing.JOptionPane;
 
+import static TM470Project.ui.MainFrame.getWindow;
+
 /**
  *
  * @author Joao
@@ -200,10 +202,12 @@ public class CreateTypePanel extends javax.swing.JPanel {
 
     private void returnButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnButtonActionPerformed
         // TODO add your handling code here:
+        getWindow().changeScreen("MAIN");
     }//GEN-LAST:event_returnButtonActionPerformed
 
     private void editButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editButtonActionPerformed
         // TODO add your handling code here:
+        getWindow().changeScreen("EDIT TYPE");
     }//GEN-LAST:event_editButtonActionPerformed
 
     private void unitComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_unitComboBoxActionPerformed

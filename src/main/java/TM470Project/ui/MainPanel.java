@@ -4,7 +4,7 @@
  */
 package TM470Project.ui;
 
-import static TM470Project.ui.MainFrame.getMainFrame;
+import static TM470Project.ui.MainFrame.getWindow;
 
 /**
  *
@@ -34,6 +34,8 @@ public class MainPanel extends javax.swing.JPanel {
         helpButton = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(204, 255, 255));
+        setAlignmentX(0.0F);
+        setAlignmentY(0.0F);
 
         createButton.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         createButton.setText("Create Entry");
@@ -87,11 +89,11 @@ public class MainPanel extends javax.swing.JPanel {
                 .addComponent(createButton, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(viewDataButton, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(settingsButton)
-                    .addComponent(helpButton))
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(settingsButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(helpButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(11, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -101,17 +103,17 @@ public class MainPanel extends javax.swing.JPanel {
 
     private void settingsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_settingsButtonActionPerformed
         // TODO add your handling code here:
-        getMainFrame().changeScreen("SETTINGS");
+        getWindow().changeScreen("SETTINGS");
     }//GEN-LAST:event_settingsButtonActionPerformed
 
     private void viewDataButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewDataButtonActionPerformed
         // TODO add your handling code here:
-        getMainFrame().changeScreen("VIEW DATA");
+        getWindow().changeScreen("CALENDAR");
     }//GEN-LAST:event_viewDataButtonActionPerformed
 
     private void createButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createButtonActionPerformed
         // TODO add your handling code here:
-        getMainFrame().changeScreen("CREATE ENTRY");
+        getWindow().changeScreen("CREATE ENTRY");
     }//GEN-LAST:event_createButtonActionPerformed
 
 

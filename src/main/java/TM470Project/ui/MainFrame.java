@@ -13,7 +13,7 @@ import javax.swing.*;
  */
 public class MainFrame extends javax.swing.JFrame {
     /* declare JFrame object */
-    private static MainFrame mainFrame;
+    private static final MainFrame window = new MainFrame();
 
     /* declaration of panel objects */
     private final CalendarPanel calendarPanel = new CalendarPanel();
@@ -35,12 +35,9 @@ public class MainFrame extends javax.swing.JFrame {
      * Creates new form MainFrame
      */
     public MainFrame() {
+        super();
         //generated code for initialization
         initComponents();
-
-        //run initialization methods for each panel
-        setUpFrame();
-        changeScreen("MAIN");
     }
 
     /**
@@ -48,7 +45,6 @@ public class MainFrame extends javax.swing.JFrame {
      */
     public void changeScreen(String screen){
         ((CardLayout) cardPanel.getLayout()).show(cardPanel, screen);
-
     }
 
     /**
@@ -65,6 +61,8 @@ public class MainFrame extends javax.swing.JFrame {
         cardPanel.add(entryTypeSelectionPanel, "TYPE SELECTION");
         cardPanel.add(mainPanel, "MAIN");
         cardPanel.add(settingsPanel, "SETTINGS");
+
+        window.add(cardPanel);
     }
 
     /**
@@ -77,17 +75,18 @@ public class MainFrame extends javax.swing.JFrame {
     private void initComponents() {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 246, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 230, Short.MAX_VALUE)
-        );
+//        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+//        getContentPane().setLayout(layout);
+//        layout.setHorizontalGroup(
+//            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+//            .addGap(0, 246, Short.MAX_VALUE)
+//        );
+//        layout.setVerticalGroup(
+//            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+//            .addGap(0, 230, Short.MAX_VALUE)
+//        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -120,8 +119,11 @@ public class MainFrame extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                mainFrame = new MainFrame();
-                mainFrame.setVisible(true);
+                window.setUpFrame();
+                window.changeScreen("MAIN");
+                window.setSize(263, 280);
+                window.setResizable(false);
+                window.setVisible(true);
             }
         });
     }
@@ -130,5 +132,13 @@ public class MainFrame extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     //getters for MainFrame class
-    public static MainFrame getMainFrame(){ return mainFrame;}
+    public static MainFrame getWindow(){ return window;}
+    
+    public CalendarPanel getCalendarPanel(){ return calendarPanel;}
+    
+    public DataViewPanel getDataViewPanel(){ return dataViewPanel;}
+
+    public static void main(String[] args){
+        run();
+    }
 }

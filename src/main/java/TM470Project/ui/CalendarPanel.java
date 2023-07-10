@@ -4,17 +4,25 @@
  */
 package TM470Project.ui;
 
+import java.time.LocalDate;
+
+import static TM470Project.ui.MainFrame.getWindow;
+
 /**
  *
  * @author Joao
  */
 public class CalendarPanel extends javax.swing.JPanel {
 
+    private static LocalDate date;
+
     /**
      * Creates new form CalendarPanel
      */
     public CalendarPanel() {
         initComponents();
+        date = LocalDate.now();
+        updateMonthLabel();
     }
 
     /**
@@ -74,6 +82,7 @@ public class CalendarPanel extends javax.swing.JPanel {
             }
         });
 
+        prevMonthButton.setFont(new java.awt.Font("Segoe UI", 0, 8)); // NOI18N
         prevMonthButton.setText("<");
         prevMonthButton.setToolTipText("Previous month");
         prevMonthButton.addActionListener(new java.awt.event.ActionListener() {
@@ -83,17 +92,22 @@ public class CalendarPanel extends javax.swing.JPanel {
         });
 
         monthLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        monthLabel.setText("<<getMonth>>");
+        monthLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        monthLabel.setText("Month");
+        monthLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
+        nextMonthButton.setFont(new java.awt.Font("Segoe UI", 0, 8)); // NOI18N
         nextMonthButton.setText(">");
         nextMonthButton.setToolTipText("Next month");
+        nextMonthButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        nextMonthButton.setRolloverEnabled(false);
         nextMonthButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nextMonthButtonActionPerformed(evt);
             }
         });
 
-        date1.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
+        date1.setFont(new java.awt.Font("Segoe UI", 0, 6)); // NOI18N
         date1.setText("1");
         date1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -101,7 +115,7 @@ public class CalendarPanel extends javax.swing.JPanel {
             }
         });
 
-        date2.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
+        date2.setFont(new java.awt.Font("Segoe UI", 0, 6)); // NOI18N
         date2.setText("2");
         date2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -109,7 +123,7 @@ public class CalendarPanel extends javax.swing.JPanel {
             }
         });
 
-        date3.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
+        date3.setFont(new java.awt.Font("Segoe UI", 0, 6)); // NOI18N
         date3.setText("3");
         date3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -117,7 +131,7 @@ public class CalendarPanel extends javax.swing.JPanel {
             }
         });
 
-        date4.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
+        date4.setFont(new java.awt.Font("Segoe UI", 0, 6)); // NOI18N
         date4.setText("4");
         date4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -125,7 +139,7 @@ public class CalendarPanel extends javax.swing.JPanel {
             }
         });
 
-        date5.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
+        date5.setFont(new java.awt.Font("Segoe UI", 0, 6)); // NOI18N
         date5.setText("5");
         date5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -133,7 +147,7 @@ public class CalendarPanel extends javax.swing.JPanel {
             }
         });
 
-        date6.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
+        date6.setFont(new java.awt.Font("Segoe UI", 0, 6)); // NOI18N
         date6.setText("6");
         date6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -141,7 +155,7 @@ public class CalendarPanel extends javax.swing.JPanel {
             }
         });
 
-        date11.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
+        date11.setFont(new java.awt.Font("Segoe UI", 0, 6)); // NOI18N
         date11.setText("11");
         date11.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -149,7 +163,7 @@ public class CalendarPanel extends javax.swing.JPanel {
             }
         });
 
-        date16.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
+        date16.setFont(new java.awt.Font("Segoe UI", 0, 6)); // NOI18N
         date16.setText("16");
         date16.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -157,7 +171,7 @@ public class CalendarPanel extends javax.swing.JPanel {
             }
         });
 
-        date21.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
+        date21.setFont(new java.awt.Font("Segoe UI", 0, 6)); // NOI18N
         date21.setText("21");
         date21.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -165,7 +179,7 @@ public class CalendarPanel extends javax.swing.JPanel {
             }
         });
 
-        date26.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
+        date26.setFont(new java.awt.Font("Segoe UI", 0, 6)); // NOI18N
         date26.setText("26");
         date26.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -173,7 +187,7 @@ public class CalendarPanel extends javax.swing.JPanel {
             }
         });
 
-        date31.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
+        date31.setFont(new java.awt.Font("Segoe UI", 0, 6)); // NOI18N
         date31.setText("31");
         date31.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -181,7 +195,7 @@ public class CalendarPanel extends javax.swing.JPanel {
             }
         });
 
-        date7.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
+        date7.setFont(new java.awt.Font("Segoe UI", 0, 6)); // NOI18N
         date7.setText("7");
         date7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -189,7 +203,7 @@ public class CalendarPanel extends javax.swing.JPanel {
             }
         });
 
-        date8.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
+        date8.setFont(new java.awt.Font("Segoe UI", 0, 6)); // NOI18N
         date8.setText("8");
         date8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -197,15 +211,16 @@ public class CalendarPanel extends javax.swing.JPanel {
             }
         });
 
-        date9.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
+        date9.setFont(new java.awt.Font("Segoe UI", 0, 6)); // NOI18N
         date9.setText("9");
+        date9.setMaximumSize(new java.awt.Dimension(16, 16));
         date9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 date9ActionPerformed(evt);
             }
         });
 
-        date10.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
+        date10.setFont(new java.awt.Font("Segoe UI", 0, 6)); // NOI18N
         date10.setText("10");
         date10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -213,7 +228,7 @@ public class CalendarPanel extends javax.swing.JPanel {
             }
         });
 
-        date12.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
+        date12.setFont(new java.awt.Font("Segoe UI", 0, 6)); // NOI18N
         date12.setText("12");
         date12.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -221,7 +236,7 @@ public class CalendarPanel extends javax.swing.JPanel {
             }
         });
 
-        date13.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
+        date13.setFont(new java.awt.Font("Segoe UI", 0, 6)); // NOI18N
         date13.setText("13");
         date13.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -229,7 +244,7 @@ public class CalendarPanel extends javax.swing.JPanel {
             }
         });
 
-        date14.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
+        date14.setFont(new java.awt.Font("Segoe UI", 0, 6)); // NOI18N
         date14.setText("14");
         date14.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -237,7 +252,7 @@ public class CalendarPanel extends javax.swing.JPanel {
             }
         });
 
-        date15.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
+        date15.setFont(new java.awt.Font("Segoe UI", 0, 6)); // NOI18N
         date15.setText("15");
         date15.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -245,7 +260,7 @@ public class CalendarPanel extends javax.swing.JPanel {
             }
         });
 
-        date17.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
+        date17.setFont(new java.awt.Font("Segoe UI", 0, 6)); // NOI18N
         date17.setText("17");
         date17.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -253,7 +268,7 @@ public class CalendarPanel extends javax.swing.JPanel {
             }
         });
 
-        date18.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
+        date18.setFont(new java.awt.Font("Segoe UI", 0, 6)); // NOI18N
         date18.setText("18");
         date18.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -261,7 +276,7 @@ public class CalendarPanel extends javax.swing.JPanel {
             }
         });
 
-        date19.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
+        date19.setFont(new java.awt.Font("Segoe UI", 0, 6)); // NOI18N
         date19.setText("19");
         date19.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -269,7 +284,7 @@ public class CalendarPanel extends javax.swing.JPanel {
             }
         });
 
-        date20.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
+        date20.setFont(new java.awt.Font("Segoe UI", 0, 6)); // NOI18N
         date20.setText("20");
         date20.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -277,7 +292,7 @@ public class CalendarPanel extends javax.swing.JPanel {
             }
         });
 
-        date22.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
+        date22.setFont(new java.awt.Font("Segoe UI", 0, 6)); // NOI18N
         date22.setText("22");
         date22.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -285,7 +300,7 @@ public class CalendarPanel extends javax.swing.JPanel {
             }
         });
 
-        date23.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
+        date23.setFont(new java.awt.Font("Segoe UI", 0, 6)); // NOI18N
         date23.setText("23");
         date23.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -293,7 +308,7 @@ public class CalendarPanel extends javax.swing.JPanel {
             }
         });
 
-        date24.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
+        date24.setFont(new java.awt.Font("Segoe UI", 0, 6)); // NOI18N
         date24.setText("24");
         date24.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -301,7 +316,7 @@ public class CalendarPanel extends javax.swing.JPanel {
             }
         });
 
-        date25.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
+        date25.setFont(new java.awt.Font("Segoe UI", 0, 6)); // NOI18N
         date25.setText("25");
         date25.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -309,7 +324,7 @@ public class CalendarPanel extends javax.swing.JPanel {
             }
         });
 
-        date27.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
+        date27.setFont(new java.awt.Font("Segoe UI", 0, 6)); // NOI18N
         date27.setText("27");
         date27.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -317,7 +332,7 @@ public class CalendarPanel extends javax.swing.JPanel {
             }
         });
 
-        date28.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
+        date28.setFont(new java.awt.Font("Segoe UI", 0, 6)); // NOI18N
         date28.setText("28");
         date28.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -325,7 +340,7 @@ public class CalendarPanel extends javax.swing.JPanel {
             }
         });
 
-        date29.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
+        date29.setFont(new java.awt.Font("Segoe UI", 0, 6)); // NOI18N
         date29.setText("29");
         date29.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -333,7 +348,7 @@ public class CalendarPanel extends javax.swing.JPanel {
             }
         });
 
-        date30.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
+        date30.setFont(new java.awt.Font("Segoe UI", 0, 6)); // NOI18N
         date30.setText("30");
         date30.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -342,7 +357,7 @@ public class CalendarPanel extends javax.swing.JPanel {
         });
 
         visualizeDataButton.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
-        visualizeDataButton.setText("<<DataV>>");
+        visualizeDataButton.setText("Visualize");
         visualizeDataButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 visualizeDataButtonActionPerformed(evt);
@@ -356,13 +371,13 @@ public class CalendarPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(5, 5, 5)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(returnButton)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(prevMonthButton, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(monthLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(monthLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(nextMonthButton, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(6, 6, 6)
@@ -427,76 +442,74 @@ public class CalendarPanel extends javax.swing.JPanel {
                                         .addComponent(date28, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addComponent(date31, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(6, 6, 6)
-                                        .addComponent(visualizeDataButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(date29, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(date30, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                        .addComponent(date30, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(visualizeDataButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                         .addGap(0, 0, Short.MAX_VALUE)))
-                .addGap(5, 5, 5))
+                .addGap(11, 11, 11))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(returnButton)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(prevMonthButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(monthLabel)
-                            .addComponent(nextMonthButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(2, 2, 2))
-                    .addComponent(returnButton, javax.swing.GroupLayout.Alignment.LEADING))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(date1)
-                    .addComponent(date2)
-                    .addComponent(date3)
-                    .addComponent(date4)
-                    .addComponent(date5))
+                            .addComponent(monthLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(prevMonthButton, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(nextMonthButton, javax.swing.GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE))
+                        .addGap(3, 3, 3)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(date6)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(date1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(date2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(date3, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(date4, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(date5, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(date6, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(date10)
-                        .addComponent(date9)
-                        .addComponent(date8)
-                        .addComponent(date7)))
+                        .addComponent(date9, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(date8, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(date7, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(date10)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(date11)
-                    .addComponent(date12)
-                    .addComponent(date13)
-                    .addComponent(date14)
-                    .addComponent(date15))
+                    .addComponent(date11, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(date12, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(date13, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(date14, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(date15, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(date20)
-                    .addComponent(date19)
-                    .addComponent(date18)
-                    .addComponent(date17)
-                    .addComponent(date16))
+                    .addComponent(date20, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(date19, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(date18, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(date17, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(date16, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(date25)
-                    .addComponent(date24)
-                    .addComponent(date23)
-                    .addComponent(date22)
-                    .addComponent(date21))
+                    .addComponent(date25, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(date24, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(date23, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(date22, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(date21, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(date26)
-                    .addComponent(date27)
-                    .addComponent(date28)
-                    .addComponent(date29)
-                    .addComponent(date30))
+                    .addComponent(date26, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(date27, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(date28, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(date29, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(date30, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(visualizeDataButton)
-                    .addComponent(date31))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(date31, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(visualizeDataButton))
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -627,19 +640,59 @@ public class CalendarPanel extends javax.swing.JPanel {
 
     private void visualizeDataButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_visualizeDataButtonActionPerformed
         // TODO add your handling code here:
+        getWindow().getDataViewPanel().updateMonthLabel();
+        getWindow().changeScreen("VIEW DATA");
     }//GEN-LAST:event_visualizeDataButtonActionPerformed
 
     private void returnButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnButtonActionPerformed
+        getWindow().changeScreen("MAIN");
+        date = LocalDate.now();
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_returnButtonActionPerformed
 
     private void prevMonthButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_prevMonthButtonActionPerformed
         // TODO add your handling code here:
+        date = date.minusMonths(1);
+        updateMonthLabel();
     }//GEN-LAST:event_prevMonthButtonActionPerformed
 
     private void nextMonthButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextMonthButtonActionPerformed
         // TODO add your handling code here:
+        date = date.plusMonths(1);
+        updateMonthLabel();
     }//GEN-LAST:event_nextMonthButtonActionPerformed
+
+    public static LocalDate getDate(){ return date;}
+
+    public static void setDate(LocalDate aDate){
+        date = aDate;
+    }
+    
+    public void updateMonthLabel(){
+        monthLabel.setText(date.getMonth().toString().substring(0,3) + " " + date.getYear());
+
+        if(date.lengthOfMonth() < 29){
+            date29.setVisible(false);
+        }
+        else{
+            date29.setVisible(true);
+        }
+
+        if(date.lengthOfMonth() < 30){
+            date30.setVisible(false);
+        }
+        else{
+            date30.setVisible(true);
+        }
+
+        if(date.lengthOfMonth() < 31){
+            date31.setVisible(false);
+        }
+        else{
+            date31.setVisible(true);
+        }
+    }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
