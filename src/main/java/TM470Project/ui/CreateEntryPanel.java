@@ -217,6 +217,7 @@ public class CreateEntryPanel extends javax.swing.JPanel {
 
     private void confirmButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmButtonActionPerformed
         // TODO add your handling code here:
+        System.out.println("Confirm button pressed");
     }//GEN-LAST:event_confirmButtonActionPerformed
 
 

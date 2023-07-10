@@ -4,7 +4,7 @@
  */
 package TM470Project.ui;
 
-import static TM470Project.ui.MainFrame.*;
+import static TM470Project.ui.MainFrame.getMainFrame;
 
 /**
  *
@@ -95,22 +95,24 @@ public class MainPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void createButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createButtonActionPerformed
-        // TODO add your handling code here:
-        getMainFrame().changeScreen(getCreateEntryRef());
-    }//GEN-LAST:event_createButtonActionPerformed
-
-    private void viewDataButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewDataButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_viewDataButtonActionPerformed
-
-    private void settingsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_settingsButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_settingsButtonActionPerformed
-
     private void helpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_helpButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_helpButtonActionPerformed
+
+    private void settingsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_settingsButtonActionPerformed
+        // TODO add your handling code here:
+        getMainFrame().changeScreen("SETTINGS");
+    }//GEN-LAST:event_settingsButtonActionPerformed
+
+    private void viewDataButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewDataButtonActionPerformed
+        // TODO add your handling code here:
+        getMainFrame().changeScreen("VIEW DATA");
+    }//GEN-LAST:event_viewDataButtonActionPerformed
+
+    private void createButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createButtonActionPerformed
+        // TODO add your handling code here:
+        getMainFrame().changeScreen("CREATE ENTRY");
+    }//GEN-LAST:event_createButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

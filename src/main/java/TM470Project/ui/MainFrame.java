@@ -13,82 +13,58 @@ import javax.swing.*;
  */
 public class MainFrame extends javax.swing.JFrame {
     /* declare JFrame object */
-    private static final MainFrame mainFrame = new MainFrame();
-
-    /* declaration of panel names for change screen method */
-    private static final String CALENDAR_PANEL = "calendar";
-    private static final String CREATE_ENTRY = "create entry";
-    private static final String CREATE_TYPE = "create type";
-    private static final String DATA_VIEW = "data";
-    private static final String EDIT_ENTRY = "edit entry";
-    private static final String EDIT_TYPE = "edit type";
-    private static final String ENTRY_SELECTION = "entry select";
-    private static final String TYPE_SELECTION = "type select";
-    private static final String MAIN = "main";
-    private static final String SETTINGS = "settings";
+    private static MainFrame mainFrame;
 
     /* declaration of panel objects */
-    private final CalendarPanel calendarPanel;
-    private final CreateEntryPanel createEntryPanel;
-    private final CreateTypePanel createTypePanel;
-    private final DataViewPanel dataViewPanel;
-    private final EditEntryPanel editEntryPanel;
-    private final EditTypePanel editTypePanel;
-    private final EntrySelectionPanel entrySelectionPanel;
-    private final EntryTypeSelectionPanel entryTypeSelectionPanel;
-    private final MainPanel mainPanel;
-    private final SettingsPanel settingsPanel;
+    private final CalendarPanel calendarPanel = new CalendarPanel();
+    private final CreateEntryPanel createEntryPanel = new CreateEntryPanel();
+    private final CreateTypePanel createTypePanel = new CreateTypePanel();
+    private final DataViewPanel dataViewPanel = new DataViewPanel();
+    private final EditEntryPanel editEntryPanel = new EditEntryPanel();
+    private final EditTypePanel editTypePanel = new EditTypePanel();
+    private final EntrySelectionPanel entrySelectionPanel = new EntrySelectionPanel();
+    private final EntryTypeSelectionPanel entryTypeSelectionPanel = new EntryTypeSelectionPanel();
+    private final MainPanel mainPanel = new MainPanel();
+    private final SettingsPanel settingsPanel = new SettingsPanel();
 
     /* declare cardPanel object which holds different panels */
-    private final JPanel cardPanel;
-
+    private final CardLayout cardLayout = new CardLayout();
+    private final JPanel cardPanel = new JPanel(cardLayout);
+    
     /**
      * Creates new form MainFrame
      */
     public MainFrame() {
-        super();
+        //generated code for initialization
         initComponents();
 
-        //initialize each different panel
-        this.calendarPanel = new CalendarPanel();
-        this.createEntryPanel = new CreateEntryPanel();
-        this.createTypePanel = new CreateTypePanel();
-        this.dataViewPanel = new DataViewPanel();
-        this.editEntryPanel = new EditEntryPanel();
-        this.editTypePanel = new EditTypePanel();
-        this.entrySelectionPanel = new EntrySelectionPanel();
-        this.entryTypeSelectionPanel = new EntryTypeSelectionPanel();
-        this.mainPanel = new MainPanel();
-        this.settingsPanel = new SettingsPanel();
-
-        //initialize card layout panel
-        this.cardPanel = new JPanel(new CardLayout());
-
-        //run initialization methods
+        //run initialization methods for each panel
         setUpFrame();
+        changeScreen("MAIN");
     }
 
     /**
-     * @param screen the screen to be changed into
+     * @param screen the reference to the screen to be changed into
      */
     public void changeScreen(String screen){
         ((CardLayout) cardPanel.getLayout()).show(cardPanel, screen);
+
     }
 
     /**
      * adds panels to the card panel collection
      */
     public void setUpFrame(){
-        cardPanel.add(calendarPanel, CALENDAR_PANEL);
-        cardPanel.add(createEntryPanel, CREATE_ENTRY);
-        cardPanel.add(createTypePanel, CREATE_TYPE);
-        cardPanel.add(dataViewPanel, DATA_VIEW);
-        cardPanel.add(editEntryPanel, EDIT_ENTRY);
-        cardPanel.add(editTypePanel, EDIT_TYPE);
-        cardPanel.add(entrySelectionPanel, ENTRY_SELECTION);
-        cardPanel.add(entryTypeSelectionPanel, TYPE_SELECTION);
-        cardPanel.add(mainPanel, MAIN);
-        cardPanel.add(settingsPanel, SETTINGS);
+        cardPanel.add(calendarPanel, "CALENDAR");
+        cardPanel.add(createEntryPanel, "CREATE ENTRY");
+        cardPanel.add(createTypePanel, "CREATE TYPE");
+        cardPanel.add(dataViewPanel, "VIEW DATA");
+        cardPanel.add(editEntryPanel, "EDIT ENTRY");
+        cardPanel.add(editTypePanel, "EDIT TYPE");
+        cardPanel.add(entrySelectionPanel, "ENTRY SELECTION");
+        cardPanel.add(entryTypeSelectionPanel, "TYPE SELECTION");
+        cardPanel.add(mainPanel, "MAIN");
+        cardPanel.add(settingsPanel, "SETTINGS");
     }
 
     /**
@@ -100,123 +76,21 @@ public class MainFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        createButton = new javax.swing.JButton();
-        viewDataButton = new javax.swing.JButton();
-        settingsButton = new javax.swing.JButton();
-        helpButton = new javax.swing.JButton();
-
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        jPanel1.setBackground(new java.awt.Color(204, 255, 255));
-
-        createButton.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        createButton.setText("Create Entry");
-        createButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                createButtonActionPerformed(evt);
-            }
-        });
-
-        viewDataButton.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        viewDataButton.setText("View Data");
-        viewDataButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                viewDataButtonActionPerformed(evt);
-            }
-        });
-
-        settingsButton.setText("Settings");
-        settingsButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                settingsButtonActionPerformed(evt);
-            }
-        });
-
-        helpButton.setText("Help");
-        helpButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                helpButtonActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(settingsButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(helpButton))
-                    .addComponent(viewDataButton, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(createButton, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(23, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addComponent(createButton, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(viewDataButton, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(settingsButton)
-                    .addComponent(helpButton))
-                .addContainerGap(17, Short.MAX_VALUE))
-        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 246, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 230, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void createButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createButtonActionPerformed
-        // TODO add your handling code here:
-        getMainFrame().changeScreen(CREATE_ENTRY);
-        getMainFrame().repaint();
-        getMainFrame().revalidate();
-        System.out.println("Create Entry button pressed");
-    }//GEN-LAST:event_createButtonActionPerformed
-
-    private void viewDataButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewDataButtonActionPerformed
-        // TODO add your handling code here:
-        getMainFrame().changeScreen(DATA_VIEW);
-        System.out.println("View Data button pressed");
-    }//GEN-LAST:event_viewDataButtonActionPerformed
-
-    private void settingsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_settingsButtonActionPerformed
-        // TODO add your handling code here:
-        getMainFrame().changeScreen(SETTINGS);
-        System.out.println("Settings button pressed");
-    }//GEN-LAST:event_settingsButtonActionPerformed
-
-    private void helpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_helpButtonActionPerformed
-        // TODO add your handling code here:
-        System.out.println("Help button pressed");
-    }//GEN-LAST:event_helpButtonActionPerformed
 
     public static void run() {
         /* Set the Nimbus look and feel */
@@ -246,21 +120,15 @@ public class MainFrame extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                mainFrame.changeScreen(MAIN);
+                mainFrame = new MainFrame();
                 mainFrame.setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton createButton;
-    private javax.swing.JButton helpButton;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JButton settingsButton;
-    private javax.swing.JButton viewDataButton;
     // End of variables declaration//GEN-END:variables
 
     //getters for MainFrame class
     public static MainFrame getMainFrame(){ return mainFrame;}
-    public static String getCreateEntryRef(){ return CREATE_ENTRY;}
 }

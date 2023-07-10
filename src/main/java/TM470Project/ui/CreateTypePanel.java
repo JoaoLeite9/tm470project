@@ -4,6 +4,8 @@
  */
 package TM470Project.ui;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Joao
@@ -169,6 +171,31 @@ public class CreateTypePanel extends javax.swing.JPanel {
 
     private void confirmButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmButtonActionPerformed
         // TODO add your handling code here:
+        System.out.println("Confirm button pressed");
+        String typeName = nameField.getText().trim();
+        String unit = unitComboBox.getItemAt(unitComboBox.getSelectedIndex());
+        String kcal = kcalField.getText().trim();
+
+        System.out.println("typeName: " + typeName);
+        System.out.println("unit: " + unit);
+        System.out.println("kcal: " + kcal);
+
+        // check that all fields are filled out and that kcal is a numerical value
+        if(typeName.isEmpty() || unit.isEmpty() || kcalField.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null,"Error: input fields may have been left blank");
+        }
+        try{
+            double kcalDouble = Double.parseDouble(kcal);
+        }
+        catch(NumberFormatException nfe){
+            JOptionPane.showMessageDialog(null, "Error: input for calorie value must be a number");
+            System.out.println("kcal is not a number");
+        }
+        System.out.println("kcal is a number");
+
+        // TODO check if type already exists (do not overwrite existing in here, only in EditTypePanel)
+        // TODO check that inputs are legal (character limit, number limit)
+        // TODO create type using inputs
     }//GEN-LAST:event_confirmButtonActionPerformed
 
     private void returnButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnButtonActionPerformed
