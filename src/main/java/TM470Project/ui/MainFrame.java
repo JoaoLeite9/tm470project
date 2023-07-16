@@ -133,6 +133,8 @@ public class MainFrame extends javax.swing.JFrame {
 
     //getters for MainFrame class
     public static MainFrame getWindow(){ return window;}
+
+    public CreateEntryPanel getCreateEntryPanel(){ return createEntryPanel;}
     
     public CalendarPanel getCalendarPanel(){ return calendarPanel;}
     

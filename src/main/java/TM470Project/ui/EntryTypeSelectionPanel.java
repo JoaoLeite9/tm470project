@@ -4,19 +4,33 @@
  */
 package TM470Project.ui;
 
+import TM470Project.EntryType;
+import static TM470Project.TM470ProjectRunner.getController;
+import static TM470Project.ui.MainFrame.getWindow;
+import java.util.List;
+
 /**
  *
  * @author Joao
  */
 public class EntryTypeSelectionPanel extends javax.swing.JPanel {
 
+    private List<EntryType> entryTypes;
+    
     /**
      * Creates new form EntryTypeSelectionPanel
      */
     public EntryTypeSelectionPanel() {
         initComponents();
+        populateList();
+        // TODO make buttons hidden by default, make visible and assign to entryType in list, linking to editTypePanel
+        // TODO fix scroll to actually scroll down but only if there are things there (e.g if button 7 is visible, scroll down to x distance)
     }
 
+    public void populateList(){
+        entryTypes = getController().findAllEntryTypes();
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -34,6 +48,21 @@ public class EntryTypeSelectionPanel extends javax.swing.JPanel {
         type4 = new javax.swing.JButton();
         type6 = new javax.swing.JButton();
         type3 = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        type7 = new javax.swing.JButton();
+        type8 = new javax.swing.JButton();
+        type9 = new javax.swing.JButton();
+        type10 = new javax.swing.JButton();
+        type11 = new javax.swing.JButton();
+        type12 = new javax.swing.JButton();
+        type13 = new javax.swing.JButton();
+        type14 = new javax.swing.JButton();
+        type15 = new javax.swing.JButton();
+        type16 = new javax.swing.JButton();
+        type17 = new javax.swing.JButton();
+        type18 = new javax.swing.JButton();
+        type19 = new javax.swing.JButton();
+        type20 = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(204, 255, 255));
 
@@ -45,6 +74,8 @@ public class EntryTypeSelectionPanel extends javax.swing.JPanel {
                 returnButtonActionPerformed(evt);
             }
         });
+
+        scrollBar.setAutoscrolls(true);
 
         type1.setText("<<anEntryType>>");
         type1.addActionListener(new java.awt.event.ActionListener() {
@@ -88,6 +119,112 @@ public class EntryTypeSelectionPanel extends javax.swing.JPanel {
             }
         });
 
+        jButton1.setText("New");
+        jButton1.setToolTipText("Create new entry type.");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        type7.setText("<<anEntryType>>");
+        type7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                type7ActionPerformed(evt);
+            }
+        });
+
+        type8.setText("<<anEntryType>>");
+        type8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                type8ActionPerformed(evt);
+            }
+        });
+
+        type9.setText("<<anEntryType>>");
+        type9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                type9ActionPerformed(evt);
+            }
+        });
+
+        type10.setText("<<anEntryType>>");
+        type10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                type10ActionPerformed(evt);
+            }
+        });
+
+        type11.setText("<<anEntryType>>");
+        type11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                type11ActionPerformed(evt);
+            }
+        });
+
+        type12.setText("<<anEntryType>>");
+        type12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                type12ActionPerformed(evt);
+            }
+        });
+
+        type13.setText("<<anEntryType>>");
+        type13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                type13ActionPerformed(evt);
+            }
+        });
+
+        type14.setText("<<anEntryType>>");
+        type14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                type14ActionPerformed(evt);
+            }
+        });
+
+        type15.setText("<<anEntryType>>");
+        type15.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                type15ActionPerformed(evt);
+            }
+        });
+
+        type16.setText("<<anEntryType>>");
+        type16.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                type16ActionPerformed(evt);
+            }
+        });
+
+        type17.setText("<<anEntryType>>");
+        type17.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                type17ActionPerformed(evt);
+            }
+        });
+
+        type18.setText("<<anEntryType>>");
+        type18.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                type18ActionPerformed(evt);
+            }
+        });
+
+        type19.setText("<<anEntryType>>");
+        type19.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                type19ActionPerformed(evt);
+            }
+        });
+
+        type20.setText("<<anEntryType>>");
+        type20.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                type20ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -97,13 +234,28 @@ public class EntryTypeSelectionPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(returnButton)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton1))
                     .addComponent(type1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(type2, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE)
                     .addComponent(type5, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE)
                     .addComponent(type4, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE)
                     .addComponent(type6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE)
-                    .addComponent(type3, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE))
+                    .addComponent(type3, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE)
+                    .addComponent(type7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE)
+                    .addComponent(type8, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE)
+                    .addComponent(type9, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE)
+                    .addComponent(type10, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE)
+                    .addComponent(type11, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE)
+                    .addComponent(type12, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE)
+                    .addComponent(type13, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE)
+                    .addComponent(type14, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE)
+                    .addComponent(type15, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE)
+                    .addComponent(type16, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE)
+                    .addComponent(type17, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE)
+                    .addComponent(type18, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE)
+                    .addComponent(type19, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE)
+                    .addComponent(type20, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(scrollBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -114,7 +266,9 @@ public class EntryTypeSelectionPanel extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(returnButton)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(returnButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(type1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -127,8 +281,36 @@ public class EntryTypeSelectionPanel extends javax.swing.JPanel {
                         .addComponent(type5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(type6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(type7)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(type8)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(type9)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(type10)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(type11)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(type12)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(type13)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(type14)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(type15)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(type16)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(type17)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(type18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(type19)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(type20)
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(scrollBar, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE))
+                    .addComponent(scrollBar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -159,17 +341,96 @@ public class EntryTypeSelectionPanel extends javax.swing.JPanel {
 
     private void returnButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnButtonActionPerformed
         // TODO add your handling code here:
+        getWindow().changeScreen("CREATE ENTRY");
+        getWindow().getCreateEntryPanel().populateTypeComboBox();;
     }//GEN-LAST:event_returnButtonActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        getWindow().changeScreen("CREATE TYPE");
+        getWindow().getCreateEntryPanel().populateTypeComboBox();;
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void type7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_type7ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_type7ActionPerformed
+
+    private void type8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_type8ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_type8ActionPerformed
+
+    private void type9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_type9ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_type9ActionPerformed
+
+    private void type10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_type10ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_type10ActionPerformed
+
+    private void type11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_type11ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_type11ActionPerformed
+
+    private void type12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_type12ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_type12ActionPerformed
+
+    private void type13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_type13ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_type13ActionPerformed
+
+    private void type14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_type14ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_type14ActionPerformed
+
+    private void type15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_type15ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_type15ActionPerformed
+
+    private void type16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_type16ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_type16ActionPerformed
+
+    private void type17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_type17ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_type17ActionPerformed
+
+    private void type18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_type18ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_type18ActionPerformed
+
+    private void type19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_type19ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_type19ActionPerformed
+
+    private void type20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_type20ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_type20ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton returnButton;
     private javax.swing.JScrollBar scrollBar;
     private javax.swing.JButton type1;
+    private javax.swing.JButton type10;
+    private javax.swing.JButton type11;
+    private javax.swing.JButton type12;
+    private javax.swing.JButton type13;
+    private javax.swing.JButton type14;
+    private javax.swing.JButton type15;
+    private javax.swing.JButton type16;
+    private javax.swing.JButton type17;
+    private javax.swing.JButton type18;
+    private javax.swing.JButton type19;
     private javax.swing.JButton type2;
+    private javax.swing.JButton type20;
     private javax.swing.JButton type3;
     private javax.swing.JButton type4;
     private javax.swing.JButton type5;
     private javax.swing.JButton type6;
+    private javax.swing.JButton type7;
+    private javax.swing.JButton type8;
+    private javax.swing.JButton type9;
     // End of variables declaration//GEN-END:variables
 }

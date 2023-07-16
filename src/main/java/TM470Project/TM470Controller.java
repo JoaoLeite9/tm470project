@@ -53,8 +53,6 @@ public class TM470Controller {
      * Stops the application
      */
     public void stop(){
-        //closes user interface window(s)
-        
         //closes entity manager and factory
         TM470ProjectRunner.closeEntityManager();
     }

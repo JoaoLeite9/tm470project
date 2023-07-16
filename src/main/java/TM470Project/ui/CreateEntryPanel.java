@@ -4,6 +4,14 @@
  */
 package TM470Project.ui;
 
+import TM470Project.Entry;
+import TM470Project.EntryType;
+import TM470Project.TM470ProjectRunner;
+
+import java.time.LocalDate;
+import java.util.List;
+import java.util.Optional;
+
 import static TM470Project.ui.MainFrame.getWindow;
 
 /**
@@ -11,12 +19,41 @@ import static TM470Project.ui.MainFrame.getWindow;
  * @author Joao
  */
 public class CreateEntryPanel extends javax.swing.JPanel {
+    private static Optional<List> typesList;
 
     /**
      * Creates new form CreateEntryPanel
      */
     public CreateEntryPanel() {
         initComponents();
+        populateTypeComboBox();
+
+        yearComboBox.removeAllItems();
+
+        /* populates a list with 100 years from current year in regressive order */
+        int year = LocalDate.now().getYear();
+        for(int i = 0; i < 100; i++){
+            yearComboBox.addItem(String.valueOf(year));
+            year -= 1;
+        }
+    }
+
+    /**
+     * This method populates drop down menu lists with queried items
+     */
+    public void populateTypeComboBox() {
+        /* removes all items from combo box before adding current ones */
+        typeComboBox.removeAllItems();
+
+        /* populates list with entry types */
+        typesList = Optional.ofNullable(TM470ProjectRunner.getController().findAllEntryTypes());
+        EntryType entryType;
+        if(typesList.isPresent()){
+            for (int i = 0; i < typesList.get().size(); i++){
+                entryType = (EntryType) typesList.get().get(i);
+                typeComboBox.addItem(entryType.getName());
+            }
+        }
     }
 
     /**
@@ -81,7 +118,6 @@ public class CreateEntryPanel extends javax.swing.JPanel {
             }
         });
 
-        typeComboBox.setEditable(true);
         typeComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "<<getEntryTypeList>>" }));
         typeComboBox.setToolTipText("The entry type for your entry.");
         typeComboBox.addActionListener(new java.awt.event.ActionListener() {
@@ -91,7 +127,8 @@ public class CreateEntryPanel extends javax.swing.JPanel {
         });
 
         dayComboBox.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
-        dayComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Day", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
+        dayComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
+        dayComboBox.setSelectedIndex(LocalDate.now().getDayOfMonth()-1);
         dayComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 dayComboBoxActionPerformed(evt);
@@ -99,7 +136,8 @@ public class CreateEntryPanel extends javax.swing.JPanel {
         });
 
         monthComboBox.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
-        monthComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Month", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" }));
+        monthComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }));
+        monthComboBox.setSelectedIndex(LocalDate.now().getMonthValue()-1);
         monthComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 monthComboBoxActionPerformed(evt);
@@ -200,6 +238,7 @@ public class CreateEntryPanel extends javax.swing.JPanel {
     private void returnButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnButtonActionPerformed
         // TODO add your handling code here:
         getWindow().changeScreen("MAIN");
+        populateTypeComboBox();;
     }//GEN-LAST:event_returnButtonActionPerformed
 
     private void toTypeSelectionButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_toTypeSelectionButtonActionPerformed
@@ -217,12 +256,61 @@ public class CreateEntryPanel extends javax.swing.JPanel {
 
     private void yearComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_yearComboBoxActionPerformed
         // TODO add your handling code here:
+        // TODO fill in years systematically
     }//GEN-LAST:event_yearComboBoxActionPerformed
 
     private void confirmButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmButtonActionPerformed
         // TODO add your handling code here:
         System.out.println("Confirm button pressed");
+        String typeInput = typeComboBox.getItemAt(typeComboBox.getSelectedIndex());
+        String dateDayInput = dayComboBox.getItemAt(dayComboBox.getSelectedIndex());
+        String dateMonthInput = monthComboBox.getItemAt(monthComboBox.getSelectedIndex());
+        String dateYearInput = yearComboBox.getItemAt(yearComboBox.getSelectedIndex());
+        String metricInput = inputField.getText();
+
+        System.out.println("typeInput: " + typeInput);
+        System.out.println("dateInput: " + dateDayInput + "/" + dateMonthInput + "/" + dateYearInput);
+        System.out.println("kcalInput: " + metricInput);
+
+        LocalDate date = LocalDate.now();
+        //try to set date input as a LocalDate value
+        try{
+            date = LocalDate.of(Integer.parseInt(dateYearInput), Integer.parseInt(dateMonthInput), Integer.parseInt(dateDayInput));
+        }
+        catch(Exception e){
+            System.out.println("Date input is invalid");
+            return;
+        }
+
+        EntryType entryType;
+        //try set entry type input as existing Entry Type object
+        try{
+            entryType = TM470ProjectRunner.getController().findEntryTypeByName(typeInput);
+        }
+        catch(Exception e){
+            System.out.println("Entry Type input is invalid");
+            return;
+        }
+
+        int metricValue = 0;
+        //try to convert metric input string value to int
+        try {
+            metricValue = Integer.parseInt(metricInput);
+        }
+        catch(NumberFormatException nfe){
+            System.out.println();
+        }
+
+        //creates entry if all try/catch blocks pass
+        Entry entry = new Entry(entryType, metricValue, date);
+        TM470ProjectRunner.getController().saveEntry(entry);
+
+        getWindow().changeScreen("MAIN");
     }//GEN-LAST:event_confirmButtonActionPerformed
+
+    public Optional<List> getTypesList(){
+        return typesList;
+    }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

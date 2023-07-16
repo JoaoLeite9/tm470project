@@ -4,6 +4,10 @@
  */
 package TM470Project.ui;
 
+import TM470Project.EntryType;
+import TM470Project.TM470ProjectRunner;
+
+import javax.persistence.NoResultException;
 import javax.swing.JOptionPane;
 
 import static TM470Project.ui.MainFrame.getWindow;
@@ -31,7 +35,6 @@ public class CreateTypePanel extends javax.swing.JPanel {
     private void initComponents() {
 
         returnButton = new javax.swing.JButton();
-        editButton = new javax.swing.JButton();
         nameLabel = new javax.swing.JLabel();
         unitLabel = new javax.swing.JLabel();
         kcalLabel = new javax.swing.JLabel();
@@ -50,15 +53,6 @@ public class CreateTypePanel extends javax.swing.JPanel {
         returnButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 returnButtonActionPerformed(evt);
-            }
-        });
-
-        editButton.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        editButton.setText("Edit");
-        editButton.setToolTipText("Edit an existing entry type.");
-        editButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                editButtonActionPerformed(evt);
             }
         });
 
@@ -117,8 +111,7 @@ public class CreateTypePanel extends javax.swing.JPanel {
                         .addComponent(returnButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(titleLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(editButton))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(nameLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -140,11 +133,9 @@ public class CreateTypePanel extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(editButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(returnButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(titleLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE, false)
+                    .addComponent(returnButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(titleLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(36, 36, 36)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(nameLabel)
@@ -164,60 +155,83 @@ public class CreateTypePanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void nameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameFieldActionPerformed
-        // TODO add your handling code here:
     }//GEN-LAST:event_nameFieldActionPerformed
 
     private void kcalFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kcalFieldActionPerformed
-        // TODO add your handling code here:
     }//GEN-LAST:event_kcalFieldActionPerformed
 
     private void confirmButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmButtonActionPerformed
-        // TODO add your handling code here:
-        System.out.println("Confirm button pressed");
+        System.out.println("Confirm button pressed.");
+
         String typeName = nameField.getText().trim();
         String unit = unitComboBox.getItemAt(unitComboBox.getSelectedIndex());
+        // TODO edit unit declaration so that custom inputs are valid
         String kcal = kcalField.getText().trim();
 
-        System.out.println("typeName: " + typeName);
-        System.out.println("unit: " + unit);
-        System.out.println("kcal: " + kcal);
+        System.out.println("typeName: " + typeName + ", unit: " + unit + ", kcal: " + kcal);
 
-        // check that all fields are filled out and that kcal is a numerical value
+        // check that all fields are filled out
         if(typeName.isEmpty() || unit.isEmpty() || kcalField.getText().isEmpty()){
-            JOptionPane.showMessageDialog(null,"Error: input fields may have been left blank");
+            JOptionPane.showMessageDialog(null,"Error: input fields may have been left blank.");
+            return;
         }
+
+        //check that kcal is a valid numerical input
+        double kcalDouble;
         try{
-            double kcalDouble = Double.parseDouble(kcal);
+            kcalDouble = Double.parseDouble(kcal);
         }
         catch(NumberFormatException nfe){
-            JOptionPane.showMessageDialog(null, "Error: input for calorie value must be a number");
-            System.out.println("kcal is not a number");
-        }
-        System.out.println("kcal is a number");
+            JOptionPane.showMessageDialog(null, "Error: input for calorie value must be a number.");
+            System.out.println("kcal is not a number.");
+            return;
+            }
+        System.out.println("kcal is a number.");
 
-        // TODO check if type already exists (do not overwrite existing in here, only in EditTypePanel)
-        // TODO check that inputs are legal (character limit, number limit)
-        // TODO create type using inputs
+        //check if the type already exists (editing existing types is done in a different panel)
+//        if(TM470ProjectRunner.getController().findEntryTypeByName(typeName) == null) // <--- error here
+//        {
+//            EntryType entryType = new EntryType(typeName, unit, kcalDouble);
+//            TM470ProjectRunner.getController().saveEntryType(entryType);
+//            System.out.println("Created Entry Type object \n" + entryType);
+//        }
+//        else{
+//            JOptionPane.showMessageDialog(null, "Error: Object with this name reference already exists. \n Please edit the existing type.");
+//            System.out.println("entry type with this name already exists.");
+//            return;
+//        }
+
+
+        try{
+            if(TM470ProjectRunner.getController().findEntryTypeByName(typeName) == null){
+                JOptionPane.showMessageDialog(null, "Error: Object with this name reference already exists. \n Please edit the existing type.");
+                System.out.println("entry type with this name already exists.");
+            }
+            return;
+        }
+        catch(NoResultException noResultException){
+            EntryType entryType = new EntryType(typeName, unit, kcalDouble);
+            TM470ProjectRunner.getController().saveEntryType(entryType);
+            System.out.println("Created Entry Type object \n" + entryType);
+        }
+
+        //return to entry type selection panel
+        getWindow().changeScreen("TYPE SELECTION");
+        //updates the list of available types
+        getWindow().getCreateEntryPanel().populateTypeComboBox();
     }//GEN-LAST:event_confirmButtonActionPerformed
 
     private void returnButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnButtonActionPerformed
-        // TODO add your handling code here:
-        getWindow().changeScreen("MAIN");
+        //return to entry type selection panel
+        getWindow().changeScreen("TYPE SELECTION");
     }//GEN-LAST:event_returnButtonActionPerformed
 
-    private void editButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editButtonActionPerformed
-        // TODO add your handling code here:
-        getWindow().changeScreen("EDIT TYPE");
-    }//GEN-LAST:event_editButtonActionPerformed
-
     private void unitComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_unitComboBoxActionPerformed
-        // TODO add your handling code here:
     }//GEN-LAST:event_unitComboBoxActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton confirmButton;
-    private javax.swing.JButton editButton;
     private javax.swing.JTextField kcalField;
     private javax.swing.JLabel kcalLabel;
     private javax.swing.JTextField nameField;

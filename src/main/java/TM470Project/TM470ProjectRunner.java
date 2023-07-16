@@ -1,5 +1,7 @@
 package TM470Project;
 
+import TM470Project.ui.MainFrame;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -21,8 +23,9 @@ public class TM470ProjectRunner {
         entityManagerFactory = Persistence.createEntityManagerFactory("EntriesDB");
         entityManager = entityManagerFactory.createEntityManager();
         controller = new TM470Controller(entityManager);
-
         controller.start();
+        MainFrame.run();
+
         //controller.stop();
     }
 
