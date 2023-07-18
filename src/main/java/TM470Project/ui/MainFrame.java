@@ -36,6 +36,7 @@ public class MainFrame extends javax.swing.JFrame {
      */
     public MainFrame() {
         super();
+
         //generated code for initialization
         initComponents();
     }
@@ -135,6 +136,10 @@ public class MainFrame extends javax.swing.JFrame {
     public static MainFrame getWindow(){ return window;}
 
     public CreateEntryPanel getCreateEntryPanel(){ return createEntryPanel;}
+    
+    public EntryTypeSelectionPanel getEntryTypeSelectionPanel() { return entryTypeSelectionPanel;}
+
+    public EditTypePanel getEditTypePanel() { return editTypePanel; }
     
     public CalendarPanel getCalendarPanel(){ return calendarPanel;}
     

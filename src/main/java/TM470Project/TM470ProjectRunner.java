@@ -25,7 +25,6 @@ public class TM470ProjectRunner {
         controller = new TM470Controller(entityManager);
         controller.start();
         MainFrame.run();
-
         //controller.stop();
     }
 

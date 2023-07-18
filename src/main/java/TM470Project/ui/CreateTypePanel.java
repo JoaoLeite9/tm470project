@@ -219,11 +219,11 @@ public class CreateTypePanel extends javax.swing.JPanel {
             TM470ProjectRunner.getController().saveEntryType(entryType);
             System.out.println("Created Entry Type object \n" + entryType);
         }
-
-        //return to entry type selection panel
-        getWindow().changeScreen("TYPE SELECTION");
         //updates the list of available types
         getWindow().getCreateEntryPanel().populateTypeComboBox();
+        getWindow().getEntryTypeSelectionPanel().updateListing();
+        //return to entry type selection panel
+        getWindow().changeScreen("TYPE SELECTION");
     }//GEN-LAST:event_confirmButtonActionPerformed
 
     private void returnButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnButtonActionPerformed

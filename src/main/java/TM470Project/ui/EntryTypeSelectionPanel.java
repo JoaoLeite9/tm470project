@@ -32,8 +32,7 @@ public class EntryTypeSelectionPanel extends javax.swing.JPanel {
 
         initComponents();
         updateListing();
-        updateButtonVisibility();
-        // TODO make buttons hidden by default, make visible and assign to entryType in list, linking to editTypePanel
+
         // TODO fix scroll to actually scroll down but only if there are things there (e.g if button 7 is visible, scroll down to x distance)
     }
 
@@ -77,6 +76,7 @@ public class EntryTypeSelectionPanel extends javax.swing.JPanel {
                 buttonHashMap.put(buttons.get(i), (EntryType) CreateEntryPanel.getTypesList().get().get(i));
             }
         }
+        updateButtonVisibility();
     }
 
     /**
@@ -98,6 +98,7 @@ public class EntryTypeSelectionPanel extends javax.swing.JPanel {
      */
     public void typeButtonPress(JButton button){
         selectedType = buttonHashMap.get(button);
+        getWindow().getEditTypePanel().updateFields();
         getWindow().changeScreen("EDIT TYPE");
     }
 
@@ -118,7 +119,7 @@ public class EntryTypeSelectionPanel extends javax.swing.JPanel {
         type4 = new javax.swing.JButton();
         type6 = new javax.swing.JButton();
         type3 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        newButton = new javax.swing.JButton();
         type7 = new javax.swing.JButton();
         type8 = new javax.swing.JButton();
         type9 = new javax.swing.JButton();
@@ -189,11 +190,11 @@ public class EntryTypeSelectionPanel extends javax.swing.JPanel {
             }
         });
 
-        jButton1.setText("New");
-        jButton1.setToolTipText("Create new entry type.");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        newButton.setText("New");
+        newButton.setToolTipText("Create new entry type.");
+        newButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                newButtonActionPerformed(evt);
             }
         });
 
@@ -305,7 +306,7 @@ public class EntryTypeSelectionPanel extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(returnButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1))
+                        .addComponent(newButton))
                     .addComponent(type1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(type2, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE)
                     .addComponent(type5, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE)
@@ -338,7 +339,7 @@ public class EntryTypeSelectionPanel extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(returnButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(newButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(type1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -410,16 +411,16 @@ public class EntryTypeSelectionPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_type3ActionPerformed
 
     private void returnButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnButtonActionPerformed
+        //update listings
+        getWindow().getCreateEntryPanel().populateTypeComboBox();
+        getWindow().getEntryTypeSelectionPanel().updateListing();
         //return to previous screen
         getWindow().changeScreen("CREATE ENTRY");
-        getWindow().getCreateEntryPanel().populateTypeComboBox();;
     }//GEN-LAST:event_returnButtonActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+    private void newButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newButtonActionPerformed
         getWindow().changeScreen("CREATE TYPE");
-        getWindow().getCreateEntryPanel().populateTypeComboBox();;
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_newButtonActionPerformed
 
     private void type7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_type7ActionPerformed
         typeButtonPress((JButton)evt.getSource());
@@ -482,7 +483,7 @@ public class EntryTypeSelectionPanel extends javax.swing.JPanel {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton newButton;
     private javax.swing.JButton returnButton;
     private javax.swing.JScrollBar scrollBar;
     private javax.swing.JButton type1;

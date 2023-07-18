@@ -4,6 +4,15 @@
  */
 package TM470Project.ui;
 
+import TM470Project.EntryType;
+import TM470Project.TM470ProjectRunner;
+
+import javax.persistence.NoResultException;
+import javax.persistence.NonUniqueResultException;
+import javax.swing.*;
+
+import static TM470Project.ui.MainFrame.*;
+
 /**
  *
  * @author Joao
@@ -15,6 +24,29 @@ public class EditTypePanel extends javax.swing.JPanel {
      */
     public EditTypePanel() {
         initComponents();
+    }
+
+    /**
+     * Updates input fields in EditTypePanel with predefined values from the selected type.
+     */
+    public void updateFields(){
+        //a mock type for reduced excess calls
+        EntryType mockType = getWindow().getEntryTypeSelectionPanel().getSelectedType();
+
+        nameField.setText(mockType.getName());
+        kcalField.setText((String.valueOf(mockType.getKcal())));
+
+        //set unit selected item to be the same as the mockType's
+        for(int i = 0; i < unitComboBox.getItemCount(); i++){
+            if(unitComboBox.getItemAt(i).equals(mockType.getMetric())){
+                unitComboBox.setSelectedIndex(i);
+            }
+            else{
+                //if for whatever reason there is no match, set to first item in list
+                unitComboBox.setSelectedIndex(0);
+            }
+        }
+
     }
 
     /**
@@ -35,6 +67,7 @@ public class EditTypePanel extends javax.swing.JPanel {
         unitComboBox = new javax.swing.JComboBox<>();
         confirmButton = new javax.swing.JButton();
         titleLabel = new javax.swing.JLabel();
+        deleteButton = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(204, 255, 255));
 
@@ -56,8 +89,9 @@ public class EditTypePanel extends javax.swing.JPanel {
         kcalLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         kcalLabel.setText("kcal per unit");
 
+        nameField.setEditable(false);
         nameField.setText("<<getName>>");
-        nameField.setToolTipText("The name for the entry type.");
+        nameField.setToolTipText("The name for the entry type. Cannot be edited.");
         nameField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nameFieldActionPerformed(evt);
@@ -93,6 +127,14 @@ public class EditTypePanel extends javax.swing.JPanel {
         titleLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         titleLabel.setText("Edit Type");
 
+        deleteButton.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        deleteButton.setText("Delete");
+        deleteButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -104,7 +146,8 @@ public class EditTypePanel extends javax.swing.JPanel {
                         .addComponent(returnButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(titleLabel)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(deleteButton))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(nameLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -128,7 +171,8 @@ public class EditTypePanel extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE, false)
                     .addComponent(returnButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(titleLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(titleLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(deleteButton, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(36, 36, 36)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(nameLabel)
@@ -147,29 +191,89 @@ public class EditTypePanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void nameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_nameFieldActionPerformed
-
     private void kcalFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kcalFieldActionPerformed
-        // TODO add your handling code here:
     }//GEN-LAST:event_kcalFieldActionPerformed
 
     private void confirmButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmButtonActionPerformed
-        // TODO add your handling code here:
+        System.out.println("Confirm button pressed.");
+
+        //mock type name used to reduce method calls
+        String mockTypeName = getWindow().getEntryTypeSelectionPanel().getSelectedType().getName();
+        String unit = unitComboBox.getItemAt(unitComboBox.getSelectedIndex());
+        // TODO edit unit declaration so that custom inputs are valid
+        String kcal = kcalField.getText().trim();
+
+        System.out.println("typeName: " + mockTypeName + ", unit: " + unit + ", kcal: " + kcal);
+
+        // check that all fields are filled out
+        if(unit.isEmpty() || kcalField.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null,"Error: input fields may have been left blank.");
+            return;
+        }
+
+        //check that kcal is a valid numerical input
+        double kcalDouble;
+        try{
+            kcalDouble = Double.parseDouble(kcal);
+        }
+        catch(NumberFormatException nfe){
+            JOptionPane.showMessageDialog(null, "Error: input for calorie value must be a number.");
+            System.out.println("kcal is not a number.");
+            return;
+        }
+        System.out.println("kcal is a number.");
+
+        try{
+            if(TM470ProjectRunner.getController().findEntryTypeByName(mockTypeName) != null) {
+                // TODO problem here: is creating extra items with the same name instead of updating
+
+                EntryType entryType = new EntryType(mockTypeName, unit, kcalDouble); //
+                TM470ProjectRunner.getController().saveEntryType(entryType);
+                System.out.println("Saved Entry Type object \n" + entryType);
+            }
+        }
+        catch(NonUniqueResultException nonUniqueResultException){
+            JOptionPane.showMessageDialog(null, "Error: non unique item name.");
+            System.out.println("Error: non unique item name.");
+            return;
+        }
+        //update listings
+        getWindow().getCreateEntryPanel().populateTypeComboBox();
+        getWindow().getEntryTypeSelectionPanel().updateListing();
+        //change screen
+        getWindow().changeScreen("TYPE SELECTION");
     }//GEN-LAST:event_confirmButtonActionPerformed
 
     private void returnButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnButtonActionPerformed
-        // TODO add your handling code here:
+        // return to EntryTypeSelectionPanel
+        getWindow().changeScreen("TYPE SELECTION");
     }//GEN-LAST:event_returnButtonActionPerformed
 
     private void unitComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_unitComboBoxActionPerformed
-        // TODO add your handling code here:
     }//GEN-LAST:event_unitComboBoxActionPerformed
+
+    private void nameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameFieldActionPerformed
+
+    }//GEN-LAST:event_nameFieldActionPerformed
+
+    private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
+        // TODO ask to confirm deletion, delete type, update type listing, then return to EntryTypeSelectionPanel
+
+        if(JOptionPane.showConfirmDialog(null, "Are you sure you want to delete '" + getWindow().getEntryTypeSelectionPanel().getSelectedType().getName() + "'?", "WARNING", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION){
+            // TODO delete method call here
+
+            //update listings
+            getWindow().getCreateEntryPanel().populateTypeComboBox();
+            getWindow().getEntryTypeSelectionPanel().updateListing();
+            //change window
+            getWindow().changeScreen("TYPE SELECTION");
+        }
+    }//GEN-LAST:event_deleteButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton confirmButton;
+    private javax.swing.JButton deleteButton;
     private javax.swing.JTextField kcalField;
     private javax.swing.JLabel kcalLabel;
     private javax.swing.JTextField nameField;
@@ -179,4 +283,5 @@ public class EditTypePanel extends javax.swing.JPanel {
     private javax.swing.JComboBox<String> unitComboBox;
     private javax.swing.JLabel unitLabel;
     // End of variables declaration//GEN-END:variables
+
 }
