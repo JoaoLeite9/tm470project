@@ -4,12 +4,16 @@
  */
 package TM470Project.ui;
 
+import TM470Project.Entry;
 import TM470Project.EntryType;
 import TM470Project.TM470ProjectRunner;
 
 import javax.persistence.NoResultException;
 import javax.persistence.NonUniqueResultException;
 import javax.swing.*;
+
+import java.awt.event.ActionEvent;
+import java.util.Objects;
 
 import static TM470Project.ui.MainFrame.*;
 
@@ -35,18 +39,7 @@ public class EditTypePanel extends javax.swing.JPanel {
 
         nameField.setText(mockType.getName());
         kcalField.setText((String.valueOf(mockType.getKcal())));
-
-        //set unit selected item to be the same as the mockType's
-        for(int i = 0; i < unitComboBox.getItemCount(); i++){
-            if(unitComboBox.getItemAt(i).equals(mockType.getMetric())){
-                unitComboBox.setSelectedIndex(i);
-            }
-            else{
-                //if for whatever reason there is no match, set to first item in list
-                unitComboBox.setSelectedIndex(0);
-            }
-        }
-
+        unitComboBox.setSelectedItem(mockType.getMetric());
     }
 
     /**
@@ -199,14 +192,11 @@ public class EditTypePanel extends javax.swing.JPanel {
 
         //mock type name used to reduce method calls
         String mockTypeName = getWindow().getEntryTypeSelectionPanel().getSelectedType().getName();
-        String unit = unitComboBox.getItemAt(unitComboBox.getSelectedIndex());
         // TODO edit unit declaration so that custom inputs are valid
         String kcal = kcalField.getText().trim();
 
-        System.out.println("typeName: " + mockTypeName + ", unit: " + unit + ", kcal: " + kcal);
-
         // check that all fields are filled out
-        if(unit.isEmpty() || kcalField.getText().isEmpty()){
+        if(kcal.isEmpty()){
             JOptionPane.showMessageDialog(null,"Error: input fields may have been left blank.");
             return;
         }
@@ -224,12 +214,19 @@ public class EditTypePanel extends javax.swing.JPanel {
         System.out.println("kcal is a number.");
 
         try{
-            if(TM470ProjectRunner.getController().findEntryTypeByName(mockTypeName) != null) {
+            EntryType entryType = TM470ProjectRunner.getController().findEntryTypeByName(mockTypeName);
+            if(entryType != null) {
                 // TODO problem here: is creating extra items with the same name instead of updating
 
-                EntryType entryType = new EntryType(mockTypeName, unit, kcalDouble); //
+                System.out.println("Name input: " + nameField.getText().trim());
+                entryType.setMetric(Objects.requireNonNull(unitComboBox.getSelectedItem()).toString());
+                System.out.println("Selected metric: " + unitComboBox.getSelectedItem());
+                entryType.setKcal(kcalDouble);
+                System.out.println("kcal input: " + kcalDouble);
+
                 TM470ProjectRunner.getController().saveEntryType(entryType);
                 System.out.println("Saved Entry Type object \n" + entryType);
+                updateFields();
             }
         }
         catch(NonUniqueResultException nonUniqueResultException){
@@ -249,7 +246,7 @@ public class EditTypePanel extends javax.swing.JPanel {
         getWindow().changeScreen("TYPE SELECTION");
     }//GEN-LAST:event_returnButtonActionPerformed
 
-    private void unitComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_unitComboBoxActionPerformed
+    private void unitComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_unitComboBoxActionPerformed;
     }//GEN-LAST:event_unitComboBoxActionPerformed
 
     private void nameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameFieldActionPerformed
@@ -257,16 +254,53 @@ public class EditTypePanel extends javax.swing.JPanel {
     }//GEN-LAST:event_nameFieldActionPerformed
 
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
-        // TODO ask to confirm deletion, delete type, update type listing, then return to EntryTypeSelectionPanel
+        System.out.println("Delete button pressed");
 
-        if(JOptionPane.showConfirmDialog(null, "Are you sure you want to delete '" + getWindow().getEntryTypeSelectionPanel().getSelectedType().getName() + "'?", "WARNING", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION){
-            // TODO delete method call here
+        String entryTypeName = getWindow().getEntryTypeSelectionPanel().getSelectedType().getName();
+        EntryType entryType = TM470ProjectRunner.getController().findEntryTypeByName(entryTypeName);
 
-            //update listings
-            getWindow().getCreateEntryPanel().populateTypeComboBox();
-            getWindow().getEntryTypeSelectionPanel().updateListing();
-            //change window
-            getWindow().changeScreen("TYPE SELECTION");
+
+        if(JOptionPane.showConfirmDialog(null, "Are you sure you want to delete '"
+                + entryTypeName + "'?", "WARNING", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION){
+                //ask user to confirm deleting the selected Entry Type
+            System.out.println("First option window opened (Confirm deletion).");
+            try {
+                if (entryType.getEntries() != null) { //check that the EntryType if the entry type has associated entries
+                    if (JOptionPane.showConfirmDialog(null,
+                            """
+                                    This type has entries associated with it.
+                                    Deleting it will delete all entries using it.
+                                    Continue?""", "WARNING", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+                        //ask to confirm deleting entries alongside entry types
+
+                        System.out.println("Second option window opened (Entry type has entries).");
+                        Entry entry;
+                        for (int i = 0; i < entryType.getEntries().size(); i++) {
+                            //delete all entries with the entry type
+                            entry = entryType.getEntries().get(i);
+                            TM470ProjectRunner.getController().deleteEntry(entry);
+                            System.out.println("entry " + entry.getId() + " deleted.");
+                        }
+                        //TODO run update entry listings
+                    }
+                    else{
+                        return;
+                    }
+                }
+            }
+            catch (NullPointerException ignored){
+
+            }
+            finally {
+                //delete entry type
+                // TODO delete entry type here
+                TM470ProjectRunner.getController().deleteEntryType(entryType);
+                //update listings
+                getWindow().getCreateEntryPanel().populateTypeComboBox();
+                getWindow().getEntryTypeSelectionPanel().updateListing();
+                //change window
+                getWindow().changeScreen("TYPE SELECTION");
+            }
         }
     }//GEN-LAST:event_deleteButtonActionPerformed
 

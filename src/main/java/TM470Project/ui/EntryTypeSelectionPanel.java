@@ -43,6 +43,7 @@ public class EntryTypeSelectionPanel extends javax.swing.JPanel {
      */
     public void updateListing(){
         buttons.clear();
+        buttonHashMap.clear();
 
         buttons.add(type1);
         buttons.add(type2);
