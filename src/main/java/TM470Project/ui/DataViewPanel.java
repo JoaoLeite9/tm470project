@@ -14,8 +14,6 @@ public class DataViewPanel extends javax.swing.JPanel {
     /**
      * Creates new form DataViewPanel
      */
-    
-    
     public DataViewPanel() {
         initComponents();
     }
@@ -112,7 +110,7 @@ public class DataViewPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void prevMonthButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_prevMonthButtonActionPerformed
-        CalendarPanel.setDate(CalendarPanel.getDate().minusMonths(1));
+        getWindow().getCalendarPanel().setDate(getWindow().getCalendarPanel().getDate().minusMonths(1));
         updateMonthLabel();
     }//GEN-LAST:event_prevMonthButtonActionPerformed
 
@@ -124,12 +122,12 @@ public class DataViewPanel extends javax.swing.JPanel {
 
     private void nextMonthButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextMonthButtonActionPerformed
         // TODO add your handling code here:
-        CalendarPanel.setDate(CalendarPanel.getDate().plusMonths(1));
+        getWindow().getCalendarPanel().setDate(getWindow().getCalendarPanel().getDate().plusMonths(1));
         updateMonthLabel();
     }//GEN-LAST:event_nextMonthButtonActionPerformed
 
     public void updateMonthLabel(){
-        monthLabel.setText(CalendarPanel.getDate().getMonth().toString().substring(0, 3) + " " + CalendarPanel.getDate().getYear());
+        monthLabel.setText(getWindow().getCalendarPanel().getDate().getMonth().toString().substring(0, 3) + " " + getWindow().getCalendarPanel().getDate().getYear());
     }
     
 

@@ -14,7 +14,7 @@ import static TM470Project.ui.MainFrame.getWindow;
  */
 public class CalendarPanel extends javax.swing.JPanel {
 
-    private static LocalDate date;
+    private LocalDate date;
 
     /**
      * Creates new form CalendarPanel
@@ -23,6 +23,12 @@ public class CalendarPanel extends javax.swing.JPanel {
         initComponents();
         date = LocalDate.now();
         updateMonthLabel();
+    }
+
+    public void buttonPress(int buttonRef){
+        setDate(buttonRef);
+        getWindow().getEntrySelectionPanel().updateListing();
+        getWindow().changeScreen("ENTRY SELECTION");
     }
 
     /**
@@ -514,164 +520,235 @@ public class CalendarPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void date4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_date4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_date4ActionPerformed
-
-    private void date24ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_date24ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_date24ActionPerformed
-
+    /**
+     * Methods for each button press for variables date1 through date31.
+     * Running these methods will bring up the Entry Selection Panel with Entries associated with the specified date
+     * @param evt internal ActionEvent listener for the methods, used by generated code
+     */
     private void date1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_date1ActionPerformed
-        // TODO add your handling code here:
+        buttonPress(1);
+        getWindow().changeScreen("ENTRY SELECTION");
     }//GEN-LAST:event_date1ActionPerformed
 
     private void date2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_date2ActionPerformed
-        // TODO add your handling code here:
+        buttonPress(2);
+        getWindow().changeScreen("ENTRY SELECTION");
     }//GEN-LAST:event_date2ActionPerformed
 
     private void date3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_date3ActionPerformed
-        // TODO add your handling code here:
+        buttonPress(3);
+        getWindow().changeScreen("ENTRY SELECTION");
     }//GEN-LAST:event_date3ActionPerformed
 
+    private void date4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_date4ActionPerformed
+        buttonPress(4);
+        getWindow().changeScreen("ENTRY SELECTION");
+    }//GEN-LAST:event_date4ActionPerformed
+
     private void date5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_date5ActionPerformed
-        // TODO add your handling code here:
+        buttonPress(5);
+        getWindow().changeScreen("ENTRY SELECTION");
     }//GEN-LAST:event_date5ActionPerformed
 
     private void date6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_date6ActionPerformed
-        // TODO add your handling code here:
+        buttonPress(6);
+        getWindow().changeScreen("ENTRY SELECTION");
     }//GEN-LAST:event_date6ActionPerformed
 
     private void date7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_date7ActionPerformed
-        // TODO add your handling code here:
+        buttonPress(7);
+        getWindow().changeScreen("ENTRY SELECTION");
     }//GEN-LAST:event_date7ActionPerformed
 
     private void date8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_date8ActionPerformed
-        // TODO add your handling code here:
+        buttonPress(8);
+        getWindow().changeScreen("ENTRY SELECTION");
     }//GEN-LAST:event_date8ActionPerformed
 
     private void date9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_date9ActionPerformed
-        // TODO add your handling code here:
+        buttonPress(9);
+        getWindow().changeScreen("ENTRY SELECTION");
     }//GEN-LAST:event_date9ActionPerformed
 
     private void date10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_date10ActionPerformed
-        // TODO add your handling code here:
+        buttonPress(10);
+        getWindow().changeScreen("ENTRY SELECTION");
     }//GEN-LAST:event_date10ActionPerformed
 
     private void date11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_date11ActionPerformed
-        // TODO add your handling code here:
+        buttonPress(11);
+        getWindow().changeScreen("ENTRY SELECTION");
     }//GEN-LAST:event_date11ActionPerformed
 
     private void date12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_date12ActionPerformed
-        // TODO add your handling code here:
+        buttonPress(12);
+        getWindow().changeScreen("ENTRY SELECTION");
     }//GEN-LAST:event_date12ActionPerformed
 
     private void date13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_date13ActionPerformed
-        // TODO add your handling code here:
+        buttonPress(13);
+        getWindow().changeScreen("ENTRY SELECTION");
     }//GEN-LAST:event_date13ActionPerformed
 
     private void date14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_date14ActionPerformed
-        // TODO add your handling code here:
+        buttonPress(14);
+        getWindow().changeScreen("ENTRY SELECTION");
     }//GEN-LAST:event_date14ActionPerformed
 
     private void date15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_date15ActionPerformed
-        // TODO add your handling code here:
+        buttonPress(15);
+        getWindow().changeScreen("ENTRY SELECTION");
     }//GEN-LAST:event_date15ActionPerformed
 
     private void date16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_date16ActionPerformed
-        // TODO add your handling code here:
+        buttonPress(16);
+        getWindow().changeScreen("ENTRY SELECTION");
     }//GEN-LAST:event_date16ActionPerformed
 
     private void date17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_date17ActionPerformed
-        // TODO add your handling code here:
+        buttonPress(17);
+        getWindow().changeScreen("ENTRY SELECTION");
     }//GEN-LAST:event_date17ActionPerformed
 
     private void date18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_date18ActionPerformed
-        // TODO add your handling code here:
+        buttonPress(18);
+        getWindow().changeScreen("ENTRY SELECTION");
     }//GEN-LAST:event_date18ActionPerformed
 
     private void date19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_date19ActionPerformed
-        // TODO add your handling code here:
+        buttonPress(19);
+        getWindow().changeScreen("ENTRY SELECTION");
     }//GEN-LAST:event_date19ActionPerformed
 
     private void date20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_date20ActionPerformed
-        // TODO add your handling code here:
+        buttonPress(20);
+        getWindow().changeScreen("ENTRY SELECTION");
     }//GEN-LAST:event_date20ActionPerformed
 
     private void date21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_date21ActionPerformed
-        // TODO add your handling code here:
+        buttonPress(21);
+        getWindow().changeScreen("ENTRY SELECTION");
     }//GEN-LAST:event_date21ActionPerformed
 
     private void date22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_date22ActionPerformed
-        // TODO add your handling code here:
+        buttonPress(22);
+        getWindow().changeScreen("ENTRY SELECTION");
     }//GEN-LAST:event_date22ActionPerformed
 
     private void date23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_date23ActionPerformed
-        // TODO add your handling code here:
+        buttonPress(23);
+        getWindow().changeScreen("ENTRY SELECTION");
     }//GEN-LAST:event_date23ActionPerformed
 
+    private void date24ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_date24ActionPerformed
+        buttonPress(24);
+        getWindow().changeScreen("ENTRY SELECTION");
+    }//GEN-LAST:event_date24ActionPerformed
+
     private void date25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_date25ActionPerformed
-        // TODO add your handling code here:
+        buttonPress(25);
+        getWindow().changeScreen("ENTRY SELECTION");
     }//GEN-LAST:event_date25ActionPerformed
 
     private void date26ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_date26ActionPerformed
-        // TODO add your handling code here:
+        buttonPress(26);
+        getWindow().changeScreen("ENTRY SELECTION");
     }//GEN-LAST:event_date26ActionPerformed
 
     private void date27ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_date27ActionPerformed
-        // TODO add your handling code here:
+        buttonPress(27);
+        getWindow().changeScreen("ENTRY SELECTION");
     }//GEN-LAST:event_date27ActionPerformed
 
     private void date28ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_date28ActionPerformed
-        // TODO add your handling code here:
+        buttonPress(28);
+        getWindow().changeScreen("ENTRY SELECTION");
     }//GEN-LAST:event_date28ActionPerformed
 
     private void date29ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_date29ActionPerformed
-        // TODO add your handling code here:
+        buttonPress(29);
+        getWindow().changeScreen("ENTRY SELECTION");
     }//GEN-LAST:event_date29ActionPerformed
 
     private void date30ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_date30ActionPerformed
-        // TODO add your handling code here:
+        buttonPress(30);
+        getWindow().changeScreen("ENTRY SELECTION");
     }//GEN-LAST:event_date30ActionPerformed
 
     private void date31ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_date31ActionPerformed
-        // TODO add your handling code here:
+        buttonPress(31);
+        getWindow().changeScreen("ENTRY SELECTION");
     }//GEN-LAST:event_date31ActionPerformed
 
+    /**
+     * Method for button used in changing screens to the Data View Panel
+     * @param evt internal ActionEvent listener for the methods, used by generated code
+     */
     private void visualizeDataButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_visualizeDataButtonActionPerformed
-        // TODO add your handling code here:
         getWindow().getDataViewPanel().updateMonthLabel();
         getWindow().changeScreen("VIEW DATA");
     }//GEN-LAST:event_visualizeDataButtonActionPerformed
 
+    /**
+     * Method for button used in changing screens for returning to the previous panel
+     * @param evt internal ActionEvent listener for the methods, used by generated code
+     */
     private void returnButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnButtonActionPerformed
         getWindow().changeScreen("MAIN");
+        //reset date to system date
         date = LocalDate.now();
-        // TODO add your handling code here:
-        
     }//GEN-LAST:event_returnButtonActionPerformed
 
+    /**
+     * Changes month value of date to be one month previous
+     * @param evt internal ActionEvent listener for the methods, used by generated code
+     */
     private void prevMonthButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_prevMonthButtonActionPerformed
-        // TODO add your handling code here:
         date = date.minusMonths(1);
         updateMonthLabel();
     }//GEN-LAST:event_prevMonthButtonActionPerformed
 
+    /**
+     * Changes month value of date to be one month forward
+     * @param evt internal ActionEvent listener for the methods, used by generated code
+     */
     private void nextMonthButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextMonthButtonActionPerformed
-        // TODO add your handling code here:
         date = date.plusMonths(1);
         updateMonthLabel();
     }//GEN-LAST:event_nextMonthButtonActionPerformed
 
-    public static LocalDate getDate(){ return date;}
+    /**
+     * Getter for date variable
+     * @return the currently selected date
+     */
+    public LocalDate getDate(){ return date;}
 
-    public static void setDate(LocalDate aDate){
+    /**
+     * @param aDate the full date in format YYYY-MM-DD
+     */
+    public void setDate(LocalDate aDate){
         date = aDate;
+        System.out.println("Selected date = " + date);
+        getWindow().getEntrySelectionPanel().updateTitle();
     }
-    
+
+    /**
+     * @param day an int input for the selected day when pressing a button
+     */
+    public void setDate(int day){
+        date = LocalDate.of(date.getYear(), date.getMonth(), day);
+        System.out.println("Selected date = " + date);
+        getWindow().getEntrySelectionPanel().updateTitle();
+    }
+
+    /**
+     * Updates month label with current date and hides buttons for non-existing days (e.g. February 31st)
+     */
     public void updateMonthLabel(){
+        //set label text to month value in abbreviated format
         monthLabel.setText(date.getMonth().toString().substring(0,3) + " " + date.getYear());
 
+        //sets button visibilities for days 29 to 31
         if(date.lengthOfMonth() < 29){
             date29.setVisible(false);
         }
@@ -693,7 +770,6 @@ public class CalendarPanel extends javax.swing.JPanel {
             date31.setVisible(true);
         }
     }
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton date1;

@@ -4,17 +4,35 @@
  */
 package TM470Project.ui;
 
+import TM470Project.Entry;
+import TM470Project.TM470ProjectRunner;
+
+import javax.swing.*;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
+import static TM470Project.ui.MainFrame.getWindow;
+
 /**
  *
  * @author Joao
  */
 public class EntrySelectionPanel extends javax.swing.JPanel {
 
+    private List<JButton> buttons;
+    private HashMap <JButton, Entry> entryHashMap;
+
     /**
      * Creates new form EntrySelectionPanel
      */
     public EntrySelectionPanel() {
+        buttons = new ArrayList<>();
+        entryHashMap = new HashMap<>();
+
         initComponents();
+        //TODO fix up scrolling
     }
 
     /**
@@ -141,6 +159,56 @@ public class EntrySelectionPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Method for updating the title of the panel to contain the day of the week and full date
+     */
+    public void updateTitle(){
+        LocalDate date = getWindow().getCalendarPanel().getDate();
+        titleLabel.setText(date.getDayOfWeek().toString().substring(0,3) + "      " + date);
+    }
+
+    /**
+     * This method adds every entry button to a controllable List and sets visibility to false.
+     * It then forms associations between buttons and EntryTypes and makes only associated buttons visible.
+     */
+    public void updateListing(){
+        buttons.clear();
+        entryHashMap.clear();
+
+        buttons.add(entry1);
+        buttons.add(entry2);
+        buttons.add(entry3);
+        buttons.add(entry4);
+        buttons.add(entry5);
+        buttons.add(entry6);
+        //TODO add more buttons
+
+        //make all buttons invisible
+        for(JButton button : buttons){
+            button.setVisible(false);
+        }
+
+        //create associations between button and Entry
+        try {
+            List<Entry> entries = TM470ProjectRunner.getController().findEntryByDate(getWindow().getCalendarPanel().getDate());
+            for(int i = 0; i < entries.size(); i++) {
+                entryHashMap.put(buttons.get(i), entries.get(i));
+            }
+            System.out.println(entries.size() + " entries found");
+        }
+        catch (NullPointerException nullPointerException){
+            System.out.println("No entries found.");
+        }
+
+        //makes buttons that have associations visible
+        for(JButton button : buttons){
+            if(entryHashMap.containsKey(button)){
+                button.setVisible(true);
+                button.setText(entryHashMap.get(button).getType().getName() + " (Ref: " + entryHashMap.get(button).getId() + ")");
+            }
+        }
+    }
+
     private void entry1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entry1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_entry1ActionPerformed
@@ -153,20 +221,24 @@ public class EntrySelectionPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_entry3ActionPerformed
 
-    private void entry6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entry6ActionPerformed
+    private void entry4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entry4ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_entry6ActionPerformed
+    }//GEN-LAST:event_entry4ActionPerformed
 
     private void entry5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entry5ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_entry5ActionPerformed
 
-    private void entry4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entry4ActionPerformed
+    private void entry6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entry6ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_entry4ActionPerformed
+    }//GEN-LAST:event_entry6ActionPerformed
 
+    /**
+     * Method for button used in changing screens for returning to the previous panel
+     * @param evt internal ActionEvent listener for the methods, used by generated code
+     */
     private void returnButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnButtonActionPerformed
-        // TODO add your handling code here:
+        getWindow().changeScreen("CALENDAR");
     }//GEN-LAST:event_returnButtonActionPerformed
 
 

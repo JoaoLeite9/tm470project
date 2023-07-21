@@ -136,6 +136,8 @@ public class MainFrame extends javax.swing.JFrame {
     public static MainFrame getWindow(){ return window;}
 
     public CreateEntryPanel getCreateEntryPanel(){ return createEntryPanel;}
+
+    public EntrySelectionPanel getEntrySelectionPanel(){ return entrySelectionPanel;}
     
     public EntryTypeSelectionPanel getEntryTypeSelectionPanel() { return entryTypeSelectionPanel;}
 

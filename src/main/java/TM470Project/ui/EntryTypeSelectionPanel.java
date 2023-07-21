@@ -37,9 +37,8 @@ public class EntryTypeSelectionPanel extends javax.swing.JPanel {
     }
 
     /**
-     * first time set up for EntryTypeSelectionPanel.
-     * Adds every type button to a controllable List and sets visibility to false.
-     * Then forms associations between buttons and EntryTypes and makes only associated buttons visible.
+     * This method adds every type button to a controllable List and sets visibility to false.
+     * It then forms associations between buttons and EntryTypes and makes only associated buttons visible.
      */
     public void updateListing(){
         buttons.clear();
@@ -77,13 +76,8 @@ public class EntryTypeSelectionPanel extends javax.swing.JPanel {
                 buttonHashMap.put(buttons.get(i), (EntryType) CreateEntryPanel.getTypesList().get().get(i));
             }
         }
-        updateButtonVisibility();
-    }
 
-    /**
-     * Updates button visibility and access when modifying name, creating new types or deleting existing ones
-     */
-    public void updateButtonVisibility(){
+        //makes buttons that have associations visible
         for(JButton button : buttons){
             if(buttonHashMap.containsKey(button)){
                 button.setVisible(true);

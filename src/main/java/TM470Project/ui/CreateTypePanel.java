@@ -164,7 +164,7 @@ public class CreateTypePanel extends javax.swing.JPanel {
         System.out.println("Confirm button pressed.");
 
         String typeName = nameField.getText().trim();
-        String unit = unitComboBox.getItemAt(unitComboBox.getSelectedIndex());
+        String unit = unitComboBox.getSelectedItem().toString();
         // TODO edit unit declaration so that custom inputs are valid
         String kcal = kcalField.getText().trim();
 
@@ -187,19 +187,6 @@ public class CreateTypePanel extends javax.swing.JPanel {
             return;
             }
         System.out.println("kcal is a number.");
-
-
-//        if(TM470ProjectRunner.getController().findEntryTypeByName(typeName) == null) // <--- error here
-//        {
-//            EntryType entryType = new EntryType(typeName, unit, kcalDouble);
-//            TM470ProjectRunner.getController().saveEntryType(entryType);
-//            System.out.println("Created Entry Type object \n" + entryType);
-//        }
-//        else{
-//            JOptionPane.showMessageDialog(null, "Error: Object with this name reference already exists. \n Please edit the existing type.");
-//            System.out.println("entry type with this name already exists.");
-//            return;
-//        }
 
         //check if the type already exists (editing existing types is done in a different panel)
         try{

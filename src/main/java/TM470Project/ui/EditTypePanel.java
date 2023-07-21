@@ -192,7 +192,6 @@ public class EditTypePanel extends javax.swing.JPanel {
 
         //mock type name used to reduce method calls
         String mockTypeName = getWindow().getEntryTypeSelectionPanel().getSelectedType().getName();
-        // TODO edit unit declaration so that custom inputs are valid
         String kcal = kcalField.getText().trim();
 
         // check that all fields are filled out
@@ -216,8 +215,6 @@ public class EditTypePanel extends javax.swing.JPanel {
         try{
             EntryType entryType = TM470ProjectRunner.getController().findEntryTypeByName(mockTypeName);
             if(entryType != null) {
-                // TODO problem here: is creating extra items with the same name instead of updating
-
                 System.out.println("Name input: " + nameField.getText().trim());
                 entryType.setMetric(Objects.requireNonNull(unitComboBox.getSelectedItem()).toString());
                 System.out.println("Selected metric: " + unitComboBox.getSelectedItem());
@@ -250,7 +247,6 @@ public class EditTypePanel extends javax.swing.JPanel {
     }//GEN-LAST:event_unitComboBoxActionPerformed
 
     private void nameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameFieldActionPerformed
-
     }//GEN-LAST:event_nameFieldActionPerformed
 
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
@@ -293,7 +289,6 @@ public class EditTypePanel extends javax.swing.JPanel {
             }
             finally {
                 //delete entry type
-                // TODO delete entry type here
                 TM470ProjectRunner.getController().deleteEntryType(entryType);
                 //update listings
                 getWindow().getCreateEntryPanel().populateTypeComboBox();
