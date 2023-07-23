@@ -106,7 +106,7 @@ public class EditEntryPanel extends javax.swing.JPanel {
         dayComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Day", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
 
         monthComboBox.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
-        monthComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Month", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" }));
+        monthComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Month", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }));
 
         yearComboBox.setEditable(true);
         yearComboBox.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
@@ -202,9 +202,9 @@ public class EditEntryPanel extends javax.swing.JPanel {
 
         inputField.setText(String.valueOf(mockEntry.getMetric()));
         typeComboBox.setSelectedItem(mockEntry.getType().getName()); //TODO leave for now, probably remove though
-        dayComboBox.setSelectedItem(mockEntry.getDate().getDayOfMonth());
-        monthComboBox.setSelectedItem(mockEntry.getDate().getMonthValue());
-        yearComboBox.setSelectedItem(mockEntry.getDate().getYear());
+        dayComboBox.setSelectedItem(String.valueOf(mockEntry.getDate().getDayOfMonth()));
+        monthComboBox.setSelectedItem(String.valueOf(mockEntry.getDate().getMonthValue()));
+        yearComboBox.setSelectedItem(String.valueOf(mockEntry.getDate().getYear()));
     }
 
     /**

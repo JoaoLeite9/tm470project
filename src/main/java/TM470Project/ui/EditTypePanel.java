@@ -36,7 +36,7 @@ public class EditTypePanel extends javax.swing.JPanel {
         //a mock type for reduced excess calls
         EntryType mockType = getWindow().getEntryTypeSelectionPanel().getSelectedType();
 
-        nameField.setText(mockType.getName());
+        nameField.setText(getWindow().getEntryTypeSelectionPanel().getSelectedType().getName());
         kcalField.setText((String.valueOf(mockType.getKcal())));
         unitComboBox.setSelectedItem(mockType.getMetric());
     }
