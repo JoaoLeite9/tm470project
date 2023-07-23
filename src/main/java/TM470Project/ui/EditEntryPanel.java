@@ -197,7 +197,6 @@ public class EditEntryPanel extends javax.swing.JPanel {
      * Method to update the fields' default values to those of the selected Entry
      */
     public void updateFields(){
-        //TODO update fields with selected type from EntrySelectionPanel
         Entry mockEntry = getWindow().getEntrySelectionPanel().getSelectedEntry();
 
         inputField.setText(String.valueOf(mockEntry.getMetric()));
