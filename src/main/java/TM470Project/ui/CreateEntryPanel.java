@@ -15,8 +15,9 @@ import java.util.Optional;
 import static TM470Project.ui.MainFrame.getWindow;
 
 /**
- *
+ * Class representing the window panel for creating a new Entry
  * @author Joao
+ * v4 23/07/2023
  */
 public class CreateEntryPanel extends javax.swing.JPanel {
     private static Optional<List> typesList;
@@ -112,46 +113,21 @@ public class CreateEntryPanel extends javax.swing.JPanel {
         });
 
         inputField.setToolTipText("The numerical input for the entry.");
-        inputField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                inputFieldActionPerformed(evt);
-            }
-        });
 
         typeComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "<<getEntryTypeList>>" }));
         typeComboBox.setToolTipText("The entry type for your entry.");
-        typeComboBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                typeComboBoxActionPerformed(evt);
-            }
-        });
 
         dayComboBox.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         dayComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
         dayComboBox.setSelectedIndex(LocalDate.now().getDayOfMonth()-1);
-        dayComboBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                dayComboBoxActionPerformed(evt);
-            }
-        });
 
         monthComboBox.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         monthComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }));
         monthComboBox.setSelectedIndex(LocalDate.now().getMonthValue()-1);
-        monthComboBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                monthComboBoxActionPerformed(evt);
-            }
-        });
 
         yearComboBox.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         yearComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Year", "<<fill this out using some code>>" }));
         yearComboBox.setName(""); // NOI18N
-        yearComboBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                yearComboBoxActionPerformed(evt);
-            }
-        });
 
         toTypeSelectionButton.setText("...");
         toTypeSelectionButton.setToolTipText("Create entry type.");
@@ -227,40 +203,30 @@ public class CreateEntryPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void inputFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_inputFieldActionPerformed
-
-    private void monthComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_monthComboBoxActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_monthComboBoxActionPerformed
-
+    /**
+     * Changes screen to Main Panel
+     * @param evt internal ActionEvent listener for the methods, used by generated code
+     */
     private void returnButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnButtonActionPerformed
-        // TODO add your handling code here:
         getWindow().changeScreen("MAIN");
-        populateTypeComboBox();;
+        populateTypeComboBox();
+        getWindow().getEditEntryPanel().populateTypeComboBox();
     }//GEN-LAST:event_returnButtonActionPerformed
 
+    /**
+     * Changes screen to Entry Type Selection Panel
+     * @param evt internal ActionEvent listener for the methods, used by generated code
+     */
     private void toTypeSelectionButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_toTypeSelectionButtonActionPerformed
-        // TODO add your handling code here:
+        getWindow().setPreviousScreenRef("CREATE ENTRY");
         getWindow().changeScreen("TYPE SELECTION");
     }//GEN-LAST:event_toTypeSelectionButtonActionPerformed
 
-    private void typeComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_typeComboBoxActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_typeComboBoxActionPerformed
-
-    private void dayComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dayComboBoxActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_dayComboBoxActionPerformed
-
-    private void yearComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_yearComboBoxActionPerformed
-        // TODO add your handling code here:
-        // TODO fill in years systematically
-    }//GEN-LAST:event_yearComboBoxActionPerformed
-
+    /**
+     * Method for saving Entry and returning to Main Panel
+     * @param evt internal ActionEvent listener for the methods, used by generated code
+     */
     private void confirmButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmButtonActionPerformed
-        // TODO add your handling code here:
         System.out.println("Confirm button pressed");
         String typeInput = typeComboBox.getItemAt(typeComboBox.getSelectedIndex());
         String dateDayInput = dayComboBox.getItemAt(dayComboBox.getSelectedIndex());
@@ -308,10 +274,13 @@ public class CreateEntryPanel extends javax.swing.JPanel {
         getWindow().changeScreen("MAIN");
     }//GEN-LAST:event_confirmButtonActionPerformed
 
+    /**
+     * Getter for typeList variable
+     * @return an Optional containing a List of EntryTypes if any exist
+     */
     public static Optional<List> getTypesList(){
         return typesList;
     }
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton confirmButton;

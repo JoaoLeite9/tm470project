@@ -13,8 +13,9 @@ import javax.swing.JOptionPane;
 import static TM470Project.ui.MainFrame.getWindow;
 
 /**
- *
+ * Class representing the window panel for creating a new EntryType
  * @author Joao
+ * v4 23/07/2023
  */
 public class CreateTypePanel extends javax.swing.JPanel {
 
@@ -66,27 +67,12 @@ public class CreateTypePanel extends javax.swing.JPanel {
         kcalLabel.setText("kcal per unit");
 
         nameField.setToolTipText("The name for the entry type.");
-        nameField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nameFieldActionPerformed(evt);
-            }
-        });
 
         kcalField.setToolTipText("The kilocalorie value per 1 unit of exercise.");
-        kcalField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                kcalFieldActionPerformed(evt);
-            }
-        });
 
         unitComboBox.setEditable(true);
         unitComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "metres", "kilometres", "yards", "miles", "seconds", "minutes", "reps", "sets" }));
         unitComboBox.setToolTipText("The metric by which to measure your entry type.");
-        unitComboBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                unitComboBoxActionPerformed(evt);
-            }
-        });
 
         confirmButton.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         confirmButton.setText("Confirm");
@@ -154,12 +140,10 @@ public class CreateTypePanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void nameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameFieldActionPerformed
-    }//GEN-LAST:event_nameFieldActionPerformed
-
-    private void kcalFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kcalFieldActionPerformed
-    }//GEN-LAST:event_kcalFieldActionPerformed
-
+    /**
+     * Method for saving Type and returning to the Entry Type Selection Panel
+     * @param evt internal ActionEvent listener for the methods, used by generated code
+     */
     private void confirmButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmButtonActionPerformed
         System.out.println("Confirm button pressed.");
 
@@ -208,19 +192,20 @@ public class CreateTypePanel extends javax.swing.JPanel {
         }
         //updates the list of available types
         getWindow().getCreateEntryPanel().populateTypeComboBox();
+        getWindow().getEditEntryPanel().populateTypeComboBox();
         getWindow().getEntryTypeSelectionPanel().updateListing();
         //return to entry type selection panel
         getWindow().changeScreen("TYPE SELECTION");
     }//GEN-LAST:event_confirmButtonActionPerformed
 
+    /**
+     * Changes screen to Entry Type Selection Panel
+     * @param evt internal ActionEvent listener for the methods, used by generated code
+     */
     private void returnButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnButtonActionPerformed
         //return to entry type selection panel
         getWindow().changeScreen("TYPE SELECTION");
     }//GEN-LAST:event_returnButtonActionPerformed
-
-    private void unitComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_unitComboBoxActionPerformed
-    }//GEN-LAST:event_unitComboBoxActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton confirmButton;

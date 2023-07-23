@@ -14,8 +14,9 @@ import java.util.List;
 import static TM470Project.ui.MainFrame.getWindow;
 
 /**
- *
+ * Class representing the window panel for selecting Entry Types
  * @author Joao
+ * v4 23/07/2023
  */
 public class EntryTypeSelectionPanel extends javax.swing.JPanel {
 
@@ -381,6 +382,11 @@ public class EntryTypeSelectionPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Methods for each button press for variables type1 through type20.
+     * Running these methods will bring up the EditEntryPanel for the associated Entry
+     * @param evt internal ActionEvent listener for the methods, used by generated code
+     */
     private void type1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_type1ActionPerformed
         typeButtonPress((JButton)evt.getSource());
     }//GEN-LAST:event_type1ActionPerformed
@@ -406,11 +412,7 @@ public class EntryTypeSelectionPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_type3ActionPerformed
 
     private void returnButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnButtonActionPerformed
-        //update listings
-        getWindow().getCreateEntryPanel().populateTypeComboBox();
-        getWindow().getEntryTypeSelectionPanel().updateListing();
-        //return to previous screen
-        getWindow().changeScreen("CREATE ENTRY");
+        getWindow().changeScreen(getWindow().getPreviousScreenRef());
     }//GEN-LAST:event_returnButtonActionPerformed
 
     private void newButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newButtonActionPerformed
@@ -473,6 +475,10 @@ public class EntryTypeSelectionPanel extends javax.swing.JPanel {
         typeButtonPress((JButton)evt.getSource());
     }//GEN-LAST:event_type20ActionPerformed
 
+    /**
+     * Getter for the selectedType variable, to be used by the EditEntryPanel
+     * @return the selected EntryType
+     */
     public EntryType getSelectedType(){
         return selectedType;
     }

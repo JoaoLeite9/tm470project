@@ -8,18 +8,17 @@ import TM470Project.Entry;
 import TM470Project.EntryType;
 import TM470Project.TM470ProjectRunner;
 
-import javax.persistence.NoResultException;
 import javax.persistence.NonUniqueResultException;
 import javax.swing.*;
 
-import java.awt.event.ActionEvent;
 import java.util.Objects;
 
 import static TM470Project.ui.MainFrame.*;
 
 /**
- *
+ * Class representing the window panel for editing and existing EntryType
  * @author Joao
+ * v4 23/07/2023
  */
 public class EditTypePanel extends javax.swing.JPanel {
 
@@ -82,31 +81,15 @@ public class EditTypePanel extends javax.swing.JPanel {
         kcalLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         kcalLabel.setText("kcal per unit");
 
-        nameField.setEditable(false);
         nameField.setText("<<getName>>");
         nameField.setToolTipText("The name for the entry type. Cannot be edited.");
-        nameField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nameFieldActionPerformed(evt);
-            }
-        });
 
         kcalField.setText("<<getKcal>>");
         kcalField.setToolTipText("The kilocalorie value per 1 unit of exercise.");
-        kcalField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                kcalFieldActionPerformed(evt);
-            }
-        });
 
         unitComboBox.setEditable(true);
         unitComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "metres", "kilometres", "yards", "miles", "seconds", "minutes", "reps", "sets" }));
         unitComboBox.setToolTipText("The metric by which to measure your entry type.");
-        unitComboBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                unitComboBoxActionPerformed(evt);
-            }
-        });
 
         confirmButton.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         confirmButton.setText("Confirm");
@@ -184,9 +167,10 @@ public class EditTypePanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void kcalFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kcalFieldActionPerformed
-    }//GEN-LAST:event_kcalFieldActionPerformed
-
+    /**
+     * Method for saving Type and returning to the Entry Type Selection Panel
+     * @param evt internal ActionEvent listener for the methods, used by generated code
+     */
     private void confirmButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmButtonActionPerformed
         System.out.println("Confirm button pressed.");
 
@@ -215,6 +199,7 @@ public class EditTypePanel extends javax.swing.JPanel {
         try{
             EntryType entryType = TM470ProjectRunner.getController().findEntryTypeByName(mockTypeName);
             if(entryType != null) {
+                entryType.setName(nameField.getText());
                 System.out.println("Name input: " + nameField.getText().trim());
                 entryType.setMetric(Objects.requireNonNull(unitComboBox.getSelectedItem()).toString());
                 System.out.println("Selected metric: " + unitComboBox.getSelectedItem());
@@ -233,22 +218,25 @@ public class EditTypePanel extends javax.swing.JPanel {
         }
         //update listings
         getWindow().getCreateEntryPanel().populateTypeComboBox();
+        getWindow().getEditEntryPanel().populateTypeComboBox();
         getWindow().getEntryTypeSelectionPanel().updateListing();
         //change screen
         getWindow().changeScreen("TYPE SELECTION");
     }//GEN-LAST:event_confirmButtonActionPerformed
 
+    /**
+     * Method for returning to the Entry Type Selection Panel
+     * @param evt internal ActionEvent listener for the methods, used by generated code
+     */
     private void returnButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnButtonActionPerformed
         // return to EntryTypeSelectionPanel
         getWindow().changeScreen("TYPE SELECTION");
     }//GEN-LAST:event_returnButtonActionPerformed
 
-    private void unitComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_unitComboBoxActionPerformed;
-    }//GEN-LAST:event_unitComboBoxActionPerformed
-
-    private void nameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameFieldActionPerformed
-    }//GEN-LAST:event_nameFieldActionPerformed
-
+    /**
+     * Method for deleting the selected Type and returning to the Entry Type Selection Panel
+     * @param evt internal ActionEvent listener for the methods, used by generated code
+     */
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
         System.out.println("Delete button pressed");
 
@@ -277,21 +265,23 @@ public class EditTypePanel extends javax.swing.JPanel {
                             TM470ProjectRunner.getController().deleteEntry(entry);
                             System.out.println("entry " + entry.getId() + " deleted.");
                         }
-                        //TODO run update entry listings
+                        getWindow().getEntrySelectionPanel().updateListing();
                     }
                     else{
+                        //returns if 'no' is selected when prompted to delete all associated entries
                         return;
                     }
                 }
             }
-            catch (NullPointerException ignored){
-
+            catch (NullPointerException nullPointerException){
+                //in the case that the selected EntryType has no associated entries, nothing else needs to be done
             }
             finally {
                 //delete entry type
                 TM470ProjectRunner.getController().deleteEntryType(entryType);
                 //update listings
                 getWindow().getCreateEntryPanel().populateTypeComboBox();
+                getWindow().getEditEntryPanel().populateTypeComboBox();
                 getWindow().getEntryTypeSelectionPanel().updateListing();
                 //change window
                 getWindow().changeScreen("TYPE SELECTION");

@@ -4,11 +4,17 @@
  */
 package TM470Project.ui;
 
+import TM470Project.Entry;
+import TM470Project.EntryType;
+
+import java.time.LocalDate;
+
 import static TM470Project.ui.MainFrame.getWindow;
 
 /**
- *
+ * Class representing the window panel for editing an existing Entry
  * @author Joao
+ * v4 23/07/2023
  */
 public class EditEntryPanel extends javax.swing.JPanel {
 
@@ -17,6 +23,16 @@ public class EditEntryPanel extends javax.swing.JPanel {
      */
     public EditEntryPanel() {
         initComponents();
+        populateTypeComboBox();
+
+        yearComboBox.removeAllItems();
+
+        /* populates a list with 100 years from current year in regressive order */
+        int year = LocalDate.now().getYear();
+        for(int i = 0; i < 100; i++){
+            yearComboBox.addItem(String.valueOf(year));
+            year -= 1;
+        }
     }
 
     /**
@@ -81,46 +97,21 @@ public class EditEntryPanel extends javax.swing.JPanel {
         });
 
         inputField.setToolTipText("The numerical input for the entry.");
-        inputField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                inputFieldActionPerformed(evt);
-            }
-        });
 
         typeComboBox.setEditable(true);
         typeComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "(keep for now)" }));
         typeComboBox.setToolTipText("The entry type for your entry.");
-        typeComboBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                typeComboBoxActionPerformed(evt);
-            }
-        });
 
         dayComboBox.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         dayComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Day", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
-        dayComboBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                dayComboBoxActionPerformed(evt);
-            }
-        });
 
         monthComboBox.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         monthComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Month", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" }));
-        monthComboBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                monthComboBoxActionPerformed(evt);
-            }
-        });
 
         yearComboBox.setEditable(true);
         yearComboBox.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         yearComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Year", "<<fill this out using some code>>" }));
         yearComboBox.setName(""); // NOI18N
-        yearComboBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                yearComboBoxActionPerformed(evt);
-            }
-        });
 
         titleLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         titleLabel.setText("Edit Entry");
@@ -202,40 +193,74 @@ public class EditEntryPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Method to update the fields' default values to those of the selected Entry
+     */
+    public void updateFields(){
+        //TODO update fields with selected type from EntrySelectionPanel
+        Entry mockEntry = getWindow().getEntrySelectionPanel().getSelectedEntry();
+
+        inputField.setText(String.valueOf(mockEntry.getMetric()));
+        typeComboBox.setSelectedItem(mockEntry.getType().getName()); //TODO leave for now, probably remove though
+        dayComboBox.setSelectedItem(mockEntry.getDate().getDayOfMonth());
+        monthComboBox.setSelectedItem(mockEntry.getDate().getMonthValue());
+        yearComboBox.setSelectedItem(mockEntry.getDate().getYear());
+    }
+
+    /**
+     * This method populates drop down menu list with queried EntryType items
+     */
+    public void populateTypeComboBox() {
+        /* removes all items from combo box before adding current ones */
+        typeComboBox.removeAllItems();
+
+        /* populates list with entry types */
+        EntryType entryType;
+        if(CreateEntryPanel.getTypesList().isPresent()){
+            for (int i = 0; i < CreateEntryPanel.getTypesList().get().size(); i++){
+                entryType = (EntryType) CreateEntryPanel.getTypesList().get().get(i);
+                typeComboBox.addItem(entryType.getName());
+            }
+        }
+    }
+    /**
+     * Method for deleting the selected Entry
+     * @param evt internal ActionEvent listener for the methods, used by generated code
+     */
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
-        // TODO add your handling code here:
+        // TODO confirm if they want to delete, if so delete
+
+
+        getWindow().getEntrySelectionPanel().updateListing();
+        getWindow().changeScreen("ENTRY SELECTION");
     }//GEN-LAST:event_deleteButtonActionPerformed
 
-    private void inputFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_inputFieldActionPerformed
-
-    private void monthComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_monthComboBoxActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_monthComboBoxActionPerformed
-
+    /**
+     * Method for returning to the EntrySelectionPanel
+     * @param evt internal ActionEvent listener for the methods, used by generated code
+     */
     private void returnButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnButtonActionPerformed
-        // TODO add your handling code here:
+        getWindow().changeScreen("ENTRY SELECTION");
     }//GEN-LAST:event_returnButtonActionPerformed
 
-    private void typeComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_typeComboBoxActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_typeComboBoxActionPerformed
-
+    /**
+     * Method to change screen to the TypeSelectionPanel, while keeping a reference of screen pathing
+     * @param evt internal ActionEvent listener for the methods, used by generated code
+     */
     private void toTypeSelectionButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_toTypeSelectionButtonActionPerformed
-        // TODO add your handling code here:
+        getWindow().setPreviousScreenRef("EDIT ENTRY");
+        getWindow().changeScreen("TYPE SELECTION");
     }//GEN-LAST:event_toTypeSelectionButtonActionPerformed
 
-    private void dayComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dayComboBoxActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_dayComboBoxActionPerformed
-
-    private void yearComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_yearComboBoxActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_yearComboBoxActionPerformed
-
+    /**
+     * Method for saving changes to the selected Entry
+     * @param evt internal ActionEvent listener for the methods, used by generated code
+     */
     private void confirmButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmButtonActionPerformed
-        // TODO add your handling code here:
+        // TODO make changes to entry
+
+        getWindow().getEntrySelectionPanel().updateListing();
+        getWindow().changeScreen("ENTRY SELECTION");
     }//GEN-LAST:event_confirmButtonActionPerformed
 
 

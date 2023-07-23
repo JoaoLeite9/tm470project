@@ -8,8 +8,9 @@ import java.awt.CardLayout;
 import javax.swing.*;
 
 /**
- *
+ * The main ui window class that holds different panel cards to be displayed
  * @author Joao
+ * v4 23/07/2023
  */
 public class MainFrame extends javax.swing.JFrame {
     /* declare JFrame object */
@@ -30,7 +31,9 @@ public class MainFrame extends javax.swing.JFrame {
     /* declare cardPanel object which holds different panels */
     private final CardLayout cardLayout = new CardLayout();
     private final JPanel cardPanel = new JPanel(cardLayout);
-    
+
+    private String previousScreenRef;
+
     /**
      * Creates new form MainFrame
      */
@@ -92,6 +95,9 @@ public class MainFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Runs the methods for creating and vizualising the main window
+     */
     public static void run() {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -133,20 +139,68 @@ public class MainFrame extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     //getters for MainFrame class
+
+    /**
+     * @return the MainFrame window
+     */
     public static MainFrame getWindow(){ return window;}
 
+    /**
+     * @return the CreateEntryPanel
+     */
     public CreateEntryPanel getCreateEntryPanel(){ return createEntryPanel;}
 
+    /**
+     * @return the EditEntryPanel
+     */
+    public EditEntryPanel getEditEntryPanel(){ return editEntryPanel;}
+
+    /**
+     * @return the EditTypePanel
+     */
+    public EditTypePanel getEditTypePanel() { return editTypePanel; }
+
+    /**
+     * @return the EntrySelectionPanel
+     */
     public EntrySelectionPanel getEntrySelectionPanel(){ return entrySelectionPanel;}
-    
+
+    /**
+     * @return the EntryTypeSelectionPanel
+     */
     public EntryTypeSelectionPanel getEntryTypeSelectionPanel() { return entryTypeSelectionPanel;}
 
-    public EditTypePanel getEditTypePanel() { return editTypePanel; }
-    
+    /**
+     * @return the CalendarPanel
+     */
     public CalendarPanel getCalendarPanel(){ return calendarPanel;}
-    
+
+    /**
+     * @return the DataViewPanel
+     */
     public DataViewPanel getDataViewPanel(){ return dataViewPanel;}
 
+
+    /**
+     * Getter for previousScreenRef variable
+     * Used when one screen may be reached from more than one screen to be able to return to the correct screen
+     * @return the String reference for the previous screen
+     */
+    public String getPreviousScreenRef(){ return previousScreenRef;}
+
+    /**
+     * Setter for previousScreenRef variable
+     * Used when one screen may be reached from more than one screen to be able to return to the correct screen
+     * @param input the String reference for the previous screen
+     */
+    public void setPreviousScreenRef(String input){ previousScreenRef = input;}
+
+
+    /**
+     * Method used to run the UI without the TM470ProjectRunner
+     * Used primarily in early testing
+     * @param args
+     */
     public static void main(String[] args){
         run();
     }

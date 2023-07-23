@@ -9,8 +9,9 @@ import java.time.LocalDate;
 import static TM470Project.ui.MainFrame.getWindow;
 
 /**
- *
+ * The calendar class which displays a visual representation grid for any given month
  * @author Joao
+ * v4 23/07/2023
  */
 public class CalendarPanel extends javax.swing.JPanel {
 
@@ -25,6 +26,10 @@ public class CalendarPanel extends javax.swing.JPanel {
         updateMonthLabel();
     }
 
+    /**
+     * The method called for pressing any given date number
+     * @param buttonRef the number associated with a date button (e.g. ref for 'date1' button would be '1')
+     */
     public void buttonPress(int buttonRef){
         setDate(buttonRef);
         getWindow().getEntrySelectionPanel().updateListing();

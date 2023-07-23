@@ -8,7 +8,7 @@ import javax.persistence.Persistence;
 
 
 /**
- *
+ * The main class and runner for the project
  * @author Joao
  * v3 02/06/2023
  */

@@ -101,18 +101,27 @@ public class MainPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_helpButtonActionPerformed
 
+    /**
+     * Method to change the screen to the SettingsPanel
+     * @param evt internal ActionEvent listener for the methods, used by generated code
+     */
     private void settingsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_settingsButtonActionPerformed
-        // TODO add your handling code here:
         getWindow().changeScreen("SETTINGS");
     }//GEN-LAST:event_settingsButtonActionPerformed
 
+    /**
+     * Method to change the screen to the DataViewPane;
+     * @param evt internal ActionEvent listener for the methods, used by generated code
+     */
     private void viewDataButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewDataButtonActionPerformed
-        // TODO add your handling code here:
         getWindow().changeScreen("CALENDAR");
     }//GEN-LAST:event_viewDataButtonActionPerformed
 
+    /**
+     * Method to change the screen to the CreateEntryPanel
+     * @param evt internal ActionEvent listener for the methods, used by generated code
+     */
     private void createButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createButtonActionPerformed
-        // TODO add your handling code here:
         getWindow().changeScreen("CREATE ENTRY");
     }//GEN-LAST:event_createButtonActionPerformed
 

@@ -125,7 +125,6 @@
     </Component>
     <Component class="javax.swing.JTextField" name="nameField">
       <Properties>
-        <Property name="editable" type="boolean" value="false"/>
         <Property name="text" type="java.lang.String" value="&lt;&lt;getName&gt;&gt;"/>
         <Property name="toolTipText" type="java.lang.String" value="The name for the entry type. Cannot be edited."/>
       </Properties>

@@ -16,13 +16,16 @@ import java.util.List;
 import static TM470Project.ui.MainFrame.getWindow;
 
 /**
- *
+ * Class representing the window panel for selecting Entries for a given date
  * @author Joao
+ * v4 23/07/2023
  */
 public class EntrySelectionPanel extends javax.swing.JPanel {
 
     private List<JButton> buttons;
     private HashMap <JButton, Entry> entryHashMap;
+
+    private Entry selectedEntry;
 
     /**
      * Creates new form EntrySelectionPanel
@@ -209,28 +212,45 @@ public class EntrySelectionPanel extends javax.swing.JPanel {
         }
     }
 
+
+    /**
+     * Defines selected entry as the one associated with the button press to be used by the EditEntryPanel
+     * and changes screen to EditTypePanel
+     * @param button the button being pressed
+     */
+    public void entryButtonPress(JButton button){
+        selectedEntry = entryHashMap.get(button);
+        getWindow().getEditEntryPanel().updateFields();
+        getWindow().changeScreen("EDIT ENTRY");
+    }
+
+    /**
+     * Methods for each button press for variables entry1 through entry(?).
+     * Running these methods will bring up the EditEntryPanel for the associated Entry
+     * @param evt internal ActionEvent listener for the methods, used by generated code
+     */
     private void entry1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entry1ActionPerformed
-        // TODO add your handling code here:
+        entryButtonPress((JButton) evt.getSource());
     }//GEN-LAST:event_entry1ActionPerformed
 
     private void entry2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entry2ActionPerformed
-        // TODO add your handling code here:
+        entryButtonPress((JButton) evt.getSource());
     }//GEN-LAST:event_entry2ActionPerformed
 
     private void entry3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entry3ActionPerformed
-        // TODO add your handling code here:
+        entryButtonPress((JButton) evt.getSource());
     }//GEN-LAST:event_entry3ActionPerformed
 
     private void entry4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entry4ActionPerformed
-        // TODO add your handling code here:
+        entryButtonPress((JButton) evt.getSource());
     }//GEN-LAST:event_entry4ActionPerformed
 
     private void entry5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entry5ActionPerformed
-        // TODO add your handling code here:
+        entryButtonPress((JButton) evt.getSource());
     }//GEN-LAST:event_entry5ActionPerformed
 
     private void entry6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entry6ActionPerformed
-        // TODO add your handling code here:
+        entryButtonPress((JButton) evt.getSource());
     }//GEN-LAST:event_entry6ActionPerformed
 
     /**
@@ -240,6 +260,12 @@ public class EntrySelectionPanel extends javax.swing.JPanel {
     private void returnButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnButtonActionPerformed
         getWindow().changeScreen("CALENDAR");
     }//GEN-LAST:event_returnButtonActionPerformed
+
+    /**
+     * Getter for selectedEntry variable
+     * @return the currently selected entry.
+     */
+    public Entry getSelectedEntry(){ return selectedEntry;}
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

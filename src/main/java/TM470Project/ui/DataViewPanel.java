@@ -7,8 +7,9 @@ package TM470Project.ui;
 import static TM470Project.ui.MainFrame.getWindow;
 
 /**
- *
+ * Class representing the window panel for visualising data
  * @author Joao
+ * v4 23/07/2023
  */
 public class DataViewPanel extends javax.swing.JPanel {
     /**
@@ -109,27 +110,39 @@ public class DataViewPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Method for changing the month by 1 going forwards
+     * @param evt internal ActionEvent listener for the methods, used by generated code
+     */
+    private void nextMonthButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextMonthButtonActionPerformed
+        getWindow().getCalendarPanel().setDate(getWindow().getCalendarPanel().getDate().plusMonths(1));
+        updateMonthLabel();
+    }//GEN-LAST:event_nextMonthButtonActionPerformed
+
+    /**
+     * Method for changing the month by 1 going backwards
+     * @param evt internal ActionEvent listener for the methods, used by generated code
+     */
     private void prevMonthButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_prevMonthButtonActionPerformed
         getWindow().getCalendarPanel().setDate(getWindow().getCalendarPanel().getDate().minusMonths(1));
         updateMonthLabel();
     }//GEN-LAST:event_prevMonthButtonActionPerformed
 
+    /**
+     * Method for changing the screen to the CalendarPanel
+     * @param evt Method for changing the month by 1 going backwards
+     */
     private void returnButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnButtonActionPerformed
-        // TODO add your handling code here:
         getWindow().changeScreen("CALENDAR");
         getWindow().getCalendarPanel().updateMonthLabel();
     }//GEN-LAST:event_returnButtonActionPerformed
 
-    private void nextMonthButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextMonthButtonActionPerformed
-        // TODO add your handling code here:
-        getWindow().getCalendarPanel().setDate(getWindow().getCalendarPanel().getDate().plusMonths(1));
-        updateMonthLabel();
-    }//GEN-LAST:event_nextMonthButtonActionPerformed
-
+    /**
+     * Method for updating the monthLabel variable's text to represent the currently selected month
+     */
     public void updateMonthLabel(){
         monthLabel.setText(getWindow().getCalendarPanel().getDate().getMonth().toString().substring(0, 3) + " " + getWindow().getCalendarPanel().getDate().getYear());
     }
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel dataAreaPanel;
