@@ -8,6 +8,7 @@ import TM470Project.Entry;
 import TM470Project.TM470ProjectRunner;
 
 import javax.swing.*;
+import java.awt.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -56,6 +57,20 @@ public class EntrySelectionPanel extends javax.swing.JPanel {
         entry5 = new javax.swing.JButton();
         titleLabel = new javax.swing.JLabel();
         entry4 = new javax.swing.JButton();
+        entry7 = new javax.swing.JButton();
+        entry8 = new javax.swing.JButton();
+        entry9 = new javax.swing.JButton();
+        entry10 = new javax.swing.JButton();
+        entry11 = new javax.swing.JButton();
+        entry12 = new javax.swing.JButton();
+        entry13 = new javax.swing.JButton();
+        entry14 = new javax.swing.JButton();
+        entry15 = new javax.swing.JButton();
+        entry16 = new javax.swing.JButton();
+        entry17 = new javax.swing.JButton();
+        entry18 = new javax.swing.JButton();
+        entry19 = new javax.swing.JButton();
+        entry20 = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(204, 255, 255));
 
@@ -65,6 +80,12 @@ public class EntrySelectionPanel extends javax.swing.JPanel {
         returnButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 returnButtonActionPerformed(evt);
+            }
+        });
+
+        scrollBar.addAdjustmentListener(new java.awt.event.AdjustmentListener() {
+            public void adjustmentValueChanged(java.awt.event.AdjustmentEvent evt) {
+                scrollBarAdjustmentValueChanged(evt);
             }
         });
 
@@ -114,6 +135,104 @@ public class EntrySelectionPanel extends javax.swing.JPanel {
             }
         });
 
+        entry7.setText("<<anEntry>>");
+        entry7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                entry7ActionPerformed(evt);
+            }
+        });
+
+        entry8.setText("<<anEntry>>");
+        entry8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                entry8ActionPerformed(evt);
+            }
+        });
+
+        entry9.setText("<<anEntry>>");
+        entry9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                entry9ActionPerformed(evt);
+            }
+        });
+
+        entry10.setText("<<anEntry>>");
+        entry10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                entry10ActionPerformed(evt);
+            }
+        });
+
+        entry11.setText("<<anEntry>>");
+        entry11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                entry11ActionPerformed(evt);
+            }
+        });
+
+        entry12.setText("<<anEntry>>");
+        entry12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                entry12ActionPerformed(evt);
+            }
+        });
+
+        entry13.setText("<<anEntry>>");
+        entry13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                entry13ActionPerformed(evt);
+            }
+        });
+
+        entry14.setText("<<anEntry>>");
+        entry14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                entry14ActionPerformed(evt);
+            }
+        });
+
+        entry15.setText("<<anEntry>>");
+        entry15.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                entry15ActionPerformed(evt);
+            }
+        });
+
+        entry16.setText("<<anEntry>>");
+        entry16.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                entry16ActionPerformed(evt);
+            }
+        });
+
+        entry17.setText("<<anEntry>>");
+        entry17.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                entry17ActionPerformed(evt);
+            }
+        });
+
+        entry18.setText("<<anEntry>>");
+        entry18.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                entry18ActionPerformed(evt);
+            }
+        });
+
+        entry19.setText("<<anEntry>>");
+        entry19.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                entry19ActionPerformed(evt);
+            }
+        });
+
+        entry20.setText("<<anEntry>>");
+        entry20.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                entry20ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -130,7 +249,21 @@ public class EntrySelectionPanel extends javax.swing.JPanel {
                     .addComponent(entry3, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE)
                     .addComponent(entry6, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE)
                     .addComponent(entry5, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE)
-                    .addComponent(entry4, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE))
+                    .addComponent(entry4, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE)
+                    .addComponent(entry7, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE)
+                    .addComponent(entry8, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE)
+                    .addComponent(entry9, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE)
+                    .addComponent(entry10, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE)
+                    .addComponent(entry11, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE)
+                    .addComponent(entry12, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE)
+                    .addComponent(entry13, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE)
+                    .addComponent(entry14, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE)
+                    .addComponent(entry15, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE)
+                    .addComponent(entry16, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE)
+                    .addComponent(entry17, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE)
+                    .addComponent(entry18, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE)
+                    .addComponent(entry19, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE)
+                    .addComponent(entry20, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(scrollBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -156,8 +289,36 @@ public class EntrySelectionPanel extends javax.swing.JPanel {
                         .addComponent(entry5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(entry6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(entry7)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(entry8)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(entry9)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(entry10)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(entry11)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(entry12)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(entry13)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(entry14)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(entry15)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(entry16)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(entry17)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(entry18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(entry19)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(entry20)
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(scrollBar, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE))
+                    .addComponent(scrollBar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -184,7 +345,20 @@ public class EntrySelectionPanel extends javax.swing.JPanel {
         buttons.add(entry4);
         buttons.add(entry5);
         buttons.add(entry6);
-        //TODO add more buttons
+        buttons.add(entry7);
+        buttons.add(entry8);
+        buttons.add(entry9);
+        buttons.add(entry10);
+        buttons.add(entry11);
+        buttons.add(entry12);
+        buttons.add(entry13);
+        buttons.add(entry14);
+        buttons.add(entry15);
+        buttons.add(entry16);
+        buttons.add(entry17);
+        buttons.add(entry18);
+        buttons.add(entry19);
+        buttons.add(entry20);
 
         //make all buttons invisible
         for(JButton button : buttons){
@@ -197,10 +371,12 @@ public class EntrySelectionPanel extends javax.swing.JPanel {
             for(int i = 0; i < entries.size(); i++) {
                 entryHashMap.put(buttons.get(i), entries.get(i));
             }
-            System.out.println(entries.size() + " entries found");
+            System.out.println("List of entries updated.");
+            System.out.println(entries.size() + " entry(s) found and updated.");
         }
         catch (NullPointerException nullPointerException){
             System.out.println("No entries found.");
+            return;
         }
 
         //makes buttons that have associations visible
@@ -210,6 +386,11 @@ public class EntrySelectionPanel extends javax.swing.JPanel {
                 button.setText(entryHashMap.get(button).getType().getName() + " (Ref: " + entryHashMap.get(button).getId() + ")");
             }
         }
+
+        //if there are less than 6 items, scroll bar is disabled
+//        if(entryHashMap.size() < 6){
+//            scrollBar.setVisible(false);
+//        }
     }
 
 
@@ -253,6 +434,66 @@ public class EntrySelectionPanel extends javax.swing.JPanel {
         entryButtonPress((JButton) evt.getSource());
     }//GEN-LAST:event_entry6ActionPerformed
 
+    private void entry7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entry7ActionPerformed
+        entryButtonPress((JButton) evt.getSource());
+    }//GEN-LAST:event_entry7ActionPerformed
+
+    private void entry8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entry8ActionPerformed
+        entryButtonPress((JButton) evt.getSource());
+    }//GEN-LAST:event_entry8ActionPerformed
+
+    private void entry9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entry9ActionPerformed
+        entryButtonPress((JButton) evt.getSource());
+    }//GEN-LAST:event_entry9ActionPerformed
+
+    private void entry10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entry10ActionPerformed
+        entryButtonPress((JButton) evt.getSource());
+    }//GEN-LAST:event_entry10ActionPerformed
+
+    private void entry11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entry11ActionPerformed
+        entryButtonPress((JButton) evt.getSource());
+    }//GEN-LAST:event_entry11ActionPerformed
+
+    private void entry12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entry12ActionPerformed
+        entryButtonPress((JButton) evt.getSource());
+    }//GEN-LAST:event_entry12ActionPerformed
+
+    private void entry13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entry13ActionPerformed
+        entryButtonPress((JButton) evt.getSource());
+    }//GEN-LAST:event_entry13ActionPerformed
+
+    private void entry14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entry14ActionPerformed
+        entryButtonPress((JButton) evt.getSource());
+    }//GEN-LAST:event_entry14ActionPerformed
+
+    private void entry15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entry15ActionPerformed
+        entryButtonPress((JButton) evt.getSource());
+    }//GEN-LAST:event_entry15ActionPerformed
+
+    private void entry16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entry16ActionPerformed
+        entryButtonPress((JButton) evt.getSource());
+    }//GEN-LAST:event_entry16ActionPerformed
+
+    private void entry17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entry17ActionPerformed
+        entryButtonPress((JButton) evt.getSource());
+    }//GEN-LAST:event_entry17ActionPerformed
+
+    private void entry18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entry18ActionPerformed
+        entryButtonPress((JButton) evt.getSource());
+    }//GEN-LAST:event_entry18ActionPerformed
+
+    private void entry19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entry19ActionPerformed
+        entryButtonPress((JButton) evt.getSource());
+    }//GEN-LAST:event_entry19ActionPerformed
+
+    private void entry20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entry20ActionPerformed
+        entryButtonPress((JButton) evt.getSource());
+    }//GEN-LAST:event_entry20ActionPerformed
+
+    private void scrollBarAdjustmentValueChanged(java.awt.event.AdjustmentEvent evt) {//GEN-FIRST:event_scrollBarAdjustmentValueChanged
+        entryButtonPress((JButton) evt.getSource());
+    }//GEN-LAST:event_scrollBarAdjustmentValueChanged
+
     /**
      * Method for button used in changing screens for returning to the previous panel
      * @param evt internal ActionEvent listener for the methods, used by generated code
@@ -260,6 +501,7 @@ public class EntrySelectionPanel extends javax.swing.JPanel {
     private void returnButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnButtonActionPerformed
         getWindow().changeScreen("CALENDAR");
     }//GEN-LAST:event_returnButtonActionPerformed
+
 
     /**
      * Getter for selectedEntry variable
@@ -270,11 +512,25 @@ public class EntrySelectionPanel extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton entry1;
+    private javax.swing.JButton entry10;
+    private javax.swing.JButton entry11;
+    private javax.swing.JButton entry12;
+    private javax.swing.JButton entry13;
+    private javax.swing.JButton entry14;
+    private javax.swing.JButton entry15;
+    private javax.swing.JButton entry16;
+    private javax.swing.JButton entry17;
+    private javax.swing.JButton entry18;
+    private javax.swing.JButton entry19;
     private javax.swing.JButton entry2;
+    private javax.swing.JButton entry20;
     private javax.swing.JButton entry3;
     private javax.swing.JButton entry4;
     private javax.swing.JButton entry5;
     private javax.swing.JButton entry6;
+    private javax.swing.JButton entry7;
+    private javax.swing.JButton entry8;
+    private javax.swing.JButton entry9;
     private javax.swing.JButton returnButton;
     private javax.swing.JScrollBar scrollBar;
     private javax.swing.JLabel titleLabel;

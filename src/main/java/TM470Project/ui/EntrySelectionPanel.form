@@ -35,6 +35,20 @@
                   <Component id="entry6" alignment="0" pref="218" max="32767" attributes="0"/>
                   <Component id="entry5" alignment="0" pref="218" max="32767" attributes="0"/>
                   <Component id="entry4" alignment="0" pref="218" max="32767" attributes="0"/>
+                  <Component id="entry7" alignment="0" pref="218" max="32767" attributes="0"/>
+                  <Component id="entry8" alignment="0" pref="218" max="32767" attributes="0"/>
+                  <Component id="entry9" alignment="0" pref="218" max="32767" attributes="0"/>
+                  <Component id="entry10" alignment="0" pref="218" max="32767" attributes="0"/>
+                  <Component id="entry11" alignment="1" pref="218" max="32767" attributes="0"/>
+                  <Component id="entry12" alignment="0" pref="218" max="32767" attributes="0"/>
+                  <Component id="entry13" alignment="0" pref="218" max="32767" attributes="0"/>
+                  <Component id="entry14" alignment="1" pref="218" max="32767" attributes="0"/>
+                  <Component id="entry15" alignment="0" pref="218" max="32767" attributes="0"/>
+                  <Component id="entry16" alignment="0" pref="218" max="32767" attributes="0"/>
+                  <Component id="entry17" alignment="0" pref="218" max="32767" attributes="0"/>
+                  <Component id="entry18" alignment="0" pref="218" max="32767" attributes="0"/>
+                  <Component id="entry19" alignment="0" pref="218" max="32767" attributes="0"/>
+                  <Component id="entry20" alignment="0" pref="218" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="scrollBar" min="-2" max="-2" attributes="0"/>
@@ -47,7 +61,7 @@
           <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
+                  <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="returnButton" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="titleLabel" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -64,9 +78,37 @@
                       <Component id="entry5" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="entry6" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="entry7" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="entry8" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="entry9" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="entry10" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="entry11" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="entry12" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="entry13" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="entry14" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="entry15" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="entry16" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="entry17" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="entry18" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="entry19" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="entry20" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
-                  <Component id="scrollBar" alignment="0" pref="218" max="32767" attributes="0"/>
+                  <Component id="scrollBar" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -87,6 +129,9 @@
       </Events>
     </Component>
     <Component class="javax.swing.JScrollBar" name="scrollBar">
+      <Events>
+        <EventHandler event="adjustmentValueChanged" listener="java.awt.event.AdjustmentListener" parameters="java.awt.event.AdjustmentEvent" handler="scrollBarAdjustmentValueChanged"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="entry1">
       <Properties>
@@ -143,6 +188,118 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="entry4ActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="entry7">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&lt;&lt;anEntry&gt;&gt;"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="entry7ActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="entry8">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&lt;&lt;anEntry&gt;&gt;"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="entry8ActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="entry9">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&lt;&lt;anEntry&gt;&gt;"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="entry9ActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="entry10">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&lt;&lt;anEntry&gt;&gt;"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="entry10ActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="entry11">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&lt;&lt;anEntry&gt;&gt;"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="entry11ActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="entry12">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&lt;&lt;anEntry&gt;&gt;"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="entry12ActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="entry13">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&lt;&lt;anEntry&gt;&gt;"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="entry13ActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="entry14">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&lt;&lt;anEntry&gt;&gt;"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="entry14ActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="entry15">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&lt;&lt;anEntry&gt;&gt;"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="entry15ActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="entry16">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&lt;&lt;anEntry&gt;&gt;"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="entry16ActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="entry17">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&lt;&lt;anEntry&gt;&gt;"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="entry17ActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="entry18">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&lt;&lt;anEntry&gt;&gt;"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="entry18ActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="entry19">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&lt;&lt;anEntry&gt;&gt;"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="entry19ActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="entry20">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&lt;&lt;anEntry&gt;&gt;"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="entry20ActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

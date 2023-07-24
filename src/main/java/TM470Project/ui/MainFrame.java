@@ -4,7 +4,7 @@
  */
 package TM470Project.ui;
 
-import java.awt.CardLayout;
+import java.awt.*;
 import javax.swing.*;
 
 /**
@@ -69,6 +69,15 @@ public class MainFrame extends javax.swing.JFrame {
         window.add(cardPanel);
     }
 
+    public void setUpWindow(){
+        //TODO add customization from settings
+        window.changeScreen("MAIN");
+        window.setSize(263, 280);
+        window.setLocationRelativeTo(null);
+        window.setResizable(false);
+        window.setVisible(true);
+    }
+
     /**
      * This method is called from within the constructor to updateListing the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -127,10 +136,7 @@ public class MainFrame extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 window.setUpFrame();
-                window.changeScreen("MAIN");
-                window.setSize(263, 280);
-                window.setResizable(false);
-                window.setVisible(true);
+                window.setUpWindow();
             }
         });
     }

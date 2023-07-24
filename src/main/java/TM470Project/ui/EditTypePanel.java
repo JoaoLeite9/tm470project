@@ -199,29 +199,31 @@ public class EditTypePanel extends javax.swing.JPanel {
         try{
             EntryType entryType = TM470ProjectRunner.getController().findEntryTypeByName(mockTypeName);
             if(entryType != null) {
-                entryType.setName(nameField.getText());
-                System.out.println("Name input: " + nameField.getText().trim());
-                entryType.setMetric(Objects.requireNonNull(unitComboBox.getSelectedItem()).toString());
-                System.out.println("Selected metric: " + unitComboBox.getSelectedItem());
-                entryType.setKcal(kcalDouble);
-                System.out.println("kcal input: " + kcalDouble);
+                System.out.println("EntryType updated. \n" + "Old details: " + entryType);
 
+                //change entry type variables
+                entryType.setName(nameField.getText());
+                entryType.setMetric(unitComboBox.getItemAt(unitComboBox.getSelectedIndex()));
+                entryType.setKcal(kcalDouble);
+
+                //update entry type in database
                 TM470ProjectRunner.getController().saveEntryType(entryType);
-                System.out.println("Saved Entry Type object \n" + entryType);
-                updateFields();
+                System.out.println("New details: " + entryType);
+
+                //update listings
+                getWindow().getCreateEntryPanel().populateTypeComboBox();
+                getWindow().getEditEntryPanel().populateTypeComboBox();
+                getWindow().getEntryTypeSelectionPanel().updateListing();
+
+                //change screen
+                getWindow().changeScreen("TYPE SELECTION");
             }
         }
         catch(NonUniqueResultException nonUniqueResultException){
             JOptionPane.showMessageDialog(null, "Error: non unique item name.");
             System.out.println("Error: non unique item name.");
-            return;
         }
-        //update listings
-        getWindow().getCreateEntryPanel().populateTypeComboBox();
-        getWindow().getEditEntryPanel().populateTypeComboBox();
-        getWindow().getEntryTypeSelectionPanel().updateListing();
-        //change screen
-        getWindow().changeScreen("TYPE SELECTION");
+
     }//GEN-LAST:event_confirmButtonActionPerformed
 
     /**
@@ -243,19 +245,20 @@ public class EditTypePanel extends javax.swing.JPanel {
         String entryTypeName = getWindow().getEntryTypeSelectionPanel().getSelectedType().getName();
         EntryType entryType = TM470ProjectRunner.getController().findEntryTypeByName(entryTypeName);
 
-
+        //ask user to confirm deleting the selected Entry Type
         if(JOptionPane.showConfirmDialog(null, "Are you sure you want to delete '"
                 + entryTypeName + "'?", "WARNING", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION){
-                //ask user to confirm deleting the selected Entry Type
             System.out.println("First option window opened (Confirm deletion).");
+
+            //check that the EntryType if the entry type has associated entries
             try {
-                if (entryType.getEntries() != null) { //check that the EntryType if the entry type has associated entries
+                if (entryType.getEntries() != null) {
+                    //if EntryType has Entries, ask to confirm deletion of Entries
                     if (JOptionPane.showConfirmDialog(null,
                             """
                                     This type has entries associated with it.
                                     Deleting it will delete all entries using it.
                                     Continue?""", "WARNING", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
-                        //ask to confirm deleting entries alongside entry types
 
                         System.out.println("Second option window opened (Entry type has entries).");
                         Entry entry;
@@ -265,11 +268,8 @@ public class EditTypePanel extends javax.swing.JPanel {
                             TM470ProjectRunner.getController().deleteEntry(entry);
                             System.out.println("entry " + entry.getId() + " deleted.");
                         }
+                        //update list of Entries in UI
                         getWindow().getEntrySelectionPanel().updateListing();
-                    }
-                    else{
-                        //returns if 'no' is selected when prompted to delete all associated entries
-                        return;
                     }
                 }
             }
@@ -288,7 +288,6 @@ public class EditTypePanel extends javax.swing.JPanel {
             }
         }
     }//GEN-LAST:event_deleteButtonActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton confirmButton;

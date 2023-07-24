@@ -7,8 +7,10 @@ package TM470Project.ui;
 import TM470Project.Entry;
 import TM470Project.EntryType;
 
+import javax.swing.*;
 import java.time.LocalDate;
 
+import static TM470Project.TM470ProjectRunner.getController;
 import static TM470Project.ui.MainFrame.getWindow;
 
 /**
@@ -200,7 +202,7 @@ public class EditEntryPanel extends javax.swing.JPanel {
         Entry mockEntry = getWindow().getEntrySelectionPanel().getSelectedEntry();
 
         inputField.setText(String.valueOf(mockEntry.getMetric()));
-        typeComboBox.setSelectedItem(mockEntry.getType().getName()); //TODO leave for now, probably remove though
+        typeComboBox.setSelectedItem(mockEntry.getType().getName());
         dayComboBox.setSelectedItem(String.valueOf(mockEntry.getDate().getDayOfMonth()));
         monthComboBox.setSelectedItem(String.valueOf(mockEntry.getDate().getMonthValue()));
         yearComboBox.setSelectedItem(String.valueOf(mockEntry.getDate().getYear()));
@@ -228,10 +230,26 @@ public class EditEntryPanel extends javax.swing.JPanel {
      */
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
         // TODO confirm if they want to delete, if so delete
+        System.out.println("Delete button pressed");
 
+        long entryId = getWindow().getEntrySelectionPanel().getSelectedEntry().getId();
+        Entry entry;
 
-        getWindow().getEntrySelectionPanel().updateListing();
-        getWindow().changeScreen("ENTRY SELECTION");
+        //tries to find the entry, if it exists, run deletion method
+        try {
+            entry = getController().findEntryById(entryId);
+
+            if(JOptionPane.showConfirmDialog(null, "Are you sure you want to delete entry "
+                    + entryId + "?", "WARNING", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+                System.out.println("Entry " + entryId + " deleted.");
+                getController().deleteEntry(entry);
+                getWindow().getEntrySelectionPanel().updateListing();
+                getWindow().changeScreen("ENTRY SELECTION");
+            }
+        } catch (NullPointerException nullPointerException) {
+            System.out.println("Entry not found.");
+        }
+
     }//GEN-LAST:event_deleteButtonActionPerformed
 
     /**
@@ -256,10 +274,46 @@ public class EditEntryPanel extends javax.swing.JPanel {
      * @param evt internal ActionEvent listener for the methods, used by generated code
      */
     private void confirmButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmButtonActionPerformed
-        // TODO make changes to entry
+        System.out.println("Confirm button pressed");
 
-        getWindow().getEntrySelectionPanel().updateListing();
-        getWindow().changeScreen("ENTRY SELECTION");
+        long entryId = getWindow().getEntrySelectionPanel().getSelectedEntry().getId();
+        Entry entry;
+        EntryType entryType;
+
+        try{
+            entryType = getController().findEntryTypeByName(typeComboBox.getItemAt(typeComboBox.getSelectedIndex()));
+        }
+        catch(NullPointerException nullPointerException){
+            System.out.println("Entry type '" + typeComboBox.getSelectedItem() + "' not found.");
+            return;
+        }
+
+        LocalDate date = LocalDate.of(Integer.parseInt(yearComboBox.getItemAt(yearComboBox.getSelectedIndex())),
+                Integer.parseInt(monthComboBox.getItemAt(monthComboBox.getSelectedIndex())),
+                Integer.parseInt(dayComboBox.getItemAt(dayComboBox.getSelectedIndex())));
+
+        Entry mockEntry = new Entry(entryType, Integer.parseInt(inputField.getText()), date);
+
+        try {
+            entry = getController().findEntryById(entryId);
+            System.out.println("Entry updated. \n" + "Old details: " + entry);
+
+            //change entry variables
+            entry.setDate(mockEntry.getDate().getYear(), mockEntry.getDate().getMonthValue(), mockEntry.getDate().getDayOfMonth());
+            entry.setMetric(mockEntry.getMetric());
+            entry.setEntryType(mockEntry.getType());
+
+            //update entry in database
+            getController().saveEntry(entry);
+            System.out.println("New details: " + entry);
+
+            //update listings and return to selection screen
+            getWindow().getEntrySelectionPanel().updateListing();
+            getWindow().changeScreen("ENTRY SELECTION");
+        }
+        catch(NullPointerException nullPointerException){
+            System.out.println("Entry not found.");
+        }
     }//GEN-LAST:event_confirmButtonActionPerformed
 
 

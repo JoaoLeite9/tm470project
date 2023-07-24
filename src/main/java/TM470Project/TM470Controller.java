@@ -125,6 +125,15 @@ public class TM470Controller {
     }
 
     /**
+     * Searches for entry based on ID
+     * @param anId the unique ID of the entry
+     * @return the queried entry or null
+     */
+    public Entry findEntryById(long anId){
+        return entryRepository.findById(anId).orElse(null);
+    }
+
+    /**
      * Searches for entries by date
      * @param aDate the date of the entry
      * @return the queried entry or null
