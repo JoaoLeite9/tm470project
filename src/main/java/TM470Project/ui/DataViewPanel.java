@@ -26,7 +26,7 @@ import static TM470Project.ui.MainFrame.getWindow;
  * @author Joao
  * v4 23/07/2023
  */
-public class DataViewPanel extends javax.swing.JPanel implements Timeline {
+public class DataViewPanel extends javax.swing.JPanel{
 
     private JFreeChart lineGraph;
     private XYSeriesCollection dataSet;
@@ -260,41 +260,5 @@ public class DataViewPanel extends javax.swing.JPanel implements Timeline {
     private javax.swing.JButton nextMonthButton;
     private javax.swing.JButton prevMonthButton;
     private javax.swing.JButton returnButton;
-
-
-    @Override
-    public long toTimelineValue(long millisecond) {
-        return 0;
-    }
-
-    @Override
-    public long toTimelineValue(Date date) {
-        return 0;
-    }
-
-    @Override
-    public long toMillisecond(long timelineValue) {
-        return 0;
-    }
-
-    @Override
-    public boolean containsDomainValue(long millisecond) {
-        return false;
-    }
-
-    @Override
-    public boolean containsDomainValue(Date date) {
-        return false;
-    }
-
-    @Override
-    public boolean containsDomainRange(long fromMillisecond, long toMillisecond) {
-        return false;
-    }
-
-    @Override
-    public boolean containsDomainRange(Date fromDate, Date toDate) {
-        return false;
-    }
     // End of variables declaration//GEN-END:variables
 }
