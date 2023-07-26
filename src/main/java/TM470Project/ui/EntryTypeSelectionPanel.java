@@ -132,6 +132,7 @@ public class EntryTypeSelectionPanel extends javax.swing.JPanel {
         type20 = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(204, 255, 255));
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         returnButton.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         returnButton.setText("<");

@@ -36,6 +36,7 @@ public class MainPanel extends javax.swing.JPanel {
         setBackground(new java.awt.Color(204, 255, 255));
         setAlignmentX(0.0F);
         setAlignmentY(0.0F);
+        setAutoscrolls(true);
 
         createButton.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         createButton.setText("Create Entry");

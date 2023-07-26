@@ -4,6 +4,21 @@
  */
 package TM470Project.ui;
 
+import TM470Project.Entry;
+
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartPanel;
+import org.jfree.chart.JFreeChart;
+import org.jfree.chart.axis.Timeline;
+import org.jfree.data.xy.XYSeries;
+import org.jfree.data.xy.XYSeriesCollection;
+
+import java.time.LocalDate;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+
+import static TM470Project.TM470ProjectRunner.getController;
 import static TM470Project.ui.MainFrame.getWindow;
 
 /**
@@ -11,12 +26,106 @@ import static TM470Project.ui.MainFrame.getWindow;
  * @author Joao
  * v4 23/07/2023
  */
-public class DataViewPanel extends javax.swing.JPanel {
+public class DataViewPanel extends javax.swing.JPanel implements Timeline {
+
+    private JFreeChart lineGraph;
+    private XYSeriesCollection dataSet;
+    private HashMap<Integer, Double> dayToKcalMap = new HashMap<>();
+
     /**
      * Creates new form DataViewPanel
      */
     public DataViewPanel() {
         initComponents();
+    }
+
+    /**
+     * Method for initializing data in a visible form
+     */
+    public void initialize(){
+        dayToKcalMap = new HashMap<>();
+
+        //generate the data set
+        dataSet = createDataset();
+
+        //create line graph with the dataset
+        lineGraph = ChartFactory.createXYLineChart(
+                "Total Kcal per Day",
+                "Day",
+                "Kcal",
+                dataSet
+        );
+
+        //sets the Y-axis range to 0 - 100 or 0 - the highest value + 50
+        lineGraph.getXYPlot().getRangeAxis().setRange(0, 100);
+        double yAxisMax = 0;
+        if(!dayToKcalMap.isEmpty()){
+            for(int i = 1; i < dayToKcalMap.size(); i++){
+                if(dayToKcalMap.get(i) > yAxisMax){
+                    yAxisMax = dayToKcalMap.get(i);
+                }
+            }
+            if(yAxisMax > 100){
+                lineGraph.getXYPlot().getRangeAxis().setRange(0, yAxisMax + 50);
+            }
+        }
+
+        //create the ChartPanel containing the line graph
+        ChartPanel panel = new ChartPanel(lineGraph);
+        panel.setVisible(true);
+        panel.setSize(230,205);
+
+        //add the ChartPanel to the data panel
+        dataAreaPanel.add(panel);
+
+        //update panel with changes made
+        panel.repaint();
+    }
+
+    /**
+     *  Method for generating data set for the currently selected month
+     */
+    public void generateMonthData(){
+        LocalDate calendarDate = getWindow().getCalendarPanel().getDate();
+        LocalDate currentDate = LocalDate.of(calendarDate.getYear(), calendarDate.getMonthValue(), 1);
+        List<Entry> entriesForDay;
+        double sumOfEntries;
+
+        for(int i = 0; i<calendarDate.getMonth().length(currentDate.isLeapYear()); i++){
+            sumOfEntries = 0;
+            entriesForDay = getController().findEntryByDate(currentDate);
+            if(entriesForDay != null){
+                for(Entry entry : entriesForDay){
+                    sumOfEntries += (entry.getMetric() * entry.getType().getKcal());
+                }
+                System.out.println("Sum of entry values for " + currentDate + " is " + sumOfEntries);
+            }
+            dayToKcalMap.put(currentDate.getDayOfMonth(), sumOfEntries);
+            currentDate = currentDate.plusDays(1);
+        }
+    }
+
+    /**
+     * Creates a data set and return it for use by JFreeGraph
+     * @return the data set
+     */
+    public XYSeriesCollection createDataset(){
+        dataSet = new XYSeriesCollection();
+        XYSeries series = new XYSeries("kcal");
+
+        generateMonthData();
+
+        //add data from dayToKcalMap to the dataSet
+        for(int l = 1; l < dayToKcalMap.size(); l++){
+            LocalDate date = LocalDate.of(
+                    getWindow().getCalendarPanel().getDate().getYear(),
+                    getWindow().getCalendarPanel().getDate().getMonthValue(),
+                    l);
+            series.add(l, dayToKcalMap.get(l));
+        }
+        dataSet.addSeries(series);
+
+        return dataSet;
     }
 
     /**
@@ -116,7 +225,7 @@ public class DataViewPanel extends javax.swing.JPanel {
      */
     private void nextMonthButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextMonthButtonActionPerformed
         getWindow().getCalendarPanel().setDate(getWindow().getCalendarPanel().getDate().plusMonths(1));
-        updateMonthLabel();
+        updateMonth();
     }//GEN-LAST:event_nextMonthButtonActionPerformed
 
     /**
@@ -125,7 +234,7 @@ public class DataViewPanel extends javax.swing.JPanel {
      */
     private void prevMonthButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_prevMonthButtonActionPerformed
         getWindow().getCalendarPanel().setDate(getWindow().getCalendarPanel().getDate().minusMonths(1));
-        updateMonthLabel();
+        updateMonth();
     }//GEN-LAST:event_prevMonthButtonActionPerformed
 
     /**
@@ -140,8 +249,9 @@ public class DataViewPanel extends javax.swing.JPanel {
     /**
      * Method for updating the monthLabel variable's text to represent the currently selected month
      */
-    public void updateMonthLabel(){
+    public void updateMonth(){
         monthLabel.setText(getWindow().getCalendarPanel().getDate().getMonth().toString().substring(0, 3) + " " + getWindow().getCalendarPanel().getDate().getYear());
+        initialize();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -150,5 +260,41 @@ public class DataViewPanel extends javax.swing.JPanel {
     private javax.swing.JButton nextMonthButton;
     private javax.swing.JButton prevMonthButton;
     private javax.swing.JButton returnButton;
+
+
+    @Override
+    public long toTimelineValue(long millisecond) {
+        return 0;
+    }
+
+    @Override
+    public long toTimelineValue(Date date) {
+        return 0;
+    }
+
+    @Override
+    public long toMillisecond(long timelineValue) {
+        return 0;
+    }
+
+    @Override
+    public boolean containsDomainValue(long millisecond) {
+        return false;
+    }
+
+    @Override
+    public boolean containsDomainValue(Date date) {
+        return false;
+    }
+
+    @Override
+    public boolean containsDomainRange(long fromMillisecond, long toMillisecond) {
+        return false;
+    }
+
+    @Override
+    public boolean containsDomainRange(Date fromDate, Date toDate) {
+        return false;
+    }
     // End of variables declaration//GEN-END:variables
 }

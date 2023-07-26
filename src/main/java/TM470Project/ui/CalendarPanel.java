@@ -690,7 +690,8 @@ public class CalendarPanel extends javax.swing.JPanel {
      * @param evt internal ActionEvent listener for the methods, used by generated code
      */
     private void visualizeDataButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_visualizeDataButtonActionPerformed
-        getWindow().getDataViewPanel().updateMonthLabel();
+        getWindow().getDataViewPanel().initialize();
+        getWindow().getDataViewPanel().updateMonth();
         getWindow().changeScreen("VIEW DATA");
     }//GEN-LAST:event_visualizeDataButtonActionPerformed
 
