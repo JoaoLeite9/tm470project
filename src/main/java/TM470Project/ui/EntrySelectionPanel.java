@@ -388,9 +388,9 @@ public class EntrySelectionPanel extends javax.swing.JPanel {
         }
 
         //if there are less than 6 items, scroll bar is disabled
-//        if(entryHashMap.size() < 6){
-//            scrollBar.setVisible(false);
-//        }
+        if(entryHashMap.size() < 6){
+            scrollBar.setVisible(false);
+        }
     }
 
 

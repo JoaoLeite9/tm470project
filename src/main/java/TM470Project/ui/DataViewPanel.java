@@ -48,9 +48,9 @@ public class DataViewPanel extends javax.swing.JPanel{
 
         //create line graph with the dataset
         lineGraph = ChartFactory.createXYLineChart(
-                "Total Kcal per Day",
+                "Total kcal per Day",
                 "Day",
-                "Kcal",
+                "kcal",
                 dataSet
         );
 

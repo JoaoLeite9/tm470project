@@ -18,7 +18,7 @@ import static TM470Project.ui.MainFrame.getWindow;
  * @author Joao
  * v4 23/07/2023
  */
-public class EntryTypeSelectionPanel extends javax.swing.JPanel {
+public class EntryTypeSelectionPanel extends javax.swing.JPanel{
 
     private List<JButton> buttons;
     private HashMap<JButton, EntryType> buttonHashMap;
@@ -27,7 +27,7 @@ public class EntryTypeSelectionPanel extends javax.swing.JPanel {
     /**
      * Creates new form EntryTypeSelectionPanel
      */
-    public EntryTypeSelectionPanel() {
+    public EntryTypeSelectionPanel(){
         buttons = new ArrayList<>();
         buttonHashMap = new HashMap<>();
 
@@ -84,6 +84,11 @@ public class EntryTypeSelectionPanel extends javax.swing.JPanel {
                 button.setVisible(true);
                 button.setText(buttonHashMap.get(button).getName());
             }
+        }
+
+        //if there are less than 6 items, scroll bar is disabled
+        if(buttonHashMap.size() < 6){
+            scrollBar.setVisible(false);
         }
     }
 

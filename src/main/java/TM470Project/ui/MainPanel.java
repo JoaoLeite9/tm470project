@@ -4,6 +4,11 @@
  */
 package TM470Project.ui;
 
+import javax.swing.filechooser.FileSystemView;
+import java.awt.*;
+import java.io.File;
+import java.io.IOException;
+
 import static TM470Project.ui.MainFrame.getWindow;
 
 /**
@@ -98,8 +103,13 @@ public class MainPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void helpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_helpButtonActionPerformed
-        // TODO add your handling code here:
+    private void helpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_helpButtonActionPerformedpro
+        try {
+            File file = new File("./readme.txt");
+            Desktop.getDesktop().open(file);
+        } catch (IOException e) {
+            System.out.println("readme.txt not found or could not be opened.");
+        }
     }//GEN-LAST:event_helpButtonActionPerformed
 
     /**

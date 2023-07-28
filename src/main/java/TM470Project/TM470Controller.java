@@ -30,33 +30,6 @@ public class TM470Controller {
         //config = new Config();
     }
 
-    /**
-     * Starts the application
-     */
-    public void start(){
-        try {
-            //creates configuration class
-            //config = new Config();
-            
-            //opens user interface main window
-//            MainFrame.run();
-
-        }
-        catch(Exception e){
-            //print error
-            //System.out.println();
-            e.printStackTrace();
-        }
-    }
-
-    /**
-     * Stops the application
-     */
-    public void stop(){
-        //closes entity manager and factory
-        TM470ProjectRunner.closeEntityManager();
-    }
-
     /* data manipulation */
     /* add methods */
     /**
